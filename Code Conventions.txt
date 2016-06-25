@@ -1,0 +1,15 @@
+Back (.cs):
+	- Classes: UpperCamelCase (Ex:Cliente)
+ 	- Atributos: UpperCamelCase(Ex: Nome)
+	- Métodos: UpperCamelCase(Ex: CadastrarCliente)
+		- Métodos de Busca: Deverá ser iniciado com "Find". Para filtragem deverá ser indicado pela palavra "By" + "atributo" (Ex: FindAll, FindById)
+	- Variáveis: lowerCamelCase(Ex: listaDeCliente)
+
+
+Front(.js, .css, html):
+	- Nome de Arquivos: Minúsculo com separação por hífen(-), (Ex: cadastro-cliente.html, listar-cliente.html)
+	- Componentes HTML(classes, ids, data*): Minúsculo com separação por hífen(-), (Ex: tr-nome-cliente, data-cliente-id)
+	- Variáveis: lowerCamelCase(Ex: listaDeCliente)
+	
+
+OBS: A NOMECLATURA DE TODOS OS ITENS CITADOS ACIMA, DEVERÁ SER FEITA EM INGLÊS.
