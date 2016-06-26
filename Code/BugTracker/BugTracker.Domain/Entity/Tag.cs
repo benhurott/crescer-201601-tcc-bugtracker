@@ -8,7 +8,7 @@ namespace BugTracker.Domain.Entity
 {
     public class Tag
     {
-        private String Name { get; set; }
+        public String Name { get; private set; }
 
         private Tag() { }
 

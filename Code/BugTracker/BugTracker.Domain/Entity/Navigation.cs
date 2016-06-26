@@ -8,9 +8,9 @@ namespace BugTracker.Domain.Entity
 {
     public class Navigation
     {
-        private int Id { get; set; }
-        private Browser Browser { get; set; }
-        private OperationalSystem OperationalSystem { get; set; }
+        public int Id { get; private set; }
+        public Browser Browser { get; private set; }
+        public OperationalSystem OperationalSystem { get; private set; }
 
         private Navigation() { }
 

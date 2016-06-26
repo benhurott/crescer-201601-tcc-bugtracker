@@ -8,8 +8,8 @@ namespace BugTracker.Domain.Entity
 {
     public class Software
     {
-        private String Name { get; set; }
-        private String Version { get; set; }
+        public String Name { get; private set; }
+        public String Version { get; private set; }
 
         public Software() { }
 

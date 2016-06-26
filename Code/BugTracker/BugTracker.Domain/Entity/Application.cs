@@ -8,13 +8,13 @@ namespace BugTracker.Domain.Entity
 {
     public class Application
     {
-        private int Id { get; set; }
-        private String Title { get; set; }
-        private String Description { get; set; }
-        private String Url { get; set; }
-        private bool Active { get; set; }
-        private String Image { get; set; }
-        private Tag SpecialTag { get; set; }
+        public int Id { get; private set; }
+        public String Title { get; private set; }
+        public String Description { get; private set; }
+        public String Url { get; private set; }
+        public bool Active { get; private set; }
+        public String Image { get; private set; }
+        public Tag SpecialTag { get; private set; }
 
         private Application() { }
 

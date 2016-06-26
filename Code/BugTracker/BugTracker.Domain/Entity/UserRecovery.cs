@@ -8,10 +8,10 @@ namespace BugTracker.Domain.Entity
 {
     public class UserRecovery
     {
-        private int Id { get; set; }
-        private User RequestUser { get;  set; }
-        private DateTime RequestDate { get; set; }
-        private String HashCode { get; set; }
+        public int Id { get; private set; }
+        public User RequestUser { get; private set; }
+        public DateTime RequestDate { get; private set; }
+        public String HashCode { get; private set; }
 
         private UserRecovery() { }
 
