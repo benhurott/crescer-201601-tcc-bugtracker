@@ -1,0 +1,27 @@
+.foto{
+  width: 120px;
+  height: 120px;
+  border-style: groove;
+  border-width: 5px;
+  border-color: #93c54b;
+  border-radius: 10px;
+  margin-left: 30px;
+}
+.btn{
+  margin:10px;
+}
+
+.box{
+  margin-left: 10px;
+  height: 77%;
+  overflow-y: auto;
+}
+.graphics{
+  height: 200px;
+  width: 300px;
+}
+
+.logo{
+  height: 30px;
+  width: 30px;
+}
