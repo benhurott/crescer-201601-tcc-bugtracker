@@ -1,0 +1,4 @@
+Tabelas e Views: UpperCamelCase (Ex:Cliente)
+Atributos: UpperCamelCase (Ex:Cliente)
+	Atributos Chave: Deverá ser utilizado a seguinda estrutura "ID" + entidade (Ex: IDCliente)
+Index: "Tabela" + "_" + "Atributo" (Ex: Cliente_IDCliente)

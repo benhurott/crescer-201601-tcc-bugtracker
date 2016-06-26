@@ -1,0 +1,23 @@
+<prefixo>(<contexto>): <breve descrição>.
+
+Ex:
+
+fix(migração): corrigir parâmetros na chamada da rotina de migração.
+revert(b7aec45): reverter b7aec45 pois alterações quebraram uma tela.
+Onde:
+
+<prefixo> pode ser:
+
+fix - Correções
+feat - Novas implementações (funcionalidades, telas)
+test - Alterações referentes a testes (adicionar novos casos, corrigir antigos, refatorá-los, etc)
+doc - Correção ou implementação de documentação
+revert - Reverter algum commit anterior. É necessário informar o ID do commit que está sendo revertido (vide exemplo acima).
+refactor - Refatoração de código existente (ex: melhorar performance de um método, retirar duplicação de código, etc)
+<contexto> pode ser:
+
+Qualquer área de negócio do sistema (Inventário, Login, Oportunidades, Migracao, Relatórios). Deve ser um termo que facilite a identificação de QUAL ÁREA DE NEGÓCIO se refere aquela alteração.
+
+<breve descrição> pode ser:
+
+Uma frase que comece com um verbo infinitivo (ex: corrigir, adicionar, remover), termine com "." e seja toda em letras minúsculas.
