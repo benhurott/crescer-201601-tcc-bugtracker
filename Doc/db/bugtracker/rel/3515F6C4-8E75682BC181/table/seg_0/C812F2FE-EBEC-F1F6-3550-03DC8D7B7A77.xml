@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C812F2FE-EBEC-F1F6-3550-03DC8D7B7A77" name="BugTrackerNavigation">
+<createdBy>Gustavo</createdBy>
+<createdTime>2016-06-26 01:11:24 UTC</createdTime>
+<ownerDesignName>bugtracker</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDBugTrackerNavigation" id="FA718A90-72A3-B34E-83DA-8EA1E2C8DC90">
+<createdBy>Gustavo</createdBy>
+<createdTime>2016-06-26 01:16:50 UTC</createdTime>
+<ownerDesignName>bugtracker</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDBugTracker" id="01875D3C-65D5-C783-3FE0-6393A2BEC59A">
+<createdBy>Gustavo</createdBy>
+<createdTime>2016-06-26 01:24:17 UTC</createdTime>
+<ownerDesignName>bugtracker</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EEFFAA20-699C-29E0-509C-F7392166D002" referredColumn="E3962B20-4487-DC10-2D15-35FBEAC3E44F"/>
+</associations>
+</Column>
+<Column name="BrowserDescription" id="A19388FA-82DA-509D-C2FF-5EE57043EED7">
+<createdBy>Gustavo</createdBy>
+<createdTime>2016-06-26 01:16:50 UTC</createdTime>
+<ownerDesignName>bugtracker</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SODescription" id="6B106F79-0DA7-BEC4-DF60-0ADE056586C6">
+<createdBy>Gustavo</createdBy>
+<createdTime>2016-06-26 01:16:50 UTC</createdTime>
+<ownerDesignName>bugtracker</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AF367E9E-A69D-6632-87D3-DCE9650C1913" name="BugTrackerNavigation_PK">
+<createdBy>Gustavo</createdBy>
+<createdTime>2016-06-26 01:16:50 UTC</createdTime>
+<ownerDesignName>bugtracker</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FA718A90-72A3-B34E-83DA-8EA1E2C8DC90"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CEB1FDA8-4626-9F2C-F769-B98F584EDB78" name="BugTrackerNavigation__IDBugTrackerNavigation">
+<createdBy>Gustavo</createdBy>
+<createdTime>2016-06-26 01:49:01 UTC</createdTime>
+<ownerDesignName>bugtracker</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FA718A90-72A3-B34E-83DA-8EA1E2C8DC90"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B92F3ACD-09F2-F06A-C59C-3117D1304DA6" name="BugTrackerNavigation__IDBugTracker">
+<createdBy>Gustavo</createdBy>
+<createdTime>2016-06-26 01:49:01 UTC</createdTime>
+<ownerDesignName>bugtracker</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="01875D3C-65D5-C783-3FE0-6393A2BEC59A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3D9E391A-E848-D02E-EE0B-03C9526B4E6A" name="BugTrackerNavigation_BugTracker_FK">
+<createdBy>Gustavo</createdBy>
+<createdTime>2016-06-26 01:24:17 UTC</createdTime>
+<ownerDesignName>bugtracker</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="01875D3C-65D5-C783-3FE0-6393A2BEC59A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
