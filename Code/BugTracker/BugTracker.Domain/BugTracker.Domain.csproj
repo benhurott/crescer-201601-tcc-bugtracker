@@ -39,7 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Entity\Application.cs" />
+    <Compile Include="Entity\Browser.cs" />
+    <Compile Include="Entity\BugTracker.cs" />
+    <Compile Include="Entity\BugTrackerStatus.cs" />
+    <Compile Include="Entity\Navigation.cs" />
+    <Compile Include="Entity\OperationalSystem.cs" />
+    <Compile Include="Entity\Software.cs" />
+    <Compile Include="Entity\Tag.cs" />
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="Entity\UserRecovery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

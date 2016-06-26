@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BugTracker.Domain
+namespace BugTracker.Domain.Entity
 {
-    public class Class1
+    public class Browser : Software
     {
+        private Browser() { }
     }
 }
