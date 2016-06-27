@@ -9,14 +9,12 @@ namespace BugTracker.Domain.Entity
     public class Software
     {
         public String Name { get; private set; }
-        public String Version { get; private set; }
-
+        
         public Software() { }
 
-        public Software(String name, String version)
+        public Software(String name)
         {
             this.Name = name;
-            this.Version = version;
         }
     }
 }
