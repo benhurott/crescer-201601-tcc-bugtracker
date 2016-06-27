@@ -1,6 +1,6 @@
 Back (.cs):
 	- Classes: UpperCamelCase (Ex:Cliente)
- 	- Atributos: UpperCamelCase(Ex: Nome)
+ 	- Propriedades: UpperCamelCase(Ex: Nome)
 	- Métodos: UpperCamelCase(Ex: CadastrarCliente)
 		- Métodos de Busca: Deverá ser iniciado com "Find". Para filtragem deverá ser indicado pela palavra "By" + "atributo" (Ex: FindAll, FindById)
 	- Variáveis: lowerCamelCase(Ex: listaDeCliente)
