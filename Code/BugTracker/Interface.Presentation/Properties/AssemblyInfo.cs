@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BugTracker.Interface.Presentation")]
+[assembly: AssemblyTitle("Interface.Presentation")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BugTracker.Interface.Presentation")]
+[assembly: AssemblyProduct("Interface.Presentation")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bde2d28e-7565-4bc2-8adf-9c226c6ff83b")]
+[assembly: Guid("d0b17130-7804-4fd4-862e-626c6888ecad")]
 
 // Version information for an assembly consists of the following four values:
 //

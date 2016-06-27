@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace BugTracker.Interface.Presentation
+namespace Interface.Presentation
 {
     public class RouteConfig
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace BugTracker.Interface.API
+namespace Interface.Presentation
 {
     public static class WebApiConfig
     {
