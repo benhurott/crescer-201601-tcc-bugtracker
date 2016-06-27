@@ -126,11 +126,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-
     <Content Include="Content\Custom\estilo-painel.css" />
-
-    <Content Include="Content\Site.css" />
-
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -166,11 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BugTrackerController.cs" />
-
-    <Compile Include="Controllers\HomeController.cs" />
-
     <Compile Include="Controllers\UserController.cs" />
-
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,6 +174,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\home.cshtml" />
+    <Content Include="Views\User\account.cshtml" />
+    <Content Include="Views\User\download.cshtml" />
+    <Content Include="Views\User\documentation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
