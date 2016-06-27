@@ -30,7 +30,7 @@ namespace Interface.Presentation.Controllers
                 var token = await client.Oauth.CreateAccessToken(
                     new OauthTokenRequest(clientId, clientSecret, code)
                     {
-                        RedirectUri = new Uri("http://10.99.3.129:58173/logingithub/githubauthentication")
+                        RedirectUri = new Uri("http://localhost:58173/logingithub/githubauthentication")
                     });
                 Session["OAuthToken"] = token.AccessToken;
             }
@@ -71,7 +71,7 @@ namespace Interface.Presentation.Controllers
                 //    UserSessionService.CreateSession(user);
                 //}
 
-                return RedirectToAction("Index","User");
+                return RedirectToAction("SignIn","Login");
 
             }
 
