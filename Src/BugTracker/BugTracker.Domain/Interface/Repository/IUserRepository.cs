@@ -10,5 +10,6 @@ namespace BugTracker.Domain.Interface.Repository
     public interface IUserRepository
     {
         User FindById(int id);
+        void Add(User user);
     }
 }

@@ -10,5 +10,6 @@ namespace BugTracker.Domain.Interface.Service
     public interface IUserService
     {
         User FindById(int id);
+        void Add(User user);
     }
 }

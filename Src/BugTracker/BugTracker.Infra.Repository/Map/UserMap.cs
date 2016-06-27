@@ -8,7 +8,7 @@ namespace BugTracker.Infra.Repository.Map
         public UserMap()
         {
             ToTable("User");
-            HasKey(_ => _.Id);
+            HasKey(_ => _.IDUser);
         }
     }
 }
