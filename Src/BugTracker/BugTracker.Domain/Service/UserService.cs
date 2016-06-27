@@ -22,5 +22,10 @@ namespace BugTracker.Domain.Service
         {
             userRepository.Add(user);
         }
+
+        public User FindByEmail(string email)
+        {
+            return userRepository.FindByEmail(email);
+        }
     }
 }

@@ -10,7 +10,15 @@ namespace BugTracker.Infra.Repository.DataEntity
         {
             using (var db = new DataContext())
             {
-                return db.User.Include("Applications").AsNoTracking().FirstOrDefault(_ => _.IDUser == id);
+                return db.User.AsNoTracking().FirstOrDefault(_ => _.IDUser == id);
+            }
+        }
+
+        public User FindByEmail(string email)
+        {
+            using (var db = new DataContext())
+            {
+                return db.User.AsNoTracking().FirstOrDefault(_ => _.Email == email);
             }
         }
 
