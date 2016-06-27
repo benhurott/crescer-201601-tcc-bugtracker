@@ -52,6 +52,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Octokit, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.0.20.0\lib\net45\Octokit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -122,7 +126,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+<<<<<<< HEAD
     <Content Include="Content\Custom\estilo-painel.css" />
+=======
+    <Content Include="Content\Site.css" />
+>>>>>>> 2134cdaebf6a52a7fbc6c9c1ad1dc174a17d032a
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -133,6 +141,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -146,7 +158,11 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+<<<<<<< HEAD
     <Content Include="Views\Home\home.html" />
+=======
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+>>>>>>> 2134cdaebf6a52a7fbc6c9c1ad1dc174a17d032a
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
@@ -154,7 +170,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BugTrackerController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\HomeController.cs" />
+=======
+    <Compile Include="Controllers\UserController.cs" />
+>>>>>>> 2134cdaebf6a52a7fbc6c9c1ad1dc174a17d032a
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -163,6 +183,9 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
