@@ -1,12 +1,7 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Infra.Repository.Map;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BugTracker.Infra.Repository
 {
@@ -31,6 +26,7 @@ namespace BugTracker.Infra.Repository
                 .Configure(p => p.HasMaxLength(100));
            
             modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Configurations.Add(new ApplicationMap());
 
             base.OnModelCreating(modelBuilder);
         }
