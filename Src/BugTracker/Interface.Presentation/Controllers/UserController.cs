@@ -24,5 +24,25 @@ namespace Interface.Presentation.Controllers
 
             return View();
         }
+
+        public ActionResult Home()
+        {
+            return View();
+        }
+
+        public ActionResult Account()
+        {
+            return View();
+        }
+
+        public ActionResult Download()
+        {
+            return View();
+        }
+
+        public ActionResult Documentation()
+        {
+            return View();
+        }
     }
 }
