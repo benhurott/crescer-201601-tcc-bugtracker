@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "home";
+}
+<html>
+<body>
+
+    <div class="panel panel-success col-md-7 box">
+        <div class="panel-heading">
+            <h4>Your applications:</h4>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <input type="text" class="form-control" placeholder="Nome da app...">
+                <a href="#" class="btn btn-success col-sm-2 glyphicon glyphicon-zoom-in" type="button">  Search</a>
+                <a href="#" class="btn btn-success col-sm-2">New App</a>
+            </div>
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>App Name</th>
+                        <th>Last Tracks</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="#">FakeBook</a></td>
+                        <td>Problema no Login - Info</td>
+                        <td>01/07/2016</td>
+                        <td><a href="#" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
+                        <td><a href="#" class="glyphicon glyphicon-trash" alt="Editar"></a></td>
+                    </tr>
+                    <tr class="warning">
+                        <td>2</td>
+                        <td><a href="#">Xml Reader</a></td>
+                        <td>Carregar Arquivo - Warning</td>
+                        <td>30/06/2016</td>
+                        <td><a href="#" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
+                        <td><a href="#" class="glyphicon glyphicon-trash" alt="Editar"></a></td>
+                    </tr>
+                    <tr class="danger">
+                        <td>3</td>
+                        <td><a href="#">FakeBook</a></td>
+                        <td>Crash na tela do Usuário - Erro</td>
+                        <td>28/06/2016</td>
+                        <td><a href="#" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
+                        <td><a href="#" class="glyphicon glyphicon-trash" alt="Editar"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="panel panel-success col-md-4 box">
+        <div class="panel-heading">
+            <h4>Bugs:</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover ">
+                <thead>
+                    <tr>
+                        <th>App Name</th>
+                        <th>Date - 20/06/16</th>
+                        <th>Today</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">FakeBook</a></td>
+                        <td><span class="glyphicon glyphicon-alert errors"></span>  02</td>
+                        <td><span class="glyphicon glyphicon-alert errors"></span>  05</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">FakeBook</a></td>
+                        <td><span class="glyphicon glyphicon-alert warnings"></span> 5</td>
+                        <td><span class="glyphicon glyphicon-alert warnings"></span> 12</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Xml Reader</a></td>
+                        <td><span class="glyphicon glyphicon-alert errors"></span> 5</td>
+                        <td><span class="glyphicon glyphicon-alert errors"></span> 12</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Xml Reader</a></td>
+                        <td><span class="glyphicon glyphicon-alert warnings"></span> 5</td>
+                        <td><span class="glyphicon glyphicon-alert warnings"></span> 12</td>
+                    </tr>
+                </tbody>
+        </div>
+    </div>
+
+    <script src="../Scripts/Custom/graphics/graphics.js"></script>
+    
+
+</body>
+</html>
