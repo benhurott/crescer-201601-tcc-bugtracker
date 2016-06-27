@@ -5,7 +5,7 @@ namespace BugTracker.Domain.Entity
 {
     public class User
     {
-        public int Id { get; set; }
+        public int IDUser { get; set; }
         public String Nome { get; set; }
         public String Email { get; set; }
         public String Password { get; set; }
@@ -14,7 +14,7 @@ namespace BugTracker.Domain.Entity
         public bool Active { get; set; }
         public bool AccountConfirmed { get; set; }
 
-        private User() { }
+        public User() { }
 
         public User(String nome, String email, String Password, String Image, List<Application> applications, bool Active, bool AccountConfirmed)
         {
@@ -30,7 +30,7 @@ namespace BugTracker.Domain.Entity
         public User(int id, String nome, String email, String password, String Image, List<Application> applications, bool active, bool accountConfirmed) 
             : this(nome, email, password, Image, applications,  active, accountConfirmed)
         {
-            this.Id = id;
+            this.IDUser = id;
         }
     }
 }

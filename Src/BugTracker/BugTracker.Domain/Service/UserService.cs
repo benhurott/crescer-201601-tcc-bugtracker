@@ -1,26 +1,31 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Repository;
 using BugTracker.Domain.Interface.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BugTracker.Domain.Service
 {
     public class UserService : IUserService
     {
-        IUserRepository _userRepository;
+        IUserRepository userRepository;
 
         public UserService(IUserRepository userRepository)
         {
-            this._userRepository = userRepository;
+            this.userRepository = userRepository;
         }
 
         public User FindById(int id)
         {
-            return this._userRepository.FindById(id);
+            return this.userRepository.FindById(id);
+        }
+
+        public void Add(User user)
+        {
+            userRepository.Add(user);
+        }
+
+        public User FindByEmail(string email)
+        {
+            return userRepository.FindByEmail(email);
         }
     }
 }

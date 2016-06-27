@@ -8,8 +8,8 @@ namespace BugTracker.Infra.Repository.Map
         public ApplicationMap()
         {
             ToTable("Application");
-            HasKey(_ => _.Id);
-            HasRequired(a => a.User).WithMany(u => u.Applications).HasForeignKey(a => a.User.Id);
+            HasKey(x => x.IDApplication);
+            HasRequired(a => a.User).WithMany(u => u.Applications).HasForeignKey(a => a.IDUser).WillCascadeOnDelete(false);
         }
     }
 }
