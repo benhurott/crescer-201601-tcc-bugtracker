@@ -3,4 +3,4 @@ notifications:
   incoming_webhook:
     secure: hOwr13AKsAqNpdlFc8cYugl83SPmqO+nFSZOglKqAeYRntrN1MACB+jL5CsAYHObrV+W5HW0VNsV5oN5QM5jMmZ2dPdfOceoXv/iDACm1rw=
 before_build:
-  - cmd: nuget restore -verbosity detailed
+  - cmd: nuget restore Src\BugTracker\BugTracker.sln
