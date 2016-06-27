@@ -24,7 +24,7 @@ namespace BugTracker.Infra.Repository
 
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
-           
+
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new ApplicationMap());
 

@@ -181,11 +181,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Login\Login.cshtml" />
+=======
     <Content Include="Views\User\home.cshtml" />
     <Content Include="Views\User\account.cshtml" />
     <Content Include="Views\User\download.cshtml" />
     <Content Include="Views\User\documentation.cshtml" />
+>>>>>>> d989e520bdb0ce52548901d324b2046c56ddeeb1
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

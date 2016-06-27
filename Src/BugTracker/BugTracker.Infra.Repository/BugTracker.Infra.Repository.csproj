@@ -49,6 +49,7 @@
     <Compile Include="DataContext.cs" />
     <Compile Include="DataEntity\UserRepository.cs" />
     <Compile Include="Map\ApplicationMap.cs" />
+    <Compile Include="Map\TagMap.cs" />
     <Compile Include="Map\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

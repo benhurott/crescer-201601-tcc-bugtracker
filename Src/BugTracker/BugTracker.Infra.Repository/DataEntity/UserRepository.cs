@@ -1,10 +1,6 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Repository;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BugTracker.Infra.Repository.DataEntity
 {
@@ -14,7 +10,24 @@ namespace BugTracker.Infra.Repository.DataEntity
         {
             using (var db = new DataContext())
             {
-                return db.User.AsNoTracking().FirstOrDefault(_ => _.Id == id);
+                return db.User.AsNoTracking().FirstOrDefault(_ => _.IDUser == id);
+            }
+        }
+
+        public User FindByEmail(string email)
+        {
+            using (var db = new DataContext())
+            {
+                return db.User.AsNoTracking().FirstOrDefault(_ => _.Email == email);
+            }
+        }
+
+        public void Add(User user)
+        {
+            using (var db = new DataContext())
+            {
+                db.Entry<User>(user).State = System.Data.Entity.EntityState.Added;
+                db.SaveChanges();
             }
         }
     }
