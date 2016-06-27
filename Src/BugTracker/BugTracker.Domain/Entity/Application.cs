@@ -15,10 +15,11 @@ namespace BugTracker.Domain.Entity
         public bool Active { get; private set; }
         public String Image { get; private set; }
         public Tag SpecialTag { get; private set; }
+        public virtual User User { get; private set; }
 
         private Application() { }
 
-        public Application(String title, String description, String url, bool active, String image, Tag tag)
+        public Application(String title, String description, String url, bool active, String image, Tag tag, User user)
         {
             this.Title = title;
             this.Description = description;
@@ -26,10 +27,11 @@ namespace BugTracker.Domain.Entity
             this.Active = active;
             this.Image = image;
             this.SpecialTag = tag;
+            this.User = user;
         }
 
-        public Application(int id, String title, String description, String url, bool active, String image, Tag tag)
-            : this(title, description, url, active, image, tag)
+        public Application(int id, String title, String description, String url, bool active, String image, Tag tag, User user)
+            : this(title, description, url, active, image, tag, user)
         {
             this.Id = Id;
         }

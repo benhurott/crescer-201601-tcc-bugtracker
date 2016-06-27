@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BugTracker.Domain.Entity
 {
@@ -13,23 +10,25 @@ namespace BugTracker.Domain.Entity
         public String Email { get; set; }
         public String Password { get; set; }
         public String Image { get; set; }
+        public virtual ICollection<Application> Applications { get; set; }
         public bool Active { get; set; }
         public bool AccountConfirmed { get; set; }
 
         private User() { }
 
-        public User(String nome, String email, String Password, String Image, bool Active, bool AccountConfirmed)
+        public User(String nome, String email, String Password, String Image, List<Application> applications, bool Active, bool AccountConfirmed)
         {
             this.Nome = nome;
             this.Email = email;
             this.Password = Password;
             this.Image = Image;
+            this.Applications = applications;
             this.Active = Active;
             this.AccountConfirmed = AccountConfirmed;
         }
 
-        public User(int id, String nome, String email, String Password, String Image, bool Active, bool AccountConfirmed) 
-            : this(nome, email, Password, Image, Active, AccountConfirmed)
+        public User(int id, String nome, String email, String password, String Image, List<Application> applications, bool active, bool accountConfirmed) 
+            : this(nome, email, password, Image, applications,  active, accountConfirmed)
         {
             this.Id = id;
         }
