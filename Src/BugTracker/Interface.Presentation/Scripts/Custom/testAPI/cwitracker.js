@@ -1,7 +1,7 @@
 'use strict';
 
 function CwiTracker() {
-    this.urlPost = 'asdaskdp';
+    this.urlPost = 'asdaskdpasd';
     this.ERROR = 1;
     this.INFO = 2;
     this.WARNING = 3;

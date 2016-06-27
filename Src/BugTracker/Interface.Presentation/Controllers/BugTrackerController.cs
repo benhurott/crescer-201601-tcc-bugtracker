@@ -10,8 +10,8 @@ namespace Interface.Presentation.Controllers
 {
     public class BugTrackerController : ApiController
     {
-        // GET: api/BugTracker
-        public IEnumerable<string> Get()
+        // POST: api/BugTracker
+        public IEnumerable<string> Post()
         {
             //var request =  HttpContext.Current.Request;
             //var browser = request.Browser.Browser;
