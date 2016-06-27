@@ -10,6 +10,7 @@ namespace BugTracker.Infra.Repository
         public DataContext() : base("Conn"){ }
 
         public DbSet<User> User { get; set; }
+        public DbSet<Application> Application { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
