@@ -126,11 +126,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-<<<<<<< HEAD
+
     <Content Include="Content\Custom\estilo-painel.css" />
-=======
+
     <Content Include="Content\Site.css" />
->>>>>>> 2134cdaebf6a52a7fbc6c9c1ad1dc174a17d032a
+
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -158,11 +158,7 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-<<<<<<< HEAD
-    <Content Include="Views\Home\home.html" />
-=======
     <Content Include="Scripts\modernizr-2.6.2.js" />
->>>>>>> 2134cdaebf6a52a7fbc6c9c1ad1dc174a17d032a
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
@@ -170,11 +166,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BugTrackerController.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Controllers\HomeController.cs" />
-=======
+
     <Compile Include="Controllers\UserController.cs" />
->>>>>>> 2134cdaebf6a52a7fbc6c9c1ad1dc174a17d032a
+
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
