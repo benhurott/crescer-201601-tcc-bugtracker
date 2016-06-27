@@ -13,25 +13,13 @@ namespace Interface.Presentation.Controllers
         // GET: api/BugTracker
         public IEnumerable<string> Get()
         {
-            var request =  HttpContext.Current.Request;
-            var browser = request.Browser.ToString();
-            var browserVersion = request.Browser.Version;
-            var SO = request.Browser.Platform;
+            //var request =  HttpContext.Current.Request;
+            //var browser = request.Browser.Browser;
+            //var browserVersion = request.Browser.Version;
+            //var SO = request.Browser.Platform;
+            //string host = HttpContext.Current.Request.Url.Host;
 
-                String url = HttpContext.Current.Request.Url.AbsoluteUri;
-            // http://localhost:1302/TESTERS/Default6.aspx
-
-            string path = HttpContext.Current.Request.Url.AbsolutePath;
-            // /TESTERS/Default6.aspx
-
-            string host = HttpContext.Current.Request.Url.Host;
             return new string[] { "value1", "value2" };
-        }
-
-        // POST: api/BugTracker
-        public void Post([FromBody]string value)
-        {
-
         }
     }
 }
