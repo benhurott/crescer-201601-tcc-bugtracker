@@ -198,7 +198,6 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\home.cshtml" />
     <Content Include="Views\User\account.cshtml" />
     <Content Include="Views\User\download.cshtml" />
@@ -206,6 +205,7 @@
     <Content Include="Views\Login\login.cshtml" />
     <Content Include="Views\Home\index.cshtml" />
     <Content Include="Views\Application\register-app.cshtml" />
+    <Content Include="Views\Application\details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -75,6 +75,17 @@ namespace Interface.Presentation.Controllers
 
             return RedirectToAction("Home", "User");
         }
-        
+
+        public ActionResult DetailsApp(int id)
+        {
+            var app = applicationService.FindById(id);
+
+            if (app.IDUser != id)
+            {
+                return RedirectToAction("Home", "User");
+            }
+
+            return View("details", app);
+        }
     }
 }
