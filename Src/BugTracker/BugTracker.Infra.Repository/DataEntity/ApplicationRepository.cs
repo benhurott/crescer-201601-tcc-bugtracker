@@ -21,6 +21,7 @@ namespace BugTracker.Infra.Repository.DataEntity
             using (var db = new DataContext())
             {
                 db.Entry<Application>(application).State = System.Data.Entity.EntityState.Added;
+                db.Entry<User>(application.User).State = System.Data.Entity.EntityState.Unchanged;
                 db.SaveChanges();
             }
         }
