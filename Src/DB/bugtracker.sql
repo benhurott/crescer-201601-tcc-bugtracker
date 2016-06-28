@@ -1,7 +1,7 @@
 CREATE
   TABLE Application
   (
-    IDApplication INTEGER NOT NULL ,
+    IDApplication INTEGER IDENTITY NOT NULL ,
     IDUser        INTEGER NOT NULL ,
     Title         VARCHAR (255) NOT NULL ,
     Description   VARCHAR (300) NOT NULL ,
@@ -25,7 +25,7 @@ GO
 CREATE
   TABLE BugTracker
   (
-    IDBugTracker  INTEGER NOT NULL ,
+    IDBugTracker  INTEGER IDENTITY NOT NULL ,
     IDApplication INTEGER NOT NULL ,
     OccurredDate  DATETIME NOT NULL ,
     Description TEXT NOT NULL ,
@@ -46,7 +46,7 @@ GO
 CREATE
   TABLE BugTrackerNavigation
   (
-    IDBugTrackerNavigation INTEGER NOT NULL ,
+    IDBugTrackerNavigation INTEGER IDENTITY NOT NULL ,
     IDBugTracker           INTEGER NOT NULL ,
     BrowserName            VARCHAR (100) NOT NULL ,
     BrowserVersion         VARCHAR (10) NOT NULL ,
@@ -74,7 +74,7 @@ GO
 CREATE
   TABLE BugTrackerTag
   (
-    IDBugTrackerTag INTEGER NOT NULL ,
+    IDBugTrackerTag INTEGER IDENTITY NOT NULL ,
     IDBugTracker    INTEGER NOT NULL ,
     Name            VARCHAR (255) NOT NULL
   )
@@ -93,7 +93,7 @@ GO
 CREATE
   TABLE "User"
   (
-    IDUser   INTEGER NOT NULL ,
+    IDUser   INTEGER IDENTITY NOT NULL ,
     Name     VARCHAR (255) NOT NULL ,
     Email    VARCHAR (255) NOT NULL ,
     Password VARCHAR (255) ,
@@ -122,7 +122,7 @@ GO
 CREATE
   TABLE UserRecovery
   (
-    IDUserRecovery INTEGER NOT NULL ,
+    IDUserRecovery INTEGER IDENTITY NOT NULL ,
     IDUser         INTEGER NOT NULL ,
     RequestDate    DATETIME NOT NULL ,
     HashCode       VARCHAR (500) NOT NULL
