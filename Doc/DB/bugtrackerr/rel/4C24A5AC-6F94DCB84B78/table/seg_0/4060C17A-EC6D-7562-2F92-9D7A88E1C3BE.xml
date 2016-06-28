@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4060C17A-EC6D-7562-2F92-9D7A88E1C3BE" name="Application">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>0D27296E-E1AD-A037-6CE0-4738296A9AED</importedID>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDApplication" id="07EBC3E3-AEAE-62CE-3361-FE99471E5A4F">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>2DA21FC1-896C-031C-2C93-CC6DFB962E3B</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDUser" id="F946CA3D-DD1A-8CC0-3AFF-FD8ACB753583">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:39:47 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="85FA39C7-73AF-961F-16B7-B105499002DB" referredColumn="B53E8DEC-38F1-0F5E-B1A0-C361AE0B4B7E"/>
+</associations>
+</Column>
+<Column name="Title" id="B2FF3D29-B70B-9E2D-6329-0B4301E6A1D9">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>0834C200-6669-447C-2953-9A7DE9E52F60</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description" id="07830620-AD90-21B6-679C-A6D2DD937986">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>7A0B5BEE-BC23-35C6-533F-E0F928613CB8</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+<ownDataTypeParameters>300,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Url" id="F7E7F286-3D1C-BA1B-607D-BE3C4D1A3595">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>300CE57A-1073-3EDC-F6E8-75C4241162D0</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Active" id="70007802-F1E9-3373-9C55-4154F8D8149A">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>75254217-79E1-0591-8861-51485D292DFD</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Image" id="9849117F-41B2-B063-ECDD-B8436606A9DC">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>E19FF5CB-AC5E-7C23-FC75-9DE1C48A3673</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SpecialTag" id="C2B3D8F6-94C7-8C5D-4D70-352AAB9768FA">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>778AA220-4A1A-DB5E-2FCD-B0025F6FEAAA</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6D5CC727-0411-DF8D-93E6-F3F3FA2E2944" name="Application_PK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>AD4A723E-2DFF-B873-E8A8-C4C5F9B4159F</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07EBC3E3-AEAE-62CE-3361-FE99471E5A4F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="59F57171-C4D1-4766-3EEB-E2232ACEB6E8" name="Application_User_FK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:39:47 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F946CA3D-DD1A-8CC0-3AFF-FD8ACB753583"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

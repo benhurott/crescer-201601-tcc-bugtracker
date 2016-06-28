@@ -1,4 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<oracle.dbtools.crest.model.design.relational.RelationalDesign>
-   <object objectType="main_view" objectID="7406062B-D0FD-D1C5-B013-5D346266F292" name="BugTracker" visible="true"/>
-</oracle.dbtools.crest.model.design.relational.RelationalDesign>

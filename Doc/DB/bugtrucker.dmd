@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="bugtrucker" id="F654F460-9322-1D80-8C67-63AD7D5C2452" version="3.5">
-<createdBy>Gustavo</createdBy>
-<createdTime>2016-06-25 15:17:55 UTC</createdTime>
-<ownerDesignName>bugtracker</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>F654F460-9322-1D80-8C67-63AD7D5C2452</designId>
-</OSDM_Design>

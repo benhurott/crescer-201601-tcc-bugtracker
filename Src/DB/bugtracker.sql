@@ -1,31 +1,16 @@
 CREATE
   TABLE Application
   (
-    IDApplication INTEGER IDENTITY NOT NULL ,
+    IDApplication INTEGER NOT NULL ,
     IDUser        INTEGER NOT NULL ,
     Title         VARCHAR (255) NOT NULL ,
     Description   VARCHAR (300) NOT NULL ,
     Url           VARCHAR (255) NOT NULL ,
     Active BIT NOT NULL ,
-    HashCode   VARCHAR (500) NOT NULL ,
     Image      VARCHAR (255) ,
     SpecialTag VARCHAR (255)
   )
   ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-Application__IDApplication ON Application
-(
-  IDApplication
-)
-ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-Application__IDUser ON Application
-(
-  IDUser
-)
-ON "default"
 GO
 ALTER TABLE Application ADD CONSTRAINT Application_PK PRIMARY KEY CLUSTERED (
 IDApplication)
@@ -40,27 +25,13 @@ GO
 CREATE
   TABLE BugTracker
   (
-    IDBugTracker  INTEGER IDENTITY NOT NULL ,
+    IDBugTracker  INTEGER NOT NULL ,
     IDApplication INTEGER NOT NULL ,
-                  DATE DATETIME NOT NULL ,
+    OccurredDate  DATETIME NOT NULL ,
     Description TEXT NOT NULL ,
-    Status CHAR (1) NOT NULL
+    Status INTEGER NOT NULL
   )
   ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTracker__IDBugTracker ON BugTracker
-(
-  IDBugTracker
-)
-ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTracker__IDApplication ON BugTracker
-(
-  IDApplication
-)
-ON "default"
 GO
 ALTER TABLE BugTracker ADD CONSTRAINT BugTrucker_PK PRIMARY KEY CLUSTERED (
 IDBugTracker)
@@ -75,7 +46,7 @@ GO
 CREATE
   TABLE BugTrackerNavigation
   (
-    IDBugTrackerNavigation INTEGER IDENTITY NOT NULL ,
+    IDBugTrackerNavigation INTEGER NOT NULL ,
     IDBugTracker           INTEGER NOT NULL ,
     BrowserName            VARCHAR (100) NOT NULL ,
     BrowserVersion         VARCHAR (10) NOT NULL ,
@@ -84,14 +55,7 @@ CREATE
   ON "default"
 GO
 CREATE UNIQUE NONCLUSTERED INDEX
-BugTrackerNavigation__IDBugTrackerNavigation ON BugTrackerNavigation
-(
-  IDBugTrackerNavigation
-)
-ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTrackerNavigation__IDBugTracker ON BugTrackerNavigation
+BugTrackerNavigation__IDX ON BugTrackerNavigation
 (
   IDBugTracker
 )
@@ -110,25 +74,11 @@ GO
 CREATE
   TABLE BugTrackerTag
   (
-    IDBugTrackerTag INTEGER IDENTITY NOT NULL ,
+    IDBugTrackerTag INTEGER NOT NULL ,
     IDBugTracker    INTEGER NOT NULL ,
     Name            VARCHAR (255) NOT NULL
   )
   ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTrackerTag__IDBugTrackerTag ON BugTrackerTag
-(
-  IDBugTrackerTag
-)
-ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTrackerTag__IDBugTracker ON BugTrackerTag
-(
-  IDBugTracker
-)
-ON "default"
 GO
 ALTER TABLE BugTrackerTag ADD CONSTRAINT BugTrackerTag_PK PRIMARY KEY CLUSTERED
 (IDBugTrackerTag)
@@ -143,8 +93,8 @@ GO
 CREATE
   TABLE "User"
   (
-    IDUser   INTEGER IDENTITY NOT NULL ,
-    Nome     VARCHAR (255) NOT NULL ,
+    IDUser   INTEGER NOT NULL ,
+    Name     VARCHAR (255) NOT NULL ,
     Email    VARCHAR (255) NOT NULL ,
     Password VARCHAR (255) ,
     Active BIT NOT NULL ,
@@ -154,9 +104,9 @@ CREATE
   ON "default"
 GO
 CREATE UNIQUE NONCLUSTERED INDEX
-User__IDUser ON "User"
+User__Email ON "User"
 (
-  IDUser
+  Email
 )
 ON "default"
 GO
@@ -172,26 +122,12 @@ GO
 CREATE
   TABLE UserRecovery
   (
-    IDUserRecovery INTEGER IDENTITY NOT NULL ,
+    IDUserRecovery INTEGER NOT NULL ,
     IDUser         INTEGER NOT NULL ,
     RequestDate    DATETIME NOT NULL ,
     HashCode       VARCHAR (500) NOT NULL
   )
   ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-UserRecovery__IDUserRecovery ON UserRecovery
-(
-  IDUserRecovery
-)
-ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-UserRecovery__IDUser ON UserRecovery
-(
-  IDUser
-)
-ON "default"
 GO
 ALTER TABLE UserRecovery ADD CONSTRAINT UserRecovery_PK PRIMARY KEY CLUSTERED (
 IDUserRecovery)
@@ -277,5 +213,3 @@ DELETE
   NO ACTION ON
 UPDATE NO ACTION
 GO
-
-

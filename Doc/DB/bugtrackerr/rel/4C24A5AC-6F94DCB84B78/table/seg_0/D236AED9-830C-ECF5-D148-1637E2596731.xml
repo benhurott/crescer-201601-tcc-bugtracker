@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D236AED9-830C-ECF5-D148-1637E2596731" name="BugTrackerTag">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>0A058FD3-A817-951C-CA16-F846E2649093</importedID>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDBugTrackerTag" id="8EF3FE64-6EDD-4EF4-6FCC-F3B766A67A38">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>C92DFFD7-1E5A-C17E-38D4-DEE951D9C1A2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDBugTracker" id="A7D04348-F2AC-9FCC-D038-C3B3B02F788A">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:44:48 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="318A48D8-B7DC-16D0-43F5-C53E9E417755" referredColumn="340F3170-DF59-78F4-9729-D50316D4973A"/>
+</associations>
+</Column>
+<Column name="Name" id="8B177793-E0BE-8C5B-5715-3B91D1B63F48">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>91736150-F7DA-A7D3-CA24-6165556C14F7</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="905A5098-36E3-4662-A235-C3C276E5FDC7" name="BugTrackerTag_PK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>4825A2F9-AB3F-49BB-0D2D-9429C9C4B6BB</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8EF3FE64-6EDD-4EF4-6FCC-F3B766A67A38"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0E5244A3-50C3-FD34-3A73-F04DB4016BD0" name="BugTrackerTag_BugTracker_FK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:44:48 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A7D04348-F2AC-9FCC-D038-C3B3B02F788A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
