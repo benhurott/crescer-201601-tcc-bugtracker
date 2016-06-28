@@ -1,4 +1,5 @@
-﻿using BugTracker.Domain.Entity;
+﻿using System;
+using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Repository;
 using BugTracker.Domain.Interface.Service;
 
@@ -26,6 +27,11 @@ namespace BugTracker.Domain.Service
         public User FindByEmail(string email)
         {
             return userRepository.FindByEmail(email);
+        }
+
+        public User FindByAuthentication(string email, string password)
+        {
+            return userRepository.FindByAuthentication(email, password);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace BugTracker.Domain.Interface.Repository
     {
         User FindById(int id);
         User FindByEmail(string email);
+        User FindByAuthentication(string email, string password);
         void Add(User user);
     }
 }
