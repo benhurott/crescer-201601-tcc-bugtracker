@@ -32,5 +32,15 @@ namespace BugTracker.Domain.Service
         {
             applicationRepository.Add(application);
         }
+
+        public Application FindById(int id)
+        {
+            return applicationRepository.FindById(id);
+        }
+
+        public void Edit(Application application)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace BugTracker.Domain.Interface.Service
         ICollection<Application> FindByIDUser(int id);
         Application FindByUrl(string url);
         void Add(Application application);
+        void Edit(Application application);
+        Application FindById(int id);
     }
 }
