@@ -22,7 +22,7 @@ namespace BugTracker.Domain.Service
             bugTrackerRepository.Add(bugTracker);
         }
 
-        public IEnumerable<Entity.BugTracker> FindByIDApplication(int id)
+        public ICollection<Entity.BugTracker> FindByIDApplication(int id)
         {
             return bugTrackerRepository.FindByIDApplication(id);
         }

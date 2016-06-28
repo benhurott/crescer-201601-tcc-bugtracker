@@ -18,7 +18,7 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
-        public IEnumerable<Domain.Entity.BugTracker> FindByIDApplication (int idapplication)
+        public ICollection<Domain.Entity.BugTracker> FindByIDApplication (int idapplication)
         {
             using (var db = new DataContext())
             {
