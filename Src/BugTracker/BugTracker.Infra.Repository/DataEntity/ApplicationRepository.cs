@@ -2,6 +2,7 @@
 using System.Linq;
 using BugTracker.Domain.Entity;
 using System.Collections.Generic;
+using System;
 
 namespace BugTracker.Infra.Repository.DataEntity
 {
@@ -34,6 +35,19 @@ namespace BugTracker.Infra.Repository.DataEntity
                     .FirstOrDefault(_ => _.Url == url);
             }
 
+        }
+
+        public void Edit(Application application)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Application FindById(int id)
+        {
+            using (var db = new DataContext())
+            {
+                return db.Application.AsNoTracking().FirstOrDefault(_ => _.IDUser == id);
+            }
         }
     }
 }

@@ -27,8 +27,8 @@ namespace BugTracker.Domain.Entity
             this.AccountConfirmed = AccountConfirmed;
         }
 
-        public User(int id, String nome, String email, String password, String Image, List<Application> applications, bool active, bool accountConfirmed) 
-            : this(nome, email, password, Image, applications,  active, accountConfirmed)
+        public User(int id, String name, String email, String password, String Image, List<Application> applications, bool active, bool accountConfirmed) 
+            : this(name, email, password, Image, applications,  active, accountConfirmed)
         {
             this.IDUser = id;
         }

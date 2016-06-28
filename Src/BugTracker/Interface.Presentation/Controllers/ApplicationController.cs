@@ -26,24 +26,21 @@ namespace Interface.Presentation.Controllers
         {
             if (id.HasValue)
             {
-                //TODO implementar findById
-                if (id.HasValue)
-                {
-                ICollection<Application> app = applicationService.FindByIDUser(1);
+                var app = applicationService.FindById((int)id);
+                var model = new ApplicationModel();
+                model.Id = app.IDApplication;
+                model.Title = app.Title;
+                model.Description = app.Description;
+                model.Icon = app.Image;
+                model.Tag = app.SpecialTag;
 
-                var model = ApplicationViewModel.CollectionToViewModel(app);
-                return View(model);
-
-                }
-
-                return View();
-
+                return View("register-app", model);
             }
 
             return View("register-app");
         }
 
-        public ActionResult NewEditApp(ApplicationViewModel model)
+        public ActionResult NewEditApp(ApplicationModel model)
         {
 
             //TODO pegar id do usuario da sessao
@@ -51,16 +48,18 @@ namespace Interface.Presentation.Controllers
 
             var app = new Application(model.Title, model.Description,
                                       model.Url, true, "imagem",
-                                      model.SpecialTag, user);
+                                      model.Tag, user);
 
-            if (model.IDApplication != 0)
+
+            if (model.Id.HasValue)
             {
-                //TODO implementar edit app
-                //applicationService.Edit(app);
+                //edit
             }
-
+            else
+            {
+                applicationService.Add(app);
+            }
             
-            applicationService.Add(app);
             return View();
         }
 
