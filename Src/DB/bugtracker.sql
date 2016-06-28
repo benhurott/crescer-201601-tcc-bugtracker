@@ -7,25 +7,10 @@ CREATE
     Description   VARCHAR (300) NOT NULL ,
     Url           VARCHAR (255) NOT NULL ,
     Active BIT NOT NULL ,
-    HashCode   VARCHAR (500) NOT NULL ,
     Image      VARCHAR (255) ,
     SpecialTag VARCHAR (255)
   )
   ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-Application__IDApplication ON Application
-(
-  IDApplication
-)
-ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-Application__IDUser ON Application
-(
-  IDUser
-)
-ON "default"
 GO
 ALTER TABLE Application ADD CONSTRAINT Application_PK PRIMARY KEY CLUSTERED (
 IDApplication)
@@ -42,25 +27,11 @@ CREATE
   (
     IDBugTracker  INTEGER IDENTITY NOT NULL ,
     IDApplication INTEGER NOT NULL ,
-                  DATE DATETIME NOT NULL ,
+    OccurredDate  DATETIME NOT NULL ,
     Description TEXT NOT NULL ,
-    Status CHAR (1) NOT NULL
+    Status INTEGER NOT NULL
   )
   ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTracker__IDBugTracker ON BugTracker
-(
-  IDBugTracker
-)
-ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTracker__IDApplication ON BugTracker
-(
-  IDApplication
-)
-ON "default"
 GO
 ALTER TABLE BugTracker ADD CONSTRAINT BugTrucker_PK PRIMARY KEY CLUSTERED (
 IDBugTracker)
@@ -84,14 +55,7 @@ CREATE
   ON "default"
 GO
 CREATE UNIQUE NONCLUSTERED INDEX
-BugTrackerNavigation__IDBugTrackerNavigation ON BugTrackerNavigation
-(
-  IDBugTrackerNavigation
-)
-ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTrackerNavigation__IDBugTracker ON BugTrackerNavigation
+BugTrackerNavigation__IDX ON BugTrackerNavigation
 (
   IDBugTracker
 )
@@ -116,20 +80,6 @@ CREATE
   )
   ON "default"
 GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTrackerTag__IDBugTrackerTag ON BugTrackerTag
-(
-  IDBugTrackerTag
-)
-ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTrackerTag__IDBugTracker ON BugTrackerTag
-(
-  IDBugTracker
-)
-ON "default"
-GO
 ALTER TABLE BugTrackerTag ADD CONSTRAINT BugTrackerTag_PK PRIMARY KEY CLUSTERED
 (IDBugTrackerTag)
 WITH
@@ -144,7 +94,7 @@ CREATE
   TABLE "User"
   (
     IDUser   INTEGER IDENTITY NOT NULL ,
-    Nome     VARCHAR (255) NOT NULL ,
+    Name     VARCHAR (255) NOT NULL ,
     Email    VARCHAR (255) NOT NULL ,
     Password VARCHAR (255) ,
     Active BIT NOT NULL ,
@@ -154,9 +104,9 @@ CREATE
   ON "default"
 GO
 CREATE UNIQUE NONCLUSTERED INDEX
-User__IDUser ON "User"
+User__Email ON "User"
 (
-  IDUser
+  Email
 )
 ON "default"
 GO
@@ -178,20 +128,6 @@ CREATE
     HashCode       VARCHAR (500) NOT NULL
   )
   ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-UserRecovery__IDUserRecovery ON UserRecovery
-(
-  IDUserRecovery
-)
-ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-UserRecovery__IDUser ON UserRecovery
-(
-  IDUser
-)
-ON "default"
 GO
 ALTER TABLE UserRecovery ADD CONSTRAINT UserRecovery_PK PRIMARY KEY CLUSTERED (
 IDUserRecovery)
@@ -277,5 +213,3 @@ DELETE
   NO ACTION ON
 UPDATE NO ACTION
 GO
-
-

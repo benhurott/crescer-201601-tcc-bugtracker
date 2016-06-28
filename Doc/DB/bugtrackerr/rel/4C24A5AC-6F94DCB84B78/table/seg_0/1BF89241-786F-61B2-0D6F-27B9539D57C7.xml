@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1BF89241-786F-61B2-0D6F-27B9539D57C7" name="User">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>D7151EDF-3FE0-786A-BA3A-8922894B1FF6</importedID>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDUser" id="B53E8DEC-38F1-0F5E-B1A0-C361AE0B4B7E">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>DC2D47D8-E355-F5F9-FFA7-A41DF09C2EE9</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="56827416-EA20-3A25-87D2-79A77D9D5DE9">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>446E2833-F121-B001-3BF9-78C92D592410</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Email" id="E13D89B2-BE44-259D-7001-8EB935A5800D">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>D8077602-CD71-83ED-3359-4BF26B757DD2</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Password" id="D4DCBB70-7AEC-643E-BB92-0416FCB887A3">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>BD0B637E-A58A-979C-8D65-8EC5FEDD1FF9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Active" id="38FDADA2-4F11-233B-3757-C6A89517092D">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>4BCE6CCC-25ED-6E2C-5E7C-FF2696192C97</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AccountConfirmed" id="2034CF10-E08A-6C6B-BF08-139F5AB35987">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>E91B32CE-FA10-6D6C-07DA-7E05E9ABEA9E</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Image" id="C5586DDC-254A-D89B-86FD-89FECA54392D">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>B6E1FBA3-54B2-21AD-DAB1-05DB79494C9C</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2B5BB271-7364-8FCD-EEDC-0A4F9A01C807" name="User_PK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:34 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<importedID>E51D12CB-B91E-281C-CF58-EFF3DEDA9E5B</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B53E8DEC-38F1-0F5E-B1A0-C361AE0B4B7E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FED12185-C7BF-F88C-D8DF-1F825B3E5672" name="User__Email">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:54:00 UTC</createdTime>
+<ownerDesignName>banco</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E13D89B2-BE44-259D-7001-8EB935A5800D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

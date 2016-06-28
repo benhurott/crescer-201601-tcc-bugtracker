@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="BugTracker" id="4C24A5AC-B7B2-5CCE-D7F6-6F94DCB84B78" mainViewID="EDBD6888-AC38-C5BF-0DD0-CC98CF41C6A0">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-06-28 16:28:07 UTC</createdTime>
+<ownerDesignName>bugtrackerr</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>980FCE9E-D688-BDF0-C89A-C9FB2DCAED45</selectedRDBMSSite>
+</relationalModel>
