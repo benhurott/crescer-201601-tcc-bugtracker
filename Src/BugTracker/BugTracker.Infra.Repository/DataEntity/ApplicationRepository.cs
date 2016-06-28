@@ -28,7 +28,10 @@ namespace BugTracker.Infra.Repository.DataEntity
         {
             using (var db = new DataContext())
             {
-                return db.Application.Include("User").AsNoTracking().FirstOrDefault(_ => _.Url == url);
+                return db.Application
+                    .Include("User")
+                    .AsNoTracking()
+                    .FirstOrDefault(_ => _.Url == url);
             }
 
         }

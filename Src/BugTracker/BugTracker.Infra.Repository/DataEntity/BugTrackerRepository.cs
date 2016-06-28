@@ -17,5 +17,18 @@ namespace BugTracker.Infra.Repository.DataEntity
                 db.SaveChanges();
             }
         }
+
+        public IEnumerable<Domain.Entity.BugTracker> FindByIDApplication (int idapplication)
+        {
+            using (var db = new DataContext())
+            {
+                return db.BugTrucker
+                    .Include("Navigations")
+                    .Include("Tags")
+                    .AsNoTracking()
+                    .Where(_ => _.IDApplication == idapplication)
+                    .ToList();
+            }
+        }
     }
 }

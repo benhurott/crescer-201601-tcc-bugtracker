@@ -31,6 +31,10 @@ namespace BugTracker.Infra.Repository
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
 
+            modelBuilder.Properties()
+                .Where(p => p.Name == "ID" + p.ReflectedType.Name)
+                .Configure(p => p.IsKey());
+
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new UserRecoveryMap());
             modelBuilder.Configurations.Add(new ApplicationMap());
