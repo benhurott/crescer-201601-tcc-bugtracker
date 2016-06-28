@@ -21,7 +21,6 @@ namespace BugTracker.Infra.Repository.Map
             Property(_ => _.Browser.Name).HasColumnName("BrowserName");
             Property(_ => _.Browser.Version).HasColumnName("BrowserVersion");
             Property(_ => _.OperationalSystem.Name).HasColumnName("PlatformName");
-            Property(_ => _.OperationalSystem.Version).HasColumnName("PlatformVersion");
         }
     }
 }

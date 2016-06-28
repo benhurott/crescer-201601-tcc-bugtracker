@@ -23,11 +23,10 @@ namespace Interface.Presentation.Controllers
         // GET: api/BugTracker
         public IEnumerable<string> Get()
         {
-            var application = applicationService.FindByUrl("dasd");
+            var application = applicationService.FindByUrl("asodij");
 
             var bugs = bugTrackerService.FindByIDApplication(1);
 
-            //asd
             //var request =  HttpContext.Current.Request;
             //var browser = request.Browser.Browser;
             //var browserVersion = request.Browser.Version;

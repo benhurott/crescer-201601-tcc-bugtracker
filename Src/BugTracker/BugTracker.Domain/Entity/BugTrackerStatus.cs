@@ -8,8 +8,8 @@ namespace BugTracker.Domain.Entity
 {
     public enum BugTrackerStatus
     {
-        ERROR,
-        INFO,
-        WARNING
+        ERROR = 1,
+        INFO = 2,
+        WARNING = 3
     }
 }
