@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using BugTracker.Domain.Interface.Service;
+using Interface.Presentation.Services;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -9,9 +11,21 @@ namespace Interface.Presentation.Controllers
 {
     public class BugTrackerController : ApiController
     {
-        // POST: api/BugTracker
-        public IEnumerable<string> Post()
+        private IBugTrackerService bugTrackerService;
+        private IApplicationService applicationService;
+
+        public BugTrackerController()
         {
+            bugTrackerService = BugTrackerServiceInjection.Create();
+            applicationService = ApplicationServiceInjection.Create();
+        }
+
+        // GET: api/BugTracker
+        public IEnumerable<string> Get()
+        {
+            var t = applicationService.FindByUrl("dasd");
+
+            //asd
             //var request =  HttpContext.Current.Request;
             //var browser = request.Browser.Browser;
             //var browserVersion = request.Browser.Version;
