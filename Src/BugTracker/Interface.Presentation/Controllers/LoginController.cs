@@ -19,7 +19,7 @@ namespace Interface.Presentation.Controllers
         {
             if (UserSessionService.IsLogged)
                 return RedirectToAction("Index","Home");
-            return View("Login");
+            return View();
         }
 
         [HttpGet]
@@ -45,7 +45,7 @@ namespace Interface.Presentation.Controllers
                     var userLoggedModel = new LoggedUserViewModel(userFounded);
 
                     UserSessionService.CreateSession(userLoggedModel);
-                    return RedirectToAction("Index");
+                    return View("Index");
                 }
                 else
                 {
@@ -53,7 +53,7 @@ namespace Interface.Presentation.Controllers
                 }
             }
 
-            return RedirectToAction("Index",userLoginViewModel);
+            return View("Index",userLoginViewModel);
         }
     }
 }
