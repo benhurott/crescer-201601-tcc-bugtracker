@@ -9,8 +9,6 @@ namespace Interface.Presentation.Models.User
 {
     public class LoggedUserViewModel
     {
-        private BugTracker.Domain.Entity.User userFounded;
-
         public int IDUser { get; private set; }
         public String Nome { get; private set; }
         public String Email { get; private set; }
@@ -27,10 +25,9 @@ namespace Interface.Presentation.Models.User
             this.Applications = applications;
             this.AccountConfirmed = accountConfirmed;
         }
-
-        public LoggedUserViewModel(BugTracker.Domain.Entity.User userFounded)
-        {
-            this.userFounded = userFounded;
-        }
+        //TODO: adicionar o ICollection de aplication no user
+        // já implementado --  ApplicationViewModel.CollectionToViewModel(u.Applications)
+        public LoggedUserViewModel(BugTracker.Domain.Entity.User u) : 
+            this(u.IDUser, u.Nome, u.Email, u.Image, null, u.AccountConfirmed) {  }
     }
 }

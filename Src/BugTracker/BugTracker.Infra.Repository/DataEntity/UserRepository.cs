@@ -23,12 +23,15 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
-        public void Add(User user)
+        public User Add(User user)
         {
             using (var db = new DataContext())
             {
                 db.Entry<User>(user).State = System.Data.Entity.EntityState.Added;
+
                 db.SaveChanges();
+
+                return user;
             }
         }
 

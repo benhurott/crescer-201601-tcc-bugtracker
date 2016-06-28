@@ -21,9 +21,9 @@ namespace BugTracker.Domain.Service
             return this.userRepository.FindById(id);
         }
 
-        public void Add(User user)
+        public User Add(User user)
         {
-            userRepository.Add(user);
+            return userRepository.Add(user);
         }
 
         public User FindByEmail(string email)

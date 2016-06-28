@@ -1,6 +1,7 @@
 ﻿using Interface.Presentation.Models.User;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 
@@ -25,6 +26,21 @@ namespace Interface.Presentation.Models.Application
             this.Image = image;
             this.SpecialTag = specialTag;
             this.User = user;
+        }
+
+        public ApplicationViewModel(BugTracker.Domain.Entity.Application app) : 
+            this(app.IDApplication,app.Title,app.Description,app.Url,app.Image,app.SpecialTag,new LoggedUserViewModel(app.User)) {  }
+
+        public static ICollection<ApplicationViewModel> CollectionToViewModel(ICollection<BugTracker.Domain.Entity.Application> list)
+        {
+            ICollection<ApplicationViewModel> appModel = new Collection<ApplicationViewModel>();
+
+            //TODO: Fazer com linq
+            foreach(BugTracker.Domain.Entity.Application app in list){
+                appModel.Add(new ApplicationViewModel(app));
+            }
+
+            return appModel;
         }
     }
 }
