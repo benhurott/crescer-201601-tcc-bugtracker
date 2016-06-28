@@ -11,23 +11,19 @@ namespace Interface.Presentation.Controllers
 {
     public class UserController : Controller
     {
-        private IUserService _userService;
+        private IApplicationService applicationService;
 
         public UserController()
         {
-            _userService = UserServiceInjection.Create();
+            applicationService = ApplicationServiceInjection.Create();
         }
-
-        public ActionResult Index()
-        {
-            var a = _userService.FindById(1);
-
-            return View();
-        }
+        
 
         public ActionResult Home()
         {
-            return View();
+            var model = applicationService.FindByIDUser(1);
+           
+            return View(model);
         }
 
         public ActionResult Account()

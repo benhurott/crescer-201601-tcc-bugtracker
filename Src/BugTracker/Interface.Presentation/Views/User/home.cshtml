@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<BugTracker.Domain.Entity.Application>
+
 @{
     ViewBag.Title = "home";
 }
@@ -11,49 +12,45 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <input type="text" class="form-control" placeholder="Nome da app...">
+                <input type="text" class="form-control" placeholder="App name...">
                 <a href="#" class="btn btn-success col-sm-2 glyphicon glyphicon-zoom-in" type="button">  Search</a>
-                <a href="#" class="btn btn-success col-sm-2">New App</a>
+                <a href="~/Application/RegisterApp/" class="btn btn-success col-sm-2">New App</a>
             </div>
             <table class="table table-striped table-hover ">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>App Name</th>
-                        <th>Last Tracks</th>
+                        <th>Last Track</th>
                         <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td><a href="#">FakeBook</a></td>
-                        <td>Problema no Login - Info</td>
-                        <td>01/07/2016</td>
-                        <td><a href="#" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
-                        <td><a href="#" class="glyphicon glyphicon-trash" alt="Editar"></a></td>
-                    </tr>
-                    <tr class="warning">
-                        <td>2</td>
-                        <td><a href="#">Xml Reader</a></td>
-                        <td>Carregar Arquivo - Warning</td>
-                        <td>30/06/2016</td>
-                        <td><a href="#" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
-                        <td><a href="#" class="glyphicon glyphicon-trash" alt="Editar"></a></td>
-                    </tr>
-                    <tr class="danger">
-                        <td>3</td>
-                        <td><a href="#">FakeBook</a></td>
-                        <td>Crash na tela do Usuário - Erro</td>
-                        <td>28/06/2016</td>
-                        <td><a href="#" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
-                        <td><a href="#" class="glyphicon glyphicon-trash" alt="Editar"></a></td>
-                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Image)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BugTrackers.Last().Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BugTrackers.Last().Date)
+                            </td>
+                            <td><a href="#" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
+                            <td><a href="#" class="glyphicon glyphicon-trash" alt="Exlcuir"></a></td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
     </div>
-
+    
     <div class="panel panel-success col-md-4 box">
         <div class="panel-heading">
             <h4>Bugs:</h4>
