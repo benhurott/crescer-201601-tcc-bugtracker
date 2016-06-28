@@ -8,17 +8,19 @@ namespace BugTracker.Domain.Entity
 {
     public class BugTracker
     {
-        public int Id { get; set; }
-        public Application Application { get; private set; }
+        public int IDBugTracker { get; set; }
+        public int IDApplication { get; set; }
+        public virtual Application Application { get; private set; }
         public BugTrackerStatus Status { get; private set; }
         public String Description { get; private set; }
         public DateTime Date { get; private set; }
-        public List<Tag> Tags { get; private set; }
-        public Navigation Navigation { get; private set; }
+        public virtual List<BugTrackerTag> Tags { get; private set; }
+        public int IDNavigation { get; private set; }
+        public virtual BugTrackerNavigation Navigation { get; private set; }
 
         private BugTracker() { }
 
-        public BugTracker(Application application, BugTrackerStatus status, String description, DateTime data, List<Tag> tags, Navigation navigation)
+        public BugTracker(Application application, BugTrackerStatus status, String description, DateTime data, List<BugTrackerTag> tags, BugTrackerNavigation navigation)
         {
             this.Application = application;
             this.Status = status;
@@ -28,10 +30,10 @@ namespace BugTracker.Domain.Entity
             this.Navigation = navigation;
         }
 
-        public BugTracker(int id, Application application, BugTrackerStatus status, String description, DateTime data, List<Tag> tags, Navigation navigation)
+        public BugTracker(int id, Application application, BugTrackerStatus status, String description, DateTime data, List<BugTrackerTag> tags, BugTrackerNavigation navigation)
             : this(application, status, description, data, tags, navigation)
         {
-            this.Id = id;
+            this.IDBugTracker = id;
         }
     }
 }

@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Domain.Entity
 {
-    public class Navigation
+    public class BugTrackerNavigation
     {
-        public int Id { get; private set; }
+        public int IDBugTrackerNavigation { get; private set; }
         public Browser Browser { get; private set; }
         public OperationalSystem OperationalSystem { get; private set; }
 
-        private Navigation() { }
+        private BugTrackerNavigation() { }
 
-        public Navigation(Browser browser, OperationalSystem operationalSystem)
+        public BugTrackerNavigation(Browser browser, OperationalSystem operationalSystem)
         {
             this.Browser = browser;
             this.OperationalSystem = operationalSystem;
         }
 
-        public Navigation(int id, Browser browser, OperationalSystem operationalSystem)
+        public BugTrackerNavigation(int id, Browser browser, OperationalSystem operationalSystem)
             : this(browser, operationalSystem)
         {
-            this.Id = Id;
+            this.IDBugTrackerNavigation = id;
         }
     }
 }
