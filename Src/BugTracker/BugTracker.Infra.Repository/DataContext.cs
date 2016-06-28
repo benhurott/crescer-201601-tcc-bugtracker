@@ -28,6 +28,7 @@ namespace BugTracker.Infra.Repository
                 .Configure(p => p.HasMaxLength(100));
 
             modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Configurations.Add(new UserRecoveryMap());
             modelBuilder.Configurations.Add(new ApplicationMap());
 
             base.OnModelCreating(modelBuilder);
