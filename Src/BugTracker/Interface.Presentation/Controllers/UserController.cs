@@ -1,4 +1,5 @@
-﻿using BugTracker.Domain.Interface.Service;
+﻿using BugTracker.Domain.Entity;
+using BugTracker.Domain.Interface.Service;
 using BugTracker.Domain.Service;
 using Interface.Presentation.Services;
 using System;

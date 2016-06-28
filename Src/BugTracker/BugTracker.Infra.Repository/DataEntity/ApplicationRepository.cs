@@ -2,6 +2,7 @@
 using System.Linq;
 using BugTracker.Domain.Entity;
 using System.Collections.Generic;
+using System;
 
 namespace BugTracker.Infra.Repository.DataEntity
 {
@@ -20,6 +21,7 @@ namespace BugTracker.Infra.Repository.DataEntity
             using (var db = new DataContext())
             {
                 db.Entry<Application>(application).State = System.Data.Entity.EntityState.Added;
+                db.Entry<User>(application.User).State = System.Data.Entity.EntityState.Unchanged;
                 db.SaveChanges();
             }
         }
@@ -34,6 +36,19 @@ namespace BugTracker.Infra.Repository.DataEntity
                     .FirstOrDefault(_ => _.Url == url);
             }
 
+        }
+
+        public void Edit(Application application)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Application FindById(int id)
+        {
+            using (var db = new DataContext())
+            {
+                return db.Application.AsNoTracking().FirstOrDefault(_ => _.IDUser == id);
+            }
         }
     }
 }

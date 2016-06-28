@@ -12,9 +12,9 @@ namespace BugTracker.Domain.Entity
         public int IDApplication { get; set; }
         public virtual Application Application { get; private set; }
         public BugTrackerStatus Status { get; private set; }
-        public String Description { get; private set; }
-        public DateTime Date { get; private set; }
-        public virtual List<BugTrackerTag> Tags { get; private set; }
+        public string Description { get; private set; }
+        public DateTime OccurredDate { get; private set; }
+        public virtual ICollection<BugTrackerTag> Tags { get; private set; }
         public virtual BugTrackerNavigation Navigations { get; private set; }
             
         private BugTracker() { }
@@ -24,7 +24,7 @@ namespace BugTracker.Domain.Entity
             this.Application = application;
             this.Status = status;
             this.Description = description;
-            this.Date = data;
+            this.OccurredDate = data;
             this.Tags = tags;
             this.Navigations = navigation;
         }
