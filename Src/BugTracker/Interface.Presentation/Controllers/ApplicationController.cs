@@ -19,13 +19,7 @@ namespace Interface.Presentation.Controllers
 
         public ActionResult AppList()
         {
-            var a = applicationService.FindByIDUser(1);
-
-            var ap1 = new Models.ApplicationModel();
-            ap1.Title = "FakeBook";
-
-            var ap2 = new Models.ApplicationModel();
-            ap2.Title = "Xml Reader";
+            var application = applicationService.FindByIDUser(1);
             
             return View();
         }
