@@ -1,6 +1,7 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Service;
 using Interface.Presentation.Models;
+using Interface.Presentation.Models.Application;
 using Interface.Presentation.Services;
 using System;
 using System.Collections.Generic;
@@ -26,25 +27,23 @@ namespace Interface.Presentation.Controllers
             if (id.HasValue)
             {
                 //TODO implementar findById
-                Application app = applicationService.FindByID(id);
+                if (id.HasValue)
+                {
+                ICollection<Application> app = applicationService.FindByIDUser(1);
 
-                var model = new ApplicationModel();
+                var model = ApplicationViewModel.CollectionToViewModel(app);
+                return View(model);
 
-                model.Id = app.IDApplication;
-                model.Title = app.Title;
-                model.Description = app.Description;
-                model.Url = app.Url;
-                model.Icon = app.Image;
-                model.Tag = app.SpecialTag;
+                }
 
-                return View("register-app", model);
+                return View();
 
             }
 
             return View("register-app");
         }
 
-        public ActionResult NewEditApp(ApplicationModel model)
+        public ActionResult NewEditApp(ApplicationViewModel model)
         {
 
             //TODO pegar id do usuario da sessao
@@ -52,12 +51,12 @@ namespace Interface.Presentation.Controllers
 
             var app = new Application(model.Title, model.Description,
                                       model.Url, true, "imagem",
-                                      model.Tag, user);
+                                      model.SpecialTag, user);
 
-            if (model.Id.HasValue)
+            if (model.IDApplication != 0)
             {
                 //TODO implementar edit app
-                applicationService.Edit(app);
+                //applicationService.Edit(app);
             }
 
             

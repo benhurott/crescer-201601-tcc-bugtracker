@@ -7,7 +7,7 @@ namespace BugTracker.Infra.Repository.DataEntity
 {
     public class ApplicationRepository : IApplicationRepository
     {
-        public IEnumerable<Application> FindByIDUser(int IDUser)
+        public ICollection<Application> FindByIDUser(int IDUser)
         {
             using (var db = new DataContext())
             {
