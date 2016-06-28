@@ -21,7 +21,7 @@ namespace BugTracker.Domain.Entity
 
         public Application() { }
 
-        public Application(String title, String description, String url, bool active, String image, String tag, User user)
+        public Application(String title, String description, String url, bool active, String image, String tag, int IdUser, User user)
         {
             this.Title = title;
             this.Description = description;
@@ -29,11 +29,12 @@ namespace BugTracker.Domain.Entity
             this.Active = active;
             this.Image = image;
             this.SpecialTag = tag;
+            this.IDUser = IdUser;
             this.User = user;
         }
 
-        public Application(int id, String title, String description, String url, bool active, String image, String tag, User user)
-            : this(title, description, url, active, image, tag, user)
+        public Application(int id, String title, String description, String url, bool active, String image, String tag, int IdUser, User user)
+            : this(title, description, url, active, image, tag, IdUser, user)
         {
             this.IDApplication = id;
         }

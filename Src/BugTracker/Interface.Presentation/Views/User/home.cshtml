@@ -21,7 +21,6 @@
                     <tr>
                         <th>#</th>
                         <th>App Name</th>
-                        <th>Last Track</th>
                         <th>Date</th>
                     </tr>
                 </thead>
@@ -37,13 +36,19 @@
                                 @Html.DisplayFor(modelItem => item.Title)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.BugTrackers.Last().Description)
+                                @if (item.BugTrackers.Count > 0)
+                                {
+                                 @Html.DisplayFor(modelItem => item.BugTrackers.Last().Description)
+                                }
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.BugTrackers.Last().Date)
+                                @if (item.BugTrackers.Count > 0)
+                                {
+                                    @Html.DisplayFor(modelItem => item.BugTrackers.Last().OccurredDate)
+                                }
                             </td>
                             <td><a href="~/Application/RegisterApp/@item.IDApplication" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
-                            <td><a href="#" class="glyphicon glyphicon-trash" alt="Exlcuir"></a></td>
+                            <td><a href="~/Application/DeleteApp/@item.IDApplication" class="glyphicon glyphicon-trash" alt="Exlcuir"></a></td>
                         </tr>
                     }
                 </tbody>
