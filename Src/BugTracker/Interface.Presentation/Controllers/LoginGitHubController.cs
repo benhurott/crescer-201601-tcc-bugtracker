@@ -1,4 +1,6 @@
-﻿using Octokit;
+﻿using BugTracker.Domain.Interface.Service;
+using Interface.Presentation.Services;
+using Octokit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,8 @@ namespace Interface.Presentation.Controllers
     {
         const string clientId = "d6fe6834f30081cf609d";
         private const string clientSecret = "d829abc7d3a9435cdae06599d698106f9066420d";
+
+        IUserService userService = UserServiceInjection.Create();
 
         readonly GitHubClient client = new GitHubClient(
             new ProductHeaderValue("BugTracker-GitHub-Oauth"), 
@@ -55,21 +59,24 @@ namespace Interface.Presentation.Controllers
 
                 var gitHubUser = await client.User.Current();
 
-                //TODO: registrar usuario
+                BugTracker.Domain.Entity.User userFound = userService.FindByEmail(primaryEmail);
 
-                //LoggedUser usuarioEncontrado =
-                //    this.userService.BuscarPorGitAuth(primaryEmail, gitHubUser.Name);
+                if (userFound == null)
+                {
+                    userFound = userService.Add(new BugTracker.Domain.Entity.User(
 
-                //if (usuarioEncontrado != null)
-                //{
-                //    UserSessionService.CreateSession(usuarioEncontrado);
-                //}
-                //else
-                //{
-                //    userService.SaveUser(primaryEmail, gitHubUser.Name);
-                //    LoggedUser user = new LoggedUser() { Name = gitHubUser.Name, Username = primaryEmail };
-                //    UserSessionService.CreateSession(user);
-                //}
+                            gitHubUser.Name,
+                            primaryEmail,
+                            null,
+                            gitHubUser.AvatarUrl,
+                            null,
+                            false,
+                            false
+
+                        ));
+                }
+
+                UserSessionService.CreateSession(new Models.User.LoggedUserViewModel(userFound));
 
                 return RedirectToAction("Index","Login");
 
