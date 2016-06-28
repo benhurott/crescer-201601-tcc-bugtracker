@@ -165,7 +165,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\BugTrackerController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginGitHubController.cs" />
@@ -178,6 +178,7 @@
     <Compile Include="Models\Application\ApplicationViewModel.cs" />
     <Compile Include="Models\User\LoggedUserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApplicationServiceInjection.cs" />
     <Compile Include="Services\UserServiceInjection.cs" />
     <Compile Include="Services\UserSessionService.cs" />
   </ItemGroup>
@@ -202,7 +203,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\App\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Domain\BugTracker.Domain.csproj">
