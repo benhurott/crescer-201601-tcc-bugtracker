@@ -40,7 +40,7 @@ namespace BugTracker.Domain.Service
 
         public void Edit(Application application)
         {
-            throw new NotImplementedException();
+            applicationRepository.Edit(application);
         }
     }
 }
