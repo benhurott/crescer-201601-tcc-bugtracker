@@ -1,6 +1,7 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Repository;
 using System.Linq;
+using System;
 
 namespace BugTracker.Infra.Repository.DataEntity
 {
@@ -28,6 +29,14 @@ namespace BugTracker.Infra.Repository.DataEntity
             {
                 db.Entry<User>(user).State = System.Data.Entity.EntityState.Added;
                 db.SaveChanges();
+            }
+        }
+
+        public User FindByAuthentication(string email, string password)
+        {
+            using (var db = new DataContext())
+            {
+                return db.User.AsNoTracking().FirstOrDefault(_ => _.Email == email && _.Password == password);
             }
         }
     }

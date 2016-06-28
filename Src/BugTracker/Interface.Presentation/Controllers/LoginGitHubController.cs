@@ -71,7 +71,7 @@ namespace Interface.Presentation.Controllers
                 //    UserSessionService.CreateSession(user);
                 //}
 
-                return RedirectToAction("SignIn","Login");
+                return RedirectToAction("Index","Login");
 
             }
 
