@@ -186,6 +186,7 @@
     <Compile Include="Services\ApplicationServiceInjection.cs" />
     <Compile Include="Services\BugTrackerServiceInjection.cs" />
     <Compile Include="Services\MailService.cs" />
+    <Compile Include="Services\UploadImageService.cs" />
     <Compile Include="Services\UserServiceInjection.cs" />
     <Compile Include="Services\UserSessionService.cs" />
   </ItemGroup>
