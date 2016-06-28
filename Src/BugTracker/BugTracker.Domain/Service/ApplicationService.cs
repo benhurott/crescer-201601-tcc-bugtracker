@@ -42,5 +42,10 @@ namespace BugTracker.Domain.Service
         {
             applicationRepository.Edit(application);
         }
+
+        public ICollection<Application> FindByName(String name)
+        {
+            return applicationRepository.FindByName(name);
+        }
     }
 }
