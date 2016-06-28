@@ -23,5 +23,14 @@ namespace BugTracker.Infra.Repository.DataEntity
                 db.SaveChanges();
             }
         }
+
+        public Application FindByUrl(string url)
+        {
+            using (var db = new DataContext())
+            {
+                return db.Application.Include("User").AsNoTracking().FirstOrDefault(_ => _.Url == url);
+            }
+
+        }
     }
 }
