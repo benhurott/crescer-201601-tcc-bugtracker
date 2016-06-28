@@ -1,4 +1,5 @@
-﻿using Interface.Presentation.Models.User;
+﻿using Interface.Presentation.Extensions;
+using Interface.Presentation.Models.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,20 @@ namespace Interface.Presentation.Services
 
             HttpContext.Current.Response.Cookies.Set(cookieAuth);
 
+        }
+
+        public static void Loggout()
+        {
+            if (IsLogged)
+            {
+                HttpCookie cookie = HttpContext.Current.Request.Cookies.Get(COOKIE);
+
+                loggedUsers.Remove(cookie.Value);
+
+                cookie.TimeOut();
+
+                HttpContext.Current.Session.Abandon();
+            }
         }
     }
 }
