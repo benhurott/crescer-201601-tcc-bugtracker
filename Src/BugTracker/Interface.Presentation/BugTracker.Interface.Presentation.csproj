@@ -181,6 +181,7 @@
     <Compile Include="Models\Application\ApplicationModel.cs" />
     <Compile Include="Models\Application\ApplicationViewModel.cs" />
     <Compile Include="Models\User\LoggedUserViewModel.cs" />
+    <Compile Include="Models\User\RegisterUserViewModel.cs" />
     <Compile Include="Models\User\UserLoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApplicationServiceInjection.cs" />
@@ -195,14 +196,14 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\home.cshtml" />
+    <Content Include="Views\User\index.cshtml" />
     <Content Include="Views\User\account.cshtml" />
     <Content Include="Views\User\download.cshtml" />
-    <Content Include="Views\User\documentation.cshtml" />
-    <Content Include="Views\Login\login.cshtml" />
+    <Content Include="Views\Home\documentation.cshtml" />
+    <Content Include="Views\Login\index.cshtml" />
     <Content Include="Views\Home\index.cshtml" />
     <Content Include="Views\Application\register-app.cshtml" />
+    <Content Include="Views\Home\register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

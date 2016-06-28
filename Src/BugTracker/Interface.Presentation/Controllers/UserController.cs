@@ -1,6 +1,7 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Service;
 using BugTracker.Domain.Service;
+using Interface.Presentation.Models.User;
 using Interface.Presentation.Services;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,19 @@ namespace Interface.Presentation.Controllers
     {
         private IApplicationService applicationService;
 
+        private IUserService userService;
+
         public UserController()
         {
             applicationService = ApplicationServiceInjection.Create();
+            userService = UserServiceInjection.Create();
         }
-        
 
-        public ActionResult Home()
+
+        public ActionResult Index()
         {
             var model = applicationService.FindByIDUser(1);
-           
+
             return View(model);
         }
 
@@ -33,11 +37,6 @@ namespace Interface.Presentation.Controllers
         }
 
         public ActionResult Download()
-        {
-            return View();
-        }
-
-        public ActionResult Documentation()
         {
             return View();
         }
