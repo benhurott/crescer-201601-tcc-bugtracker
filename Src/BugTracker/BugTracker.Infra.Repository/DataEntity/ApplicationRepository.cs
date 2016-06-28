@@ -55,5 +55,13 @@ namespace BugTracker.Infra.Repository.DataEntity
                 return db.Application.AsNoTracking().FirstOrDefault(_ => _.IDApplication == id);
             }
         }
+
+        public ICollection<Application> FindByName(string name)
+        {
+            using (var db = new DataContext())
+            {
+                return db.Application.Include("BugTrackers").Where(_ => _.Title.Contains(name) && _.Active == true).ToList();
+            }
+        }
     }
 }

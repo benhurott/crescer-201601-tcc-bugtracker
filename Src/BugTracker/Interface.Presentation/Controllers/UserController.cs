@@ -23,8 +23,15 @@ namespace Interface.Presentation.Controllers
         public ActionResult Home()
         {
             var model = applicationService.FindByIDUser(UserSessionService.LoggedUser.IDUser);
-           
+
             return View(model);
+        }
+
+        public ActionResult Search(String name)
+        {
+            var model = applicationService.FindByName(name);
+
+            return View( model);
         }
 
         public ActionResult Account()
