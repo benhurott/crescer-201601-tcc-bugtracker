@@ -23,6 +23,7 @@ namespace BugTracker.Domain.Service
 
         public User Add(User user)
         {
+            user.Password = Encrypt(user.Password);
             return userRepository.Add(user);
         }
 

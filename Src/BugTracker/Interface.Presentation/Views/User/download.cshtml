@@ -1,7 +1,19 @@
-﻿
+﻿@using Interface.Presentation.Services
+
 @{
-    ViewBag.Title = "donwload";
+    ViewBag.Title = "Donwload";
 }
 
+
 <h2>donwload</h2>
+@if (UserSessionService.IsLogged && UserSessionService.LoggedUser.AccountConfirmed)
+{
+    @Html.ActionLink("Compressed:", Html.Raw("DownloadLibrary?type=compressed").ToHtmlString(), "User") 
+    @Html.ActionLink("Compressed:", @"DownloadLibrary?type=uncompressed", "User")
+}
+else
+{
+    @:Você deve primeiro realizar a confirmação de conta para acessar esta página.
+}
+
 
