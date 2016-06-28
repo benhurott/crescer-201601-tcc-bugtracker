@@ -6,7 +6,7 @@ namespace BugTracker.Domain.Entity
     public class User
     {
         public int IDUser { get; set; }
-        public String Nome { get; set; }
+        public String Name { get; set; }
         public String Email { get; set; }
         public String Password { get; set; }
         public String Image { get; set; }
@@ -16,9 +16,9 @@ namespace BugTracker.Domain.Entity
 
         public User() { }
 
-        public User(String nome, String email, String Password, String Image, List<Application> applications, bool Active, bool AccountConfirmed)
+        public User(String name, String email, String Password, String Image, List<Application> applications, bool Active, bool AccountConfirmed)
         {
-            this.Nome = nome;
+            this.Name = name;
             this.Email = email;
             this.Password = Password;
             this.Image = Image;

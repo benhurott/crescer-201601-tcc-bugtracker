@@ -28,6 +28,6 @@ namespace Interface.Presentation.Models.User
         //TODO: adicionar o ICollection de aplication no user
         // já implementado --  ApplicationViewModel.CollectionToViewModel(u.Applications)
         public LoggedUserViewModel(BugTracker.Domain.Entity.User u) : 
-            this(u.IDUser, u.Nome, u.Email, u.Image, null, u.AccountConfirmed) {  }
+            this(u.IDUser, u.Name, u.Email, u.Image, null, u.AccountConfirmed) {  }
     }
 }
