@@ -9,8 +9,6 @@ namespace Interface.Presentation.Models.User
 {
     public class LoggedUserViewModel
     {
-        private BugTracker.Domain.Entity.User userFounded;
-
         public int IDUser { get; private set; }
         public String Nome { get; private set; }
         public String Email { get; private set; }
@@ -28,9 +26,7 @@ namespace Interface.Presentation.Models.User
             this.AccountConfirmed = accountConfirmed;
         }
 
-        public LoggedUserViewModel(BugTracker.Domain.Entity.User userFounded)
-        {
-            this.userFounded = userFounded;
-        }
+        public LoggedUserViewModel(BugTracker.Domain.Entity.User u) : 
+            this(u.IDUser, u.Nome, u.Email, u.Image, ApplicationViewModel.CollectionToViewModel(u.Applications), u.AccountConfirmed) {  }
     }
 }

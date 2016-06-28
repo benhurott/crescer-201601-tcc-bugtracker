@@ -53,7 +53,7 @@ namespace Interface.Presentation.Controllers
                 }
             }
 
-            return View("Index",userLoginViewModel);
+            return RedirectToAction("Index",userLoginViewModel);
         }
     }
 }
