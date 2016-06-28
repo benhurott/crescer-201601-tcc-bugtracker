@@ -59,6 +59,8 @@ namespace Interface.Presentation.Controllers
 
                 var gitHubUser = await client.User.Current();
 
+                string nome = gitHubUser.Name != null ? gitHubUser.Name : gitHubUser.Login;
+
                 BugTracker.Domain.Entity.User userFound = userService.FindByEmail(primaryEmail);
 
                 if (userFound == null)
