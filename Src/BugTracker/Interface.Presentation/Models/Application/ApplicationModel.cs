@@ -9,12 +9,18 @@ namespace Interface.Presentation.Models
 {
     public class ApplicationModel
     {
+        public int? Id { get; set; }
+
         [Required]
         [DisplayName("Title")]
         [StringLength(50)]
-        [EmailAddress]
         public string Title { get; set; }
-        
+
+        [Required]
+        [DisplayName("Description")]
+        [StringLength(100)]
+        public string Description { get; set; }
+
         [Required]
         [DisplayName("Url Application")]
         [StringLength(100)]
@@ -28,7 +34,7 @@ namespace Interface.Presentation.Models
         [Required]
         [DisplayName("Special Tag Error")]
         [StringLength(100)]
-        public string tag { get; set; }
+        public string Tag { get; set; }
 
     }
 }
