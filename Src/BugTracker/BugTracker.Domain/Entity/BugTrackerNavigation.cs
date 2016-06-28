@@ -9,8 +9,10 @@ namespace BugTracker.Domain.Entity
     public class BugTrackerNavigation
     {
         public int IDBugTrackerNavigation { get; private set; }
-        public Browser Browser { get; private set; }
-        public OperationalSystem OperationalSystem { get; private set; }
+        public virtual Browser Browser { get; private set; }
+        public virtual OperationalSystem OperationalSystem { get; private set; }
+        public virtual BugTracker BugTracker { get; private set; }
+        public int IDBugTracker { get; private set; }
 
         private BugTrackerNavigation() { }
 

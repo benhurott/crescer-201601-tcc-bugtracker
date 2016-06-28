@@ -9,6 +9,7 @@ namespace BugTracker.Domain.Interface.Service
 {
     public interface IBugTrackerService
     {
+        IEnumerable<Domain.Entity.BugTracker> FindByIDApplication(int id);
         void Add(Domain.Entity.BugTracker bugTracker);
     }
 }

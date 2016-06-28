@@ -17,6 +17,7 @@ namespace BugTracker.Domain.Entity
         public String SpecialTag { get; private set; }
         public int IDUser { get; private set; }
         public virtual User User { get; private set; }
+        public virtual List<BugTracker> BugTrackers { get; private set; }
 
         public Application() { }
 

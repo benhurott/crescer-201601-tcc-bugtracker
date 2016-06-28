@@ -8,6 +8,6 @@ namespace BugTracker.Domain.Entity
 {
     public class Browser : Software
     {
-        private Browser() { }
+        private Browser() : base() { }
     }
 }
