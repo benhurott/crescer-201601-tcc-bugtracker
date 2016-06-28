@@ -13,5 +13,14 @@ namespace BugTracker.Infra.Repository.DataEntity
                 return db.Application.AsNoTracking().Where(_ => _.IDUser == IDUser);
             }
         }
+
+        public void Add(Application application)
+        {
+            using (var db = new DataContext())
+            {
+                db.Entry<Application>(application).State = System.Data.Entity.EntityState.Added;
+                db.SaveChanges();
+            }
+        }
     }
 }

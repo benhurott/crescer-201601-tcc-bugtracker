@@ -22,5 +22,10 @@ namespace BugTracker.Domain.Service
         {
             return applicationRepository.FindByIDUser(id);
         }
+
+        public void Add(Application application)
+        {
+            applicationRepository.Add(application);
+        }
     }
 }

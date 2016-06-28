@@ -8,8 +8,9 @@ namespace BugTracker.Domain.Entity
 {
     public class UserRecovery
     {
-        public int Id { get; private set; }
-        public User RequestUser { get; private set; }
+        public int IDUserRecovery { get; private set; }
+        public virtual User RequestUser { get; private set; }
+        public int IDUser { get; private set; }
         public DateTime RequestDate { get; private set; }
         public String HashCode { get; private set; }
 
@@ -25,7 +26,7 @@ namespace BugTracker.Domain.Entity
         public UserRecovery(int id, User requestUser, DateTime requestDate, String hashCode) 
             : this(requestUser, requestDate, hashCode)
         {
-            this.Id = id;
+            this.IDUserRecovery = id;
         }
     }
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Domain.Interface.Service
 {
-    public interface IApplicationService
+    public interface IUserRecoveryService
     {
-        IQueryable<Application> FindByIDUser(int id);
-        void Add(Application application);
+        void Add(UserRecovery userRecovery);
+        UserRecovery FindByEmail(string email);
     }
 }
