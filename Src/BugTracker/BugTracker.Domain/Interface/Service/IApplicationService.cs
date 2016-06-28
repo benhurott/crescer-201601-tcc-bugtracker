@@ -9,7 +9,7 @@ namespace BugTracker.Domain.Interface.Service
 {
     public interface IApplicationService
     {
-        IQueryable<Application> FindByIDUser(int id);
+        IEnumerable<Application> FindByIDUser(int id);
         void Add(Application application);
     }
 }

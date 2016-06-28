@@ -18,7 +18,7 @@ namespace BugTracker.Domain.Service
             this.applicationRepository = applicationRepository;
         }
 
-        public IQueryable<Application> FindByIDUser(int id)
+        public IEnumerable<Application> FindByIDUser(int id)
         {
             return applicationRepository.FindByIDUser(id);
         }
