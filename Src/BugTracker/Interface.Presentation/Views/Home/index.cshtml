@@ -5,3 +5,11 @@
 
 <h2>Voce está logado</h2>
 
+@*TODO: (Remover) Exemplo de upload de imagem*@
+
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+}
+

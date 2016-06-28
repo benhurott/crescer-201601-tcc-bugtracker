@@ -72,8 +72,8 @@ namespace Interface.Presentation.Controllers
                             null,
                             gitHubUser.AvatarUrl,
                             null,
-                            false,
-                            false
+                            true,
+                            true
 
                         ));
                 }

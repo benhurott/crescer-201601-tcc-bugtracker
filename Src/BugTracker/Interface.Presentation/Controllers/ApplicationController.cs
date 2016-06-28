@@ -30,6 +30,7 @@ namespace Interface.Presentation.Controllers
                 var model = new ApplicationModel();
                 model.Id = app.IDApplication;
                 model.Title = app.Title;
+                model.Url = app.Url;
                 model.Description = app.Description;
                 model.Icon = app.Image;
                 model.Tag = app.SpecialTag;
@@ -43,26 +44,37 @@ namespace Interface.Presentation.Controllers
         public ActionResult NewEditApp(ApplicationModel model)
         {
 
-            //TODO pegar id do usuario da sessao
-            var user = userService.FindById(1);
-
-            var app = new Application(model.Title, model.Description,
-                                      model.Url, true, "imagem",
-                                      model.Tag, user);
-
-
+            var IdUser = UserSessionService.LoggedUser.IDUser;
+            var user = userService.FindById(IdUser);
+            
             if (model.Id.HasValue)
             {
-                //edit
+                var app = new Application(model.Id.Value, model.Title, model.Description,
+                                      model.Url, true, "imagem",
+                                      model.Tag, IdUser, user);
+                applicationService.Edit(app);
             }
             else
             {
+                var app = new Application(model.Title, model.Description,
+                                      model.Url, true, "imagem",
+                                      model.Tag, IdUser, user);
                 applicationService.Add(app);
             }
             
-            return View();
+            return RedirectToAction("Home", "User");
         }
 
+        public ActionResult DeleteApp(int id)
+        {
+            var app = applicationService.FindById(id);
+            var user = userService.FindById(app.IDUser);
+
+            var appToDelete = new Application(app.IDApplication, app.Title, app.Description, app.Url, false, app.Image, app.SpecialTag, app.IDUser, user);
+            applicationService.Edit(appToDelete);
+
+            return RedirectToAction("Home", "User");
+        }
         
     }
 }

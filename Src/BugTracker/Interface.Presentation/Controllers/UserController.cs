@@ -23,7 +23,7 @@ namespace Interface.Presentation.Controllers
 
         public ActionResult Home()
         {
-            var model = applicationService.FindByIDUser(1);
+            var model = applicationService.FindByIDUser(UserSessionService.LoggedUser.IDUser);
            
             return View(model);
         }
