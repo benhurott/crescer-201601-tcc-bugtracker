@@ -62,7 +62,7 @@ namespace Interface.Presentation.Controllers
                 applicationService.Add(app);
             }
             
-            return RedirectToAction("Home", "User");
+            return RedirectToAction("Index", "User");
         }
 
         public ActionResult DeleteApp(int id)
@@ -73,16 +73,16 @@ namespace Interface.Presentation.Controllers
             var appToDelete = new Application(app.IDApplication, app.Title, app.Description, app.Url, false, app.Image, app.SpecialTag, app.IDUser, user);
             applicationService.Edit(appToDelete);
 
-            return RedirectToAction("Home", "User");
+            return RedirectToAction("Index", "User");
         }
 
         public ActionResult DetailsApp(int id)
         {
             var app = applicationService.FindById(id);
 
-            if (app.IDUser != id)
+            if (app.IDUser != UserSessionService.LoggedUser.IDUser)
             {
-                return RedirectToAction("Home", "User");
+                return RedirectToAction("Index", "User");
             }
 
             return View("details", app);

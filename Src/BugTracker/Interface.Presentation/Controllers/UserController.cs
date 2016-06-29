@@ -27,16 +27,16 @@ namespace Interface.Presentation.Controllers
 
         public ActionResult Index()
         {
-            var model = applicationService.FindByIDUser(UserSessionService.LoggedUser.IDUser);
-
-            return View(model);
+            var apps = applicationService.FindByIDUser(UserSessionService.LoggedUser.IDUser);
+            return View("Home", apps);
+            
         }
 
         public ActionResult Search(String name)
         {
             var model = applicationService.FindByName(name);
 
-            return View( model);
+            return View("Home", model);
         }
 
         public ActionResult Account()
