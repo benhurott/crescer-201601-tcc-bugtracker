@@ -63,5 +63,21 @@ namespace BugTracker.Infra.Repository.DataEntity
                 return db.Application.Include("BugTrackers").Where(_ => _.Title.Contains(name) && _.Active == true).ToList();
             }
         }
+
+        public ICollection<dynamic> FindAppIdLastTrack(int id)
+        {
+            using (var db = new DataContext())
+            {
+                return db.Application.Select(
+                    _ => new
+                    {
+                        ApplicationName = _.Title,
+                        lastTracker = _.BugTrackers.Max(x => x.OccurredDate)
+                    }
+                ).ToList<dynamic>();
+                
+            }
+        }
+
     }
 }

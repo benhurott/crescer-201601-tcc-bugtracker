@@ -29,7 +29,6 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public ActionResult SignIn()
         {
-
             return RedirectToAction("Index");
         }
 

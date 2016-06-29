@@ -71,31 +71,19 @@
                 <thead>
                     <tr>
                         <th>App Name</th>
-                        <th>Date - 20/06/16</th>
+                        <th>Date - @DateTime.Today.AddDays(-7).ToShortDateString()</th>
                         <th>Today</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><a href="#">FakeBook</a></td>
-                        <td><span class="glyphicon glyphicon-alert errors"></span>  02</td>
-                        <td><span class="glyphicon glyphicon-alert errors"></span>  05</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">FakeBook</a></td>
-                        <td><span class="glyphicon glyphicon-alert warnings"></span> 5</td>
-                        <td><span class="glyphicon glyphicon-alert warnings"></span> 12</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Xml Reader</a></td>
-                        <td><span class="glyphicon glyphicon-alert errors"></span> 5</td>
-                        <td><span class="glyphicon glyphicon-alert errors"></span> 12</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Xml Reader</a></td>
-                        <td><span class="glyphicon glyphicon-alert warnings"></span> 5</td>
-                        <td><span class="glyphicon glyphicon-alert warnings"></span> 12</td>
-                    </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><a href="#"></a>@Html.DisplayFor(modelItem => item.Title)</td>
+                                <td><span class="glyphicon glyphicon-alert errors"></span>@item.BugTrackers.Count()</td>
+                                <td><span class="glyphicon glyphicon-alert errors"></span>@item.BugTrackers.Count()</td>
+                            </tr>
+                        }
                 </tbody>
                 </table>
         </div>

@@ -25,8 +25,7 @@ namespace Interface.Presentation.Models
         [DisplayName("Url Application")]
         [StringLength(100)]
         public string Url { get; set; }
-
-        [Required]
+        
         [DisplayName("Icon Application")]
         [StringLength(100)]
         public string Icon { get; set; }
@@ -36,7 +35,7 @@ namespace Interface.Presentation.Models
         [StringLength(100)]
         public string Tag { get; set; }
 
-        [Required]
+        
         [DisplayName("Icon Application")]
         public HttpPostedFileBase File { get; set; }
 

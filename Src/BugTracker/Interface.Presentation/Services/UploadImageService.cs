@@ -8,10 +8,8 @@ namespace Interface.Presentation.Services
 {
     public static class UploadImageService
     {
-        private static string serverPath = HttpContext.Current.Server.MapPath("~/");
-
-        private static string userImagePath = serverPath + "/Content/Images/Application";
-        private static string applicationImagePath = serverPath + ("/Content/Images/User");
+        private static string userImagePath = PathService.userImagePath;
+        private static string applicationImagePath = PathService.applicationImagePath;
 
         public static bool UploadUserImage(HttpPostedFileBase file)
         {
