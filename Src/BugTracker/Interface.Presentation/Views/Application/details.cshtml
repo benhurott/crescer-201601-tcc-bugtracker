@@ -7,43 +7,34 @@
         <h4>@Html.DisplayFor(model => model.Title)</h4>
     </div>
     <div class="panel-body">
-        <div class="col-md-8">
-            <dl class="dl-horizontal col-md-4">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Description):
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Description)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.SpecialTag):
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.SpecialTag)
-                </dd>
-                <dt>
-                    @Html.DisplayNameFor(model => model.Url):
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Url)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Image):
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Image)
-                </dd>
-            </dl>
-        </div>
-        <a href="~/Application/RegisterApp/@Model.IDApplication" type="button" class="btn btn-success">Edit @Model.Title</a>
-        <a href="~/Application/DeleteApp/@Model.IDApplication"  type="button" class="btn btn-danger">Delete @Model.Title</a>
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Special Tag</th>
+                        <th>Url</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => model.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.SpecialTag)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Url)
+                        </td>
+            </table>
     </div>
-</div>
+        <img src="~/Content/Images/Application/@Html.DisplayFor(model => model.Image)" class="icon details" />
+        <a href="~/Application/RegisterApp/@Model.IDApplication" type="button" class="btn btn-success">Edit @Model.Title</a>
+        <a href="~/User" type="button" class="btn btn-default">Back Home</a>
+        <a href="~/Application/DeleteApp/@Model.IDApplication" type="button" class="btn btn-danger">Delete @Model.Title</a>
+        <a href="#" type="button" class="btn btn-danger">Graphics</a>
+    </div>
+
         
 
         
