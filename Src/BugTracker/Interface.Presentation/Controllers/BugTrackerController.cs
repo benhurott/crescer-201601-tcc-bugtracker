@@ -3,12 +3,9 @@ using Interface.Presentation.Filters;
 using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
 using Domain = BugTracker.Domain;
 
@@ -26,7 +23,7 @@ namespace Interface.Presentation.Controllers
             applicationService = ApplicationServiceInjection.Create();
         }
 
-        [UserToken]
+        [HttpPost]
         public JsonResult Add(BugTrackerPostModel bugTrackerPostModel)
         {
             var application = applicationService.FindByUrl(HttpContext.Request.Url.Host);
@@ -34,7 +31,10 @@ namespace Interface.Presentation.Controllers
 
             if (application == null)
             {
-                throw new HttpException((int)HttpStatusCode.BadRequest, "Domain request invalid. Verify your domain in painel.");
+                throw new HttpException(
+                    (int)HttpStatusCode.BadRequest,
+                    "Domain request invalid. Verify your domain in painel."
+                );
             }
 
             if (!ModelState.IsValid)
@@ -72,7 +72,7 @@ namespace Interface.Presentation.Controllers
             }
             catch (Exception e)
             {
-                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error in saving request");
+                throw new HttpException((int)HttpStatusCode.InternalServerError, e.ToString());
             }
         }
     }
