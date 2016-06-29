@@ -8,6 +8,6 @@ namespace BugTracker.Domain.Entity
 {
     public class OperationalSystem : Software
     {
-        private OperationalSystem() : base() { }
+        public OperationalSystem(string name) : base(name) { }
     }
 }
