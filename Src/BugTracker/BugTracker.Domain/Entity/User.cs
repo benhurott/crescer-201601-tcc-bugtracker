@@ -13,7 +13,7 @@ namespace BugTracker.Domain.Entity
         public virtual ICollection<Application> Applications { get; private set; }
         public bool Active { get; set; }
         public bool AccountConfirmed { get; set; }
-        public virtual ICollection<Activation> Activations { get; private set; }
+        public virtual Activation Activation { get; private set; }
 
         public User() { }
 
