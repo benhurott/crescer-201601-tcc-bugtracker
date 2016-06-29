@@ -193,6 +193,7 @@
     <Compile Include="Models\BugTracker\BugTrackerPostModel.cs" />
     <Compile Include="Models\User\LoggedUserViewModel.cs" />
     <Compile Include="Models\User\RegisterUserViewModel.cs" />
+    <Compile Include="Models\User\UserEditAccountViewModel.cs" />
     <Compile Include="Models\User\UserLoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ActivationServiceInjection.cs" />
