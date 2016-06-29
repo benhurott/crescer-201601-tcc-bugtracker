@@ -1,2 +1,49 @@
-﻿<h2>details</h2>
-asdasd
+﻿@model BugTracker.Domain.Entity.Application
+@{
+    ViewBag.Title = "details";
+}
+<div class="panel panel-success col-md-7 box">
+    <div class="panel-heading">
+        <h4>@Html.DisplayFor(model => model.Title)</h4>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-8">
+            <dl class="dl-horizontal col-md-4">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description):
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SpecialTag):
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SpecialTag)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Url):
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Url)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Image):
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Image)
+                </dd>
+            </dl>
+        </div>
+        <a href="~/Application/RegisterApp/@Model.IDApplication" type="button" class="btn btn-success">Edit @Model.Title</a>
+        <a href="~/Application/DeleteApp/@Model.IDApplication"  type="button" class="btn btn-danger">Delete @Model.Title</a>
+    </div>
+</div>
+        
+
+        
