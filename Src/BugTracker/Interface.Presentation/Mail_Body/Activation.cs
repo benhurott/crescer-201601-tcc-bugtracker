@@ -10,7 +10,7 @@ namespace Interface.Presentation.Mail_Body
 {
     public static class UserActivation
     {
-        private static MailService mail = new MailService();
+        private static IMailService mail = MailServiceInjection.Create();
 
         private static IActivationService activationService = ActivationServiceInjection.Create();
 
@@ -21,7 +21,7 @@ namespace Interface.Presentation.Mail_Body
 
         private static string SendTo(string mailTo)
         {
-            string code = Guid.NewGuid().ToString();
+            string code = Guid.NewGuid().ToString() + UserSessionService.LoggedUser.IDUser;
 
             string body =
                 "<div>" +

@@ -69,6 +69,7 @@
     <Compile Include="Interface\Service\IActivationService.cs" />
     <Compile Include="Interface\Service\IApplicationService.cs" />
     <Compile Include="Interface\Service\IBugTrackerService.cs" />
+    <Compile Include="Interface\Service\IMailService.cs" />
     <Compile Include="Interface\Service\IUserRecoveryService.cs" />
     <Compile Include="Interface\Service\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

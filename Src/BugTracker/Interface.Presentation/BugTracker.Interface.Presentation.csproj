@@ -149,6 +149,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Library\cwitracker_min.js" />
+    <Content Include="Scripts\Custom\layout\layoutHome.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -197,7 +198,9 @@
     <Compile Include="Services\ActivationServiceInjection.cs" />
     <Compile Include="Services\ApplicationServiceInjection.cs" />
     <Compile Include="Services\BugTrackerServiceInjection.cs" />
-    <Compile Include="Services\MailService.cs" />
+    <Compile Include="Services\DownloadImageService.cs" />
+    <Compile Include="Services\MailServiceInjection.cs" />
+    <Compile Include="Services\PathService.cs" />
     <Compile Include="Services\UploadImageService.cs" />
     <Compile Include="Services\UserServiceInjection.cs" />
     <Compile Include="Services\UserSessionService.cs" />
@@ -227,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Domain\BugTracker.Domain.csproj">
