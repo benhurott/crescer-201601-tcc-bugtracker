@@ -63,6 +63,8 @@ namespace Interface.Presentation.Controllers
 
                 string name = gitHubUser.Name != null ? gitHubUser.Name : gitHubUser.Login;
 
+                string profileImage = DownloadImageService.DownloadUserImage(gitHubUser.AvatarUrl,gitHubUser.Login);
+
                 BugTracker.Domain.Entity.User userFound = userService.FindByEmail(primaryEmail);
 
                 if (userFound == null)
@@ -72,7 +74,7 @@ namespace Interface.Presentation.Controllers
                             name,
                             primaryEmail,
                             null,
-                            gitHubUser.AvatarUrl,
+                            profileImage,
                             null,
                             true,
                             true

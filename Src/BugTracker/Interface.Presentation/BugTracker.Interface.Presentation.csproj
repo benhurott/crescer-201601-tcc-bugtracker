@@ -198,8 +198,9 @@
     <Compile Include="Services\ActivationServiceInjection.cs" />
     <Compile Include="Services\ApplicationServiceInjection.cs" />
     <Compile Include="Services\BugTrackerServiceInjection.cs" />
-    <Compile Include="Services\DownloadImage.cs" />
+    <Compile Include="Services\DownloadImageService.cs" />
     <Compile Include="Services\MailServiceInjection.cs" />
+    <Compile Include="Services\PathService.cs" />
     <Compile Include="Services\UploadImageService.cs" />
     <Compile Include="Services\UserServiceInjection.cs" />
     <Compile Include="Services\UserSessionService.cs" />
