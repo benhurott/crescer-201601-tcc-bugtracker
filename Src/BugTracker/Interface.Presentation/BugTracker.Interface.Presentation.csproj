@@ -185,6 +185,7 @@
     <Compile Include="Mail_Body\Activation.cs" />
     <Compile Include="Models\Application\ApplicationModel.cs" />
     <Compile Include="Models\Application\ApplicationViewModel.cs" />
+    <Compile Include="Models\BugTracker\BugTrackerPostModel.cs" />
     <Compile Include="Models\User\LoggedUserViewModel.cs" />
     <Compile Include="Models\User\RegisterUserViewModel.cs" />
     <Compile Include="Models\User\UserLoginViewModel.cs" />

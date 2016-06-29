@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using BugTracker.Domain.Entity;
+using Domain = BugTracker.Domain.Entity;
 
 namespace Interface.Presentation.Models.User
 {
@@ -27,7 +27,7 @@ namespace Interface.Presentation.Models.User
         }
         //TODO: adicionar o ICollection de aplication no user
         // já implementado --  ApplicationViewModel.CollectionToViewModel(u.Applications)
-        public LoggedUserViewModel(BugTracker.Domain.Entity.User u) : 
+        public LoggedUserViewModel(Domain.User u) : 
             this(u.IDUser, u.Name, u.Email, u.Image, null, u.AccountConfirmed) {  }
     }
 }
