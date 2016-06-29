@@ -5,6 +5,10 @@
 
 <h2>Voce está logado</h2>
 
+<div class="alert alert-success">
+    @TempData["Activation"]
+</div>
+
 @*TODO: (Remover) Exemplo de upload de imagem*@
 
 @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))

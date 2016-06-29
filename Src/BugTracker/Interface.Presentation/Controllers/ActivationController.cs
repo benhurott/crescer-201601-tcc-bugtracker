@@ -34,8 +34,7 @@ namespace Interface.Presentation.Controllers
 
                 activationService.Remove(activation.IDActivation);
 
-                ViewBag.Activation = "Your account was successively activated ViewBag";
-                TempData["Activation"] = "Your account was successively activated TMPDATA";
+                TempData["Activation"] = "Your account was successively activated";
             }
 
             return RedirectToAction("Index", "Home");
