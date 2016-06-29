@@ -15,8 +15,6 @@ namespace BugTracker.Infra.Repository.Map
             ToTable("Activation");
             HasKey(a => a.IDActivation);
 
-            HasRequired(a => a.Code);
-
             HasRequired(_ => _.User)
                 .WithRequiredDependent(u => u.Activation);
         }
