@@ -56,6 +56,7 @@
                     @Html.TextBoxFor(model => model.File, new { type = "file" })
                     @Html.ValidationMessageFor(model => model.File);
                 </div>
+                @Html.HiddenFor(model => model.Icon)
             </div>
 
             <div class="form-group">

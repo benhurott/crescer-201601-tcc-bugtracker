@@ -35,12 +35,12 @@ namespace Interface.Presentation.Controllers
         }
 
         [UserToken]
-        [HttpGet]
+        [HttpPost]
         public ActionResult Search(String name)
         {
             var model = applicationService.FindByName(name);
 
-            return View("Home", model);
+            return View("Index", model);
         }
 
         [UserToken]

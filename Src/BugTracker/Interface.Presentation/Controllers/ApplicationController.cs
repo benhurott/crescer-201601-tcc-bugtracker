@@ -22,6 +22,7 @@ namespace Interface.Presentation.Controllers
             applicationService = ApplicationServiceInjection.Create();
             userService = UserServiceInjection.Create();
         }
+
         [UserToken]
         [HttpGet]
         public ActionResult RegisterApp(int? id)
@@ -35,6 +36,7 @@ namespace Interface.Presentation.Controllers
                 model.Url = app.Url;
                 model.Description = app.Description;
                 model.Icon = app.Image;
+                
                 model.Tag = app.SpecialTag;
 
                 return View("register-app", model);
@@ -50,22 +52,28 @@ namespace Interface.Presentation.Controllers
 
             var IdUser = UserSessionService.LoggedUser.IDUser;
             var user = userService.FindById(IdUser);
+            String fileName = model.Icon;
+
+            if (model.File != null)
+            {
+                fileName = model.File.FileName;
+            }
             
             if (model.Id.HasValue)
             {
                 var app = new Application(model.Id.Value, model.Title, model.Description,
-                                      model.Url, true, model.File.FileName,
+                                      model.Url, true, fileName,
                                       model.Tag, IdUser, user);
                 applicationService.Edit(app);
             }
             else
             {
                 var app = new Application(model.Title, model.Description,
-                                      model.Url, true, model.File.FileName,
+                                      model.Url, true, fileName,
                                       model.Tag, IdUser, user);
                 applicationService.Add(app);
             }
-
+            
             UploadImageService.UploadUserImage(model.File);
             return RedirectToAction("Index", "User");
         }
