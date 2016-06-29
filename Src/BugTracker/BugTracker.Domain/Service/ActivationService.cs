@@ -29,7 +29,7 @@ namespace BugTracker.Domain.Service
         }
         public void Remove(int id)
         {
-            this.Remove(id);
+            this.activationRepository.Remove(id);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BugTracker.Domain.Interface.Service;
 using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -8,7 +9,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
-using Domain = BugTracker.Domain.Entity;
+using Domain = BugTracker.Domain;
 
 
 namespace Interface.Presentation.Controllers
@@ -24,29 +25,53 @@ namespace Interface.Presentation.Controllers
             applicationService = ApplicationServiceInjection.Create();
         }
 
-        public void Add(BugTrackerPostModel bugTrackerPostModel)
+        public JsonResult Add(BugTrackerPostModel bugTrackerPostModel)
         {
-            //HttpContext.Request.Url.Host
-            var application = applicationService.FindByUrl("dasdasd");
+            var application = applicationService.FindByUrl(HttpContext.Request.Url.Host);
             var request = HttpContext.Request;
-            List<Domain.BugTrackerTag> a;
-            a = new List<Domain.BugTrackerTag>();
-            a.Add(new Domain.BugTrackerTag("teste"));
 
+            if (application == null)
+            {
+                throw new HttpException((int)HttpStatusCode.BadRequest, "Domain request invalid. Verify your domain in painel.");
+            }
 
-            bugTrackerService.Add(
-                new Domain.BugTracker(
-                    application,
-                    bugTrackerPostModel.Status,
-                    bugTrackerPostModel.Trace,
-                    new System.DateTime(),
-                    a,
-                    new Domain.BugTrackerNavigation(
-                        new Domain.Browser(request.Browser.Browser, request.Browser.Version),
-                        new Domain.OperationalSystem(request.Browser.Platform)
+            if (!ModelState.IsValid)
+            {
+                throw new HttpException(
+                    (int)HttpStatusCode.BadRequest,
+                    string.Join("; ", ModelState.Values
+                        .SelectMany(x => x.Errors)
+                        .Select(x => x.ErrorMessage)
                     )
-                )
-             );
+                );
+            }
+
+            try
+            {
+                bugTrackerService.Add(
+                    new Domain.Entity.BugTracker(
+                        application,
+                        bugTrackerPostModel.Status,
+                        bugTrackerPostModel.Trace,
+                        DateTime.Today,
+                        bugTrackerPostModel.ToTrackerTag(),
+                        new Domain.Entity.BugTrackerNavigation(
+                            new Domain.Entity.Browser(request.Browser.Browser, request.Browser.Version),
+                            new Domain.Entity.OperationalSystem(request.Browser.Platform)
+                        )
+                    )
+                );
+
+                return Json(new { info = "Success!" });
+            }
+            catch (Domain.Exceptions.TagVeryLargeException e)
+            {
+                throw new HttpException((int)HttpStatusCode.BadRequest, e.ToString());
+            }
+            catch (Exception e)
+            {
+                throw new HttpException((int)HttpStatusCode.InternalServerError, "Error in saving request");
+            }
         }
     }
 }
