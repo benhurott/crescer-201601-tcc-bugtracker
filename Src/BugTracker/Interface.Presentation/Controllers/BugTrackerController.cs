@@ -7,10 +7,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Mvc;
+using Domain = BugTracker.Domain.Entity;
+
 
 namespace Interface.Presentation.Controllers
 {
-    public class BugTrackerController : ApiController
+    public class BugTrackerController : Controller
     {
         private IBugTrackerService bugTrackerService;
         private IApplicationService applicationService;
@@ -21,18 +24,29 @@ namespace Interface.Presentation.Controllers
             applicationService = ApplicationServiceInjection.Create();
         }
 
-        // POST: api/BugTracker
-        public IEnumerable<string> Post(BugTrackerPostModel bugTrackerPostModel)
+        public void Add(BugTrackerPostModel bugTrackerPostModel)
         {
-            var application = applicationService.FindByUrl("asodij");
+            //HttpContext.Request.Url.Host
+            var application = applicationService.FindByUrl("dasdasd");
+            var request = HttpContext.Request;
+            List<Domain.BugTrackerTag> a;
+            a = new List<Domain.BugTrackerTag>();
+            a.Add(new Domain.BugTrackerTag("teste"));
 
-            //var request =  HttpContext.Current.Request;
-            //var browser = request.Browser.Browser;
-            //var browserVersion = request.Browser.Version;
-            //var SO = request.Browser.Platform;
-            //string host = HttpContext.Current.Request.Url.Host;
 
-            return new string[] { "value1", "value2" };
+            bugTrackerService.Add(
+                new Domain.BugTracker(
+                    application,
+                    bugTrackerPostModel.Status,
+                    bugTrackerPostModel.Trace,
+                    new System.DateTime(),
+                    a,
+                    new Domain.BugTrackerNavigation(
+                        new Domain.Browser(request.Browser.Browser, request.Browser.Version),
+                        new Domain.OperationalSystem(request.Browser.Platform)
+                    )
+                )
+             );
         }
     }
 }
