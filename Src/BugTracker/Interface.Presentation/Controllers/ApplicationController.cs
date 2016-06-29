@@ -40,7 +40,8 @@ namespace Interface.Presentation.Controllers
 
             return View("register-app");
         }
-
+ 
+        [HttpPost]
         public ActionResult NewEditApp(ApplicationModel model)
         {
 
@@ -50,18 +51,19 @@ namespace Interface.Presentation.Controllers
             if (model.Id.HasValue)
             {
                 var app = new Application(model.Id.Value, model.Title, model.Description,
-                                      model.Url, true, "imagem",
+                                      model.Url, true, model.File.FileName,
                                       model.Tag, IdUser, user);
                 applicationService.Edit(app);
             }
             else
             {
                 var app = new Application(model.Title, model.Description,
-                                      model.Url, true, "imagem",
+                                      model.Url, true, model.File.FileName,
                                       model.Tag, IdUser, user);
                 applicationService.Add(app);
             }
-            
+
+            UploadImageService.UploadUserImage(model.File);
             return RedirectToAction("Index", "User");
         }
 

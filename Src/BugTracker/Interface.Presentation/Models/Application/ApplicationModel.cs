@@ -36,5 +36,9 @@ namespace Interface.Presentation.Models
         [StringLength(100)]
         public string Tag { get; set; }
 
+        [Required]
+        [DisplayName("Icon Application")]
+        public HttpPostedFileBase File { get; set; }
+
     }
 }

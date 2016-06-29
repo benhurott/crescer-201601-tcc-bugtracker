@@ -33,3 +33,20 @@
 .warnings{
   color: yellow;
 }
+
+.icon{
+  border-style: groove;
+  border-width: 1px;
+  border-color: #93c54b;
+}
+
+.details{
+    width: 128px;
+    height: 128px;
+    margin: 40px;
+}
+
+.list{
+    width: 32px;
+    height: 32px;
+}
