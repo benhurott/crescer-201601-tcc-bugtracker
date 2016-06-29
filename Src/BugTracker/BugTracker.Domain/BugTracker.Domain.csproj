@@ -69,12 +69,14 @@
     <Compile Include="Interface\Service\IActivationService.cs" />
     <Compile Include="Interface\Service\IApplicationService.cs" />
     <Compile Include="Interface\Service\IBugTrackerService.cs" />
+    <Compile Include="Interface\Service\IMailService.cs" />
     <Compile Include="Interface\Service\IUserRecoveryService.cs" />
     <Compile Include="Interface\Service\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ActivationService.cs" />
     <Compile Include="Service\ApplicationService.cs" />
     <Compile Include="Service\BugTrackerService.cs" />
+    <Compile Include="Service\MailService.cs" />
     <Compile Include="Service\UserRecoveryService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
