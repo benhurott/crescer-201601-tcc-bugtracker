@@ -22,6 +22,7 @@ namespace Interface.Presentation.Controllers
             new ProductHeaderValue("BugTracker-GitHub-Oauth"), 
             new Uri("https://github.com/"));
 
+        [HttpGet]
         public async Task<ActionResult> GithubAuthentication(string code, string state)
         {
             if (!String.IsNullOrEmpty(code))
@@ -42,6 +43,7 @@ namespace Interface.Presentation.Controllers
             return RedirectToAction("SignInGitHub");
         }
 
+        [HttpGet]
         public async Task<ActionResult> SignInGitHub()
         {
             var accessToken = Session["OAuthToken"] as string;
@@ -80,7 +82,7 @@ namespace Interface.Presentation.Controllers
 
                 UserSessionService.CreateSession(new Models.User.LoggedUserViewModel(userFound));
 
-                return RedirectToAction("Index","Login");
+                return RedirectToAction("Index","User");
 
             }
 

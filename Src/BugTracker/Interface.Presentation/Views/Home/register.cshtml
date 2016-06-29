@@ -1,10 +1,9 @@
 ﻿@model Interface.Presentation.Models.User.RegisterUserViewModel
 
 @{
-    ViewBag.Title = "register";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "BugTracker Register";
 }
-
-<h2>register</h2>
 
 
 @using (Html.BeginForm("NewRegister", "Home", FormMethod.Post, new { @class = "form" })) 
@@ -12,7 +11,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>RegisterUserViewModel</h4>
         <hr />
         @Html.ValidationSummary(false, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -63,9 +61,6 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

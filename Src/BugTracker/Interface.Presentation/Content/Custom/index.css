@@ -1,0 +1,36 @@
+.carousel-context {
+    display: flex;
+    justify-content: space-around;
+    color: #1E392A;
+    background: #FFFFFF;
+    flex-direction: column;
+    align-items: center;
+    min-height: 880px;
+}
+
+.web-info {
+    min-height: 500px;
+    background-color: #1E392A;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 65px 180px;
+}
+
+.developers-info {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    flex-direction: row;
+    align-content: center;
+    text-align: center;
+}
+
+.carousel-indicators li{
+    border-color: #1E392A;
+}
+
+.carousel-indicators .active{
+    background-color: #1E392A;
+}

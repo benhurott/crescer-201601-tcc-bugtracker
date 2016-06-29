@@ -20,24 +20,32 @@ namespace Interface.Presentation.Controllers
             userService = UserServiceInjection.Create();
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
-            if(UserSessionService.IsLogged)
-                return View();
-            return RedirectToAction("Index", "Login");
+            return View();
         }
 
+        [HttpGet]
         public ActionResult SignIn()
         {
 
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Support()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Documentation()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult Register()
         {
             return View();

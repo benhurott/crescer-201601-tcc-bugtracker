@@ -1,19 +1,98 @@
-﻿
-@{
-    ViewBag.Title = "index";
+﻿@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    ViewBag.Title = "BugTracker Home";
 }
 
-<h2>Voce está logado</h2>
+@section css{
+    <link href="~/content/Custom/index.css" rel="stylesheet" />
+}
 
-<div class="alert alert-success">
-    @TempData["Activation"]
+<div class="main">
+
+    <!-- Header carousel -->
+    <div id="carousel-header" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-header" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-header" data-slide-to="1"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="carousel-context">
+                    <h1>ipsum Lorem ipsum dolor sit amet, consectetur adipisicing</h1>
+                    <div>
+                        <a href=@Url.Action("Index","Login") class="btn btn-signin btn-lg btn-success">SingIn</a>
+                        <a href=@Url.Action("Register", "Home") class="btn btn-signin btn-lg btn-default">Register</a>
+                    </div>
+                </div>
+                <div class="carousel-caption">
+                    Nossa aplicação Lorem ipsum dolor sit amet,
+                </div>
+            </div>
+            <div class="item">
+                <div class="carousel-context">
+                    <h1>ipsum Lorem ipsum dolor sit amet, consectetur adipisicing</h1>
+                    <div>
+                        <a href=@Url.Action("Index","Login") class="btn btn-signin btn-lg btn-success">SingIn</a>
+                        <a href=@Url.Action("Register", "Home") class="btn btn-signin btn-lg btn-default">Register</a>
+                    </div>
+                </div>
+                <div class="carousel-caption">
+                    Nossa aplicação Lorem ipsum dolor sit amet,
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-header" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-header" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
+    </div>
+
+    <!-- Application informations -->
+    <div class="web-info">
+        <h1>Ipsum lorem </h1>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+
+    <div class="container">
+        <div class="row developers-info">
+            <div class="col-lg-4">
+                <img class="img-circle" src="/content/images/website/default-perfil.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>Heading</h2>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="/content/images/website/default-perfil.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>Heading</h2>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="/content/images/website/default-perfil.jpg" alt="Generic placeholder image" width="140" height="140">
+                <h2>Heading</h2>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div>
+    </div><!-- /.row -->
 </div>
+
+
 
 @*TODO: (Remover) Exemplo de upload de imagem*@
 
-@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <input type="file" name="file" />
-    <input type="submit" value="OK" />
-}
+@*@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="file" />
+        <input type="submit" value="OK" />
+    }*@
 

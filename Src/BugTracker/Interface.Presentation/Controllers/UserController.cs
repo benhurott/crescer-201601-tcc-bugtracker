@@ -1,6 +1,7 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Service;
 using BugTracker.Domain.Service;
+using Interface.Presentation.Filters;
 using Interface.Presentation.Models.User;
 using Interface.Presentation.Services;
 using System;
@@ -24,14 +25,17 @@ namespace Interface.Presentation.Controllers
             userService = UserServiceInjection.Create();
         }
 
-
+        [UserToken]
+        [HttpGet]
         public ActionResult Index()
         {
             var apps = applicationService.FindByIDUser(UserSessionService.LoggedUser.IDUser);
-            return View("Home", apps);
+            return View(apps);
             
         }
 
+        [UserToken]
+        [HttpGet]
         public ActionResult Search(String name)
         {
             var model = applicationService.FindByName(name);
@@ -39,21 +43,21 @@ namespace Interface.Presentation.Controllers
             return View("Home", model);
         }
 
+        [UserToken]
+        [HttpGet]
         public ActionResult Account()
         {
             return View();
         }
 
-        public ActionResult Documentation()
-        {
-            return View();
-        }
-
+        [UserToken]
+        [HttpGet]
         public ActionResult Download()
         {
             return View();
         }
 
+        [UserToken]
         [HttpGet]
         public FileResult DownloadLibrary(string type)
         {

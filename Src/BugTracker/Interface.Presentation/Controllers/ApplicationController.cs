@@ -1,5 +1,6 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Service;
+using Interface.Presentation.Filters;
 using Interface.Presentation.Models;
 using Interface.Presentation.Models.Application;
 using Interface.Presentation.Services;
@@ -21,7 +22,8 @@ namespace Interface.Presentation.Controllers
             applicationService = ApplicationServiceInjection.Create();
             userService = UserServiceInjection.Create();
         }
-
+        [UserToken]
+        [HttpGet]
         public ActionResult RegisterApp(int? id)
         {
             if (id.HasValue)
@@ -42,6 +44,7 @@ namespace Interface.Presentation.Controllers
         }
  
         [HttpPost]
+        [UserToken]
         public ActionResult NewEditApp(ApplicationModel model)
         {
 
@@ -67,6 +70,8 @@ namespace Interface.Presentation.Controllers
             return RedirectToAction("Index", "User");
         }
 
+        [UserToken]
+        [HttpGet]
         public ActionResult DeleteApp(int id)
         {
             var app = applicationService.FindById(id);
@@ -78,6 +83,8 @@ namespace Interface.Presentation.Controllers
             return RedirectToAction("Index", "User");
         }
 
+        [UserToken]
+        [HttpGet]
         public ActionResult DetailsApp(int id)
         {
             var app = applicationService.FindById(id);

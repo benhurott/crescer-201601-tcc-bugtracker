@@ -132,7 +132,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Custom\estilo-painel.css" />
+    <Content Include="Content\Custom\index.css" />
+    <Content Include="Content\Custom\layout-home.css" />
+    <Content Include="Content\Custom\layout.css" />
+    <Content Include="Content\Custom\login.css" />
+    <Content Include="Content\Custom\panel.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -203,17 +207,17 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\User\home.cshtml" />
+    <Content Include="Views\User\index.cshtml" />
     <Content Include="Views\User\account.cshtml" />
     <Content Include="Views\User\download.cshtml" />
-    <Content Include="Views\User\documentation.cshtml" />
-    <Content Include="Views\Login\login.cshtml" />
     <Content Include="Views\Home\index.cshtml" />
     <Content Include="Views\Application\register-app.cshtml" />
     <Content Include="Views\Application\details.cshtml" />
     <Content Include="Views\Login\index.cshtml" />
     <Content Include="Views\Home\register.cshtml" />
     <Content Include="Views\Home\documentation.cshtml" />
+    <Content Include="Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Views\Home\support.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -223,7 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Activation\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Domain\BugTracker.Domain.csproj">

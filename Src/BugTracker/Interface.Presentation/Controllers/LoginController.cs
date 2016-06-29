@@ -1,5 +1,6 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Service;
+using Interface.Presentation.Filters;
 using Interface.Presentation.Models.User;
 using Interface.Presentation.Services;
 using System;
@@ -23,6 +24,7 @@ namespace Interface.Presentation.Controllers
         }
 
         [HttpGet]
+        [UserToken]
         public ActionResult Loggout()
         {
             UserSessionService.Loggout();
@@ -45,7 +47,7 @@ namespace Interface.Presentation.Controllers
                     var userLoggedModel = new LoggedUserViewModel(userFounded);
 
                     UserSessionService.CreateSession(userLoggedModel);
-                    return View("Index");
+                    return RedirectToAction("Index","User");
                 }
                 else
                 {

@@ -1,4 +1,5 @@
 ﻿using BugTracker.Domain.Interface.Service;
+using Interface.Presentation.Filters;
 using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
 using System;
@@ -25,6 +26,7 @@ namespace Interface.Presentation.Controllers
             applicationService = ApplicationServiceInjection.Create();
         }
 
+        [UserToken]
         public JsonResult Add(BugTrackerPostModel bugTrackerPostModel)
         {
             var application = applicationService.FindByUrl(HttpContext.Request.Url.Host);

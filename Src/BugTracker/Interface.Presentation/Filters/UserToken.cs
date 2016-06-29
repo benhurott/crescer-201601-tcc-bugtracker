@@ -24,7 +24,7 @@ namespace Interface.Presentation.Filters
                 filterContext.Result = new RedirectToRouteResult(
                                    new RouteValueDictionary
                                    {
-                                       { "action", "SignIn" },
+                                       { "action", "Index" },
                                        { "controller", "Login" }
                                    });
             }

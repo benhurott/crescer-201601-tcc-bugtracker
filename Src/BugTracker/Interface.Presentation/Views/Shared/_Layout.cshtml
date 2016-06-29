@@ -1,34 +1,38 @@
-﻿<!DOCTYPE html>
+﻿@using Interface.Presentation.Services;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BugTracker</title>
     <link rel="stylesheet" href="https://bootswatch.com/sandstone/bootstrap.min.css">
-    <link href="~/Content/Custom/estilo-painel.css" rel="stylesheet" />
+    <link href="~/Content/Custom/panel.css" rel="stylesheet" />
+    <link href="~/Content/Custom/layout.css" rel="stylesheet" />
     <link rel="shortcut icon" href="~/Content/Images/Application/cockroach.png" type="image/x-icon" />
+    @RenderSection("css", false)
 </head>
     <body>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href=@Url.Action("Index", "User")><img src="~/Content/Images/Application/cockroach.png" class="logo" /></a>
+                    <a href=@Url.Action("Index", "User")><img src="~/Content/Images/Application/logo-m.png" class="logo" /></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                     <ul class="nav navbar-nav">
-                        <li><h3>Hello User <span class="sr-only">(current)</span></h3></li>
+                        <li><h3>Hello @UserSessionService.LoggedUser.Name <span class="sr-only">(current)</span></h3></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href=@Url.Action("account", "user") class="glyphicon glyphicon-user">  Your Account</a></li>
-                        <li><a href=@Url.Action("download", "user") class="glyphicon glyphicon-save">  Download</a></li>
-                        <li><a href=@Url.Action("documentation", "user") class="glyphicon glyphicon-duplicate">  Documentation</a></li>
+                        <li><a href=@Url.Action("Account", "User") class="glyphicon glyphicon-user">  Your Account</a></li>
+                        <li><a href=@Url.Action("Download", "User") class="glyphicon glyphicon-save">  Download</a></li>
+                        <li><a href=@Url.Action("Documentation", "Home") class="glyphicon glyphicon-duplicate">  Documentation</a></li>
                         <li><a href=@Url.Action("Loggout", "Login") class="glyphicon glyphicon-log-out">  Logout</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav>  
 
     <div>
         @RenderBody()
