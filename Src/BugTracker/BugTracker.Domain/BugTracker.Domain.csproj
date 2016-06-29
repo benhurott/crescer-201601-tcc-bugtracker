@@ -76,7 +76,6 @@
     <Compile Include="Service\ActivationService.cs" />
     <Compile Include="Service\ApplicationService.cs" />
     <Compile Include="Service\BugTrackerService.cs" />
-    <Compile Include="Service\MailService.cs" />
     <Compile Include="Service\UserRecoveryService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
