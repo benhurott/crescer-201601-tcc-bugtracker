@@ -1,10 +1,9 @@
-CREATE TABLE Activation(
-	IDActivation int IDENTITY NOT NULL,
-	Code varchar(500) NOT NULL,
-	IDUser int NOT NULL,
-	CONSTRAINT PK_IDActivation PRIMARY KEY(IDActivation),
-	CONSTRAINT UK_Code UNIQUE(Code),
-	CONSTRAINT FK_IDUser FOREIGN KEY(IDUser) REFERENCES [BugTracker].[dbo].[User](IDUser)
+CREATE TABLE [dbo].[Activation] (
+    [IDActivation] [int] NOT NULL,
+    [Code] [varchar](100) NOT NULL,
+    [IDUser] [int] NOT NULL,
+    CONSTRAINT [PK_dbo.Activation] PRIMARY KEY ([IDActivation])
 )
-CREATE INDEX IX_Code
-ON Activation (Code)
+CREATE INDEX [IX_IDActivation] ON [dbo].[Activation]([IDActivation])
+CREATE INDEX IX_Code ON Activation (Code)
+ALTER TABLE [dbo].[Activation] ADD CONSTRAINT [FK_dbo.Activation_dbo.User_IDActivation] FOREIGN KEY ([IDActivation]) REFERENCES [dbo].[User] ([IDUser])
