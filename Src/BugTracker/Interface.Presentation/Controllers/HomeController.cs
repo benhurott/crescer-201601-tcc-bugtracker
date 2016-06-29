@@ -1,5 +1,6 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Service;
+using Interface.Presentation.Mail_Body;
 using Interface.Presentation.Models.User;
 using Interface.Presentation.Services;
 using System;
@@ -71,7 +72,9 @@ namespace Interface.Presentation.Controllers
                     true,
                     false);
 
-                userService.Add(user);
+                user = userService.Add(user);
+
+                UserActivation.SendTo(user);
 
                 return RedirectToAction("Index");
             }

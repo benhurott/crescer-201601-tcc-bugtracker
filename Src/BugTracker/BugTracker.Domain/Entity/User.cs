@@ -11,8 +11,9 @@ namespace BugTracker.Domain.Entity
         public String Password { get; set; }
         public String Image { get; private set; }
         public virtual ICollection<Application> Applications { get; private set; }
-        public bool Active { get; private set; }
-        public bool AccountConfirmed { get; private set; }
+        public bool Active { get; set; }
+        public bool AccountConfirmed { get; set; }
+        public virtual ICollection<Activation> Activations { get; private set; }
 
         public User() { }
 

@@ -47,10 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext.cs" />
+    <Compile Include="DataEntity\ActivationRepository.cs" />
     <Compile Include="DataEntity\ApplicationRepository.cs" />
     <Compile Include="DataEntity\BugTrackerRepository.cs" />
     <Compile Include="DataEntity\UserRecoveryRepository.cs" />
     <Compile Include="DataEntity\UserRepository.cs" />
+    <Compile Include="Map\ActivationMap.cs" />
     <Compile Include="Map\ApplicationMap.cs" />
     <Compile Include="Map\BugTrackerMap.cs" />
     <Compile Include="Map\BugTrackerNavigationMap.cs" />

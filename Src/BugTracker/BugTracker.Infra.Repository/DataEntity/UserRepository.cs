@@ -42,5 +42,17 @@ namespace BugTracker.Infra.Repository.DataEntity
                 return db.User.AsNoTracking().FirstOrDefault(_ => _.Email == email && _.Password == password);
             }
         }
+
+        public void ActiveAccount(User user)
+        {
+            using (var db = new DataContext())
+            {
+                user.AccountConfirmed = true;
+
+                db.Entry<User>(user).State = System.Data.Entity.EntityState.Modified;
+
+                db.SaveChanges();
+            }
+        }
     }
 }

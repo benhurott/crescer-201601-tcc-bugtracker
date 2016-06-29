@@ -13,5 +13,6 @@ namespace BugTracker.Domain.Interface.Service
         User FindByEmail(string email);
         User FindByAuthentication(string email, string password);
         User Add(User user);
+        void ActiveAccount(User user);
     }
 }

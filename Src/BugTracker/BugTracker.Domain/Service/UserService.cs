@@ -37,6 +37,11 @@ namespace BugTracker.Domain.Service
             return userRepository.FindByAuthentication(email, Encrypt(password));
         }
 
+        public void ActiveAccount(User user)
+        {
+            userRepository.ActiveAccount(user);
+        }
+
         //TODO: Trocar o metodo de criptografia
         private string Encrypt(string password)
         {

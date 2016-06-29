@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Activation.cs" />
     <Compile Include="Entity\Application.cs" />
     <Compile Include="Entity\Browser.cs" />
     <Compile Include="Entity\BugTracker.cs" />
@@ -59,15 +60,18 @@
     <Compile Include="Entity\BugTrackerTag.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserRecovery.cs" />
+    <Compile Include="Interface\Repository\IActivationRepository.cs" />
     <Compile Include="Interface\Repository\IApplicationRepository.cs" />
     <Compile Include="Interface\Repository\IBugTrackerRepository.cs" />
     <Compile Include="Interface\Repository\IUserRecoveryRepository.cs" />
     <Compile Include="Interface\Repository\IUserRepository.cs" />
+    <Compile Include="Interface\Service\IActivationService.cs" />
     <Compile Include="Interface\Service\IApplicationService.cs" />
     <Compile Include="Interface\Service\IBugTrackerService.cs" />
     <Compile Include="Interface\Service\IUserRecoveryService.cs" />
     <Compile Include="Interface\Service\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ActivationService.cs" />
     <Compile Include="Service\ApplicationService.cs" />
     <Compile Include="Service\BugTrackerService.cs" />
     <Compile Include="Service\UserRecoveryService.cs" />

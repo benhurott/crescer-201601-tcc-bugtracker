@@ -16,6 +16,7 @@ namespace BugTracker.Infra.Repository
         public DbSet<Dominio.BugTracker> BugTrucker { get; set; }
         public DbSet<BugTrackerNavigation> BugTrackerNavigation { get; set; }
         public DbSet<BugTrackerTag> BugTrackerTag { get; set; }
+        public DbSet<Activation> Activation { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -41,6 +42,7 @@ namespace BugTracker.Infra.Repository
             modelBuilder.Configurations.Add(new BugTrackerNavigationMap());
             modelBuilder.Configurations.Add(new BugTrackerTagMap());
             modelBuilder.Configurations.Add(new BugTrackerMap());
+            modelBuilder.Configurations.Add(new ActivationMap());
             base.OnModelCreating(modelBuilder);
         }
     }

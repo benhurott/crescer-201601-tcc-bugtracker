@@ -21,10 +21,11 @@ namespace Interface.Presentation.Services
             this.smtpServer.EnableSsl = true;
         }
 
-        public void Send(string mailTo, string subject, string body, string filePath = null)
+        public void Send(string mailTo, string subject, string body, bool isHtml, string filePath = null)
         {
             MailMessage mail = new MailMessage();
 
+            mail.IsBodyHtml = isHtml;
             mail.From = new MailAddress(MAIL_FROM);
             mail.To.Add(mailTo);
             mail.Subject = subject;
