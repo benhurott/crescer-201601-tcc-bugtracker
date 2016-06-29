@@ -1,6 +1,7 @@
 CREATE TABLE [dbo].[Activation] (
     [IDActivation] [int] NOT NULL,
     [Code] [varchar](100) NOT NULL,
+	[DateRequest] [DateTime] NOT NULL,
     [IDUser] [int] NOT NULL,
     CONSTRAINT [PK_dbo.Activation] PRIMARY KEY ([IDActivation])
 )
