@@ -60,6 +60,7 @@
     <Compile Include="Entity\BugTrackerTag.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Entity\UserRecovery.cs" />
+    <Compile Include="Exceptions\TagVeryLargeException.cs" />
     <Compile Include="Interface\Repository\IActivationRepository.cs" />
     <Compile Include="Interface\Repository\IApplicationRepository.cs" />
     <Compile Include="Interface\Repository\IBugTrackerRepository.cs" />

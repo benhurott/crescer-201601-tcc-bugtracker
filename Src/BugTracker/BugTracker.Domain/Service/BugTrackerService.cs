@@ -1,4 +1,5 @@
-﻿using BugTracker.Domain.Interface.Repository;
+﻿using BugTracker.Domain.Exceptions;
+using BugTracker.Domain.Interface.Repository;
 using BugTracker.Domain.Interface.Service;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,21 @@ namespace BugTracker.Domain.Service
 
         public void Add(Entity.BugTracker bugTracker)
         {
-            bugTrackerRepository.Add(bugTracker);
+            if (bugTracker.ValidateTags())
+            {
+                bugTrackerRepository.Add(bugTracker);
+
+                var existeTagMaster = bugTracker.ContainsSpecialTag();
+
+                if (existeTagMaster != null)
+                {
+                    //enviar email;   
+                }
+            }
+            else
+            {
+                throw new TagVeryLargeException();
+            }
         }
 
         public ICollection<Entity.BugTracker> FindByIDApplication(int id)

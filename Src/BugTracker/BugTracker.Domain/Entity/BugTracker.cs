@@ -34,5 +34,15 @@ namespace BugTracker.Domain.Entity
         {
             this.IDBugTracker = id;
         }
+
+        public bool ValidateTags()
+        {
+            return Tags.Where(_ => _.Name.Length > 20).Count() == 0;
+        }
+
+        public BugTrackerTag ContainsSpecialTag()
+        {
+            return Tags.FirstOrDefault(_ => _.Name.Equals(_.BugTracker.Application.SpecialTag));
+        }
     }
 }
