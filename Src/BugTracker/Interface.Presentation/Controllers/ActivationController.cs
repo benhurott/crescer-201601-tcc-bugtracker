@@ -32,9 +32,11 @@ namespace Interface.Presentation.Controllers
 
                 userService.ActiveAccount(user);
 
-                activationService.Remove(activation.IDActivation);
-
                 TempData["Message"] = "Your account was successively activated";
+            }
+            else
+            {
+                TempData["Message"] = "This link is no longer avalible";
             }
 
             return RedirectToAction("Index", "Login");

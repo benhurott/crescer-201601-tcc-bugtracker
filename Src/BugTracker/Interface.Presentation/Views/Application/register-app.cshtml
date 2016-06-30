@@ -4,22 +4,22 @@
     ViewBag.Title = "CreateApp";
 }
 
-<div class="panel panel-success col-md-10 box">
+<div class="panel panel-success col-md-12 box">
     <div class="panel-heading">
         @if (Model != null)
         {
-            <h4>Edit application:</h4>
+            <h4>Edit application</h4>
         }
         else
         {
-            <h4>Register new application:</h4>
+            <h4>New application</h4>
         }
 
 
     </div>
     @using (Html.BeginForm("NewEditApp", "Application", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-                    @Html.AntiForgeryToken()
+       @Html.AntiForgeryToken()
 
         @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(model => model.Icon)
@@ -77,8 +77,6 @@
     }
 </div>
 
-
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

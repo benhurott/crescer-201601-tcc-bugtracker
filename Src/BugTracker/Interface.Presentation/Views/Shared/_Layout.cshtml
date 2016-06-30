@@ -1,46 +1,84 @@
-﻿@using Interface.Presentation.Services;
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BugTracker</title>
-    <link rel="stylesheet" href="https://bootswatch.com/sandstone/bootstrap.min.css">
-    <link href="~/Content/Custom/panel.css" rel="stylesheet" />
-    <link href="~/Content/Custom/layout.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="~/Content/Images/Application/cockroach.png" type="image/x-icon" />
-    @RenderSection("css", false)
-</head>
-    <body>
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a href=@Url.Action("Index", "User")><img src="~/Content/Images/Application/logo-m.png" class="logo" /></a>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title</title>
+        <link rel="stylesheet" href="https://bootswatch.com/sandstone/bootstrap.min.css">
+        <link href="~/Content/Custom/panel.css" rel="stylesheet" />
+        <link href="~/Content/Custom/layout.css" rel="stylesheet" />
+        <link href="~/Content/Custom/new-home.css" rel="stylesheet" /> 
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+        <link rel="shortcut icon" href="~/Content/Images/Application/cockroach.png" type="image/x-icon" />
+    </head>
+    <body class="home">
+        <div class="container-fluid display-table">
+            <div class="row display-table-row">
+                <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+                    <div class="navi">
+                        <ul>
+                            <li class="active" ><a href=@Url.Action("", "User")><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                            <li><a href=@Url.Action("Download", "User")><i class="fa fa-download" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Download</span></a></li>
+                            <li><a href=@Url.Action("Documentation", "Home") target="_blank"><i class="fa fa-book" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Documentation</span></a></li>
+                            <li><a href=@Url.Action("Account", "User")><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
+                        </ul>
+                    </div>
                 </div>
+                <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                    <div class="row">
+                        <header>
+                            <div class="col-md-7">
+                                <nav class="navbar-default pull-left">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                </nav>
+                                <div class="search hidden-xs hidden-sm">
+                                    <a href=@Url.Action("Index", "User")><img src="~/content/images/website/banner-web.png" class="logo" /></a>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="header-rightside">
+                               
+                                    <ul class="list-inline header-top pull-right">
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-                    <ul class="nav navbar-nav">
-                        <li><h3>Hello @UserSessionService.LoggedUser.Name <span class="sr-only">(current)</span></h3></li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href=@Url.Action("Account", "User") class="glyphicon glyphicon-user">  Your Account</a></li>
-                        <li><a href=@Url.Action("Download", "User") class="glyphicon glyphicon-save">  Download</a></li>
-                        <li><a href=@Url.Action("Documentation", "Home") target="_blank" class="glyphicon glyphicon-duplicate">  Documentation</a></li>
-                        <li><a href=@Url.Action("Loggout", "Login") class="glyphicon glyphicon-log-out">  Logout</a></li>
-                    </ul>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <img src="@Interface.Presentation.Services.PathService.userImagePath + @Interface.Presentation.Services.UserSessionService.LoggedUser.Image" alt="user">
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <div class="navbar-content">
+                                                        <span>@Interface.Presentation.Services.UserSessionService.LoggedUser.Name</span>
+                                                        <p class="text-muted small">
+                                                            @Interface.Presentation.Services.UserSessionService.LoggedUser.Email
+                                                        </p>
+                                                        <div class="divider">
+                                                        </div>
+                                                        <a href=@Url.Action("Loggout", "Login") class="view btn-sm active">Loggout</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </header>
+                    </div>
+                    <div class="user-dashboard">
+                        @RenderBody()
+                    </div>
                 </div>
             </div>
-        </nav>  
-
-    <div>
-        @RenderBody()
-    </div>
-
+        </div>
+    </body>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-
-</body>
 </html>

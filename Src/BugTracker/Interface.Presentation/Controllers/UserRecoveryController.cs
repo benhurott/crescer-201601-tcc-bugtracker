@@ -70,7 +70,7 @@ namespace Interface.Presentation.Controllers
                 return View("UserRecovery",model);
             }
 
-                TempData["Message"] = "This link is no longer valid";
+                TempData["Message"] = "This link is no longer avalible";
 
                 return RedirectToAction("Index", "Login");
         }

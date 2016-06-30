@@ -23,7 +23,7 @@ namespace BugTracker.Domain.Service
 
         public User Add(User user)
         {
-            if(user.Password != null)
+            if (user.Password != null)
                 user.Password = Encrypt(user.Password);
             return userRepository.Add(user);
         }
@@ -49,19 +49,39 @@ namespace BugTracker.Domain.Service
             return userRepository.Update(user);
         }
 
-        public void UpdatePassword(User user,string password)
+        public void UpdatePassword(User user, string password)
         {
             user.Password = Encrypt(password);
 
             userRepository.Update(user);
         }
 
-        //TODO: Trocar o metodo de criptografia
         private string Encrypt(string password)
         {
+            string IV = "iu4fli2esfjwo42p";
+            string Key = "qothft5y3yrhdnvoi86dht01jamcvbxn";
+
+            byte[] textBytes = ASCIIEncoding.ASCII.GetBytes(password);
+
+            AesCryptoServiceProvider encdec = new AesCryptoServiceProvider();
+
+            encdec.BlockSize = 128;
+            encdec.KeySize = 256;
+            encdec.Key = ASCIIEncoding.ASCII.GetBytes(Key);
+            encdec.IV = ASCIIEncoding.ASCII.GetBytes(IV);
+            encdec.Padding = PaddingMode.PKCS7;
+            encdec.Mode = CipherMode.CBC;
+
+            ICryptoTransform iCrypt = encdec.CreateEncryptor(encdec.Key, encdec.IV);
+
+            byte[] enc = iCrypt.TransformFinalBlock(textBytes, 0, textBytes.Length);
+            iCrypt.Dispose();
+
+            var aesCrypted = Convert.ToBase64String(enc);
+
             using (MD5 md5Hash = MD5.Create())
             {
-                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(aesCrypted));
                 StringBuilder sBuilder = new StringBuilder();
 
                 for (int i = 0; i < data.Length; i++)
