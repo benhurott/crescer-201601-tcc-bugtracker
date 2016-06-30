@@ -10,6 +10,7 @@ namespace BugTracker.Domain.Entity
     {
         public int IDActivation { get; private set; }
         public string Code { get; private set; }
+        public DateTime DateRequest { get; private set; }
         public int IDUser { get; private set; }
         public User User { get; set; }
 
@@ -20,6 +21,7 @@ namespace BugTracker.Domain.Entity
             this.Code = code;
             this.IDUser = idUser;
             this.User = user;
+            this.DateRequest = DateTime.Today;
         }
     }
 }
