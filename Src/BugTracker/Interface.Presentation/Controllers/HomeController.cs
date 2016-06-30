@@ -70,11 +70,18 @@ namespace Interface.Presentation.Controllers
             }
             else
             {
+                string fileName = "default-perfil.jpg";
+
+                if(userModel.FileImage != null)
+                {
+                    fileName = UploadImageService.UploadUserImage(userModel.FileImage);
+                }
+
                 BugTracker.Domain.Entity.User user = new User(
                     userModel.Name,
                     userModel.Email,
                     userModel.Password,
-                    userModel.Image,
+                    fileName,
                     null,
                     true,
                     false);
