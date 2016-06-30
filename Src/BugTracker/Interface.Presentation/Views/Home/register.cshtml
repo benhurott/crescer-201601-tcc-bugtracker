@@ -6,7 +6,7 @@
 }
 
 
-@using (Html.BeginForm("NewRegister", "Home", FormMethod.Post, new { @class = "form" })) 
+@using (Html.BeginForm("NewRegister", "Home", FormMethod.Post, new { @class = "form", enctype = "multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
 
