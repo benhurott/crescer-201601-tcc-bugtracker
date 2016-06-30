@@ -16,8 +16,11 @@ namespace Interface.Presentation.Models.User
         [DisplayName("E-mail")]
         [EmailAddress]
         public string Email { get; set; }
- 
-        public String Image { get; set; }
+
+
+        [DisplayName("Perfil Image")]
+        public HttpPostedFileBase FileImage { get; set; }
+
         [PasswordPropertyText(true)]
         [Required(ErrorMessage = "Password is required")]
         [RegularExpression(@"^(?=.*\d)(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", ErrorMessage = "Password must have: minimun length of 8 characters, a number, a low case word and a hight case word.")]

@@ -11,28 +11,28 @@ namespace Interface.Presentation.Models
     {
         public int? Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Title is required")]
         [DisplayName("Title")]
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Maximun of 50 characters")]
         public string Title { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Description is required")]
         [DisplayName("Description")]
-        [StringLength(100)]
+        [StringLength(100, ErrorMessage = "Maximun of 100 characters")]
         public string Description { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Url application is required")]
         [DisplayName("Url Application")]
-        [StringLength(100)]
+        [StringLength(100, ErrorMessage = "Maximun of 100 characters")]
         public string Url { get; set; }
         
         [DisplayName("Icon Application")]
-        [StringLength(100)]
+        [StringLength(100, ErrorMessage = "Maximun of 100 characters")]
         public string Icon { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Special tag error is required")]
         [DisplayName("Special Tag Error")]
-        [StringLength(100)]
+        [StringLength(20,ErrorMessage = "Maximun of 20 characters")]
         public string Tag { get; set; }
 
         
