@@ -49,5 +49,10 @@ namespace BugTracker.Domain.Service
         {
             return bugTrackerRepository.FindByIDApplication(id);
         }
+
+        public ICollection<Entity.BugTracker> FindByApplicationPagined(int idApplication, int limit, int page)
+        {
+            return bugTrackerRepository.FindByApplicationPagined(idApplication, limit, page);
+        }
     }
 }

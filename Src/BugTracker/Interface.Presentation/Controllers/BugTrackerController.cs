@@ -1,4 +1,5 @@
 ﻿using BugTracker.Domain.Interface.Service;
+using Interface.Presentation.Extensions;
 using Interface.Presentation.Filters;
 using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
@@ -74,6 +75,22 @@ namespace Interface.Presentation.Controllers
             {
                 throw new HttpException((int)HttpStatusCode.InternalServerError, e.ToString());
             }
+        }
+
+        [HttpGet]
+        public ActionResult GetBugTrackerPaginedByApp(int idApplication, int page)
+        {
+            int limit = 30;
+
+            var bugTrackers = bugTrackerService.FindByApplicationPagined(idApplication, limit, page);
+
+            return PartialView("_bug-trackers-application", bugTrackers.FromModel());
+        }
+
+        [HttpGet]
+        public JsonResult GetCountBugTrackerByApp(int idApplication)
+        {
+            return Json(new { data = 1 }); 
         }
     }
 }

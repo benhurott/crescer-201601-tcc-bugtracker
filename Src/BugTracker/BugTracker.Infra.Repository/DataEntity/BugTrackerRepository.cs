@@ -21,15 +21,30 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
-        public ICollection<Domain.Entity.BugTracker> FindByIDApplication (int idapplication)
+        public ICollection<Domain.Entity.BugTracker> FindByIDApplication (int idApplication)
         {
             using (var db = new DataContext())
             {
                 return db.BugTrucker
-                    .Include("Navigations")
                     .Include("Tags")
+                    .Include("Navigations")
+                    .Where(_ => _.IDApplication == idApplication)
+                    .ToList();
+            }
+        }
+
+        public ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(int idApplication, int limit, int page)
+        {
+            using (var db = new DataContext())
+            {
+                return db.BugTrucker
                     .AsNoTracking()
-                    .Where(_ => _.IDApplication == idapplication)
+                    .Include("Tags")
+                    .Include("Navigations")
+                    .OrderBy(_ => _.IDBugTracker)
+                    .Skip(limit * (page - 1))
+                    .Take(limit)
+                    .Where(_ => _.IDApplication == idApplication)
                     .ToList();
             }
         }
