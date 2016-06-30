@@ -21,5 +21,24 @@ namespace Interface.Presentation.Models.User
 
         [DisplayName("New Photo")]
         public HttpPostedFileBase File { get; set; }
+
+        [DisplayName("Old Password")]
+        [RegularExpression(@"^(?=.*\d)(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", ErrorMessage = "Password must have: minimun length of 8 characters, a number, a low case word and a hight case word.")]
+        [DataType(DataType.Password)]
+        [StringLength(100)]
+        public String OldPassword { get; set; }
+
+
+        [DisplayName("New Password")]
+        [RegularExpression(@"^(?=.*\d)(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$", ErrorMessage = "Password must have: minimun length of 8 characters, a number, a low case word and a hight case word.")]
+        [DataType(DataType.Password)]
+        [StringLength(100)]
+        public String NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [DisplayName("Confirm  New Password")]
+        [Compare("NewPassword", ErrorMessage = "Password do not match")]
+        public string ConfirmPassword { get; set; }
+
     }
 }

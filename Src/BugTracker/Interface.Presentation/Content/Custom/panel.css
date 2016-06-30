@@ -50,3 +50,7 @@
     width: 32px;
     height: 32px;
 }
+
+#panel{
+    display: none;
+}

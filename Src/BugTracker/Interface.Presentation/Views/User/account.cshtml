@@ -17,12 +17,12 @@
             <ul class="col-md-2 list-unstyled">
                 <li>@Html.DisplayFor(model => model.Name)</li>
                 <li>@Html.DisplayFor(model => model.Email)</li>
-                <li><a href="~/User" type="button" class="btn btn-default">Edit Account</a></li>
+                <li><a href="#" type="button" class="btn btn-default" id="edit-acount">Edit Account</a></li>
             </ul>
         </div>
     </div>
 
-    <div class="panel panel-success col-md-6 box">
+    <div id="panel" class="panel panel-success col-md-6 box">
         <div class="panel-heading">
             <h4>Edit Account</h4>
         </div>
@@ -64,10 +64,49 @@
                             <input type="submit" value="Save Changes" class="btn btn-default" />
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input id="edit-password" type="button" value="Edit Password" class="btn btn-default" />
+                        </div>
+                    </div>
                 </div>
             }
         </div>
-    </div>
+        <div  class="panel panel-success col-md-6 box">
+            <div class="panel-heading">
+                <h4>Edit Password</h4>
+            </div>
+                @using (Html.BeginForm("EditAccount", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OldPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OldPassword, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OldPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NewPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NewPassword, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NewPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NewPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                }
+            </div>
+            </div>
 
             <script src="~/Scripts/jquery-1.10.2.min.js"></script>
             <script src="~/Scripts/jquery.validate.min.js"></script>

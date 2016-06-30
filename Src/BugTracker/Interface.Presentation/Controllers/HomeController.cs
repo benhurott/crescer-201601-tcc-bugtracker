@@ -90,7 +90,7 @@ namespace Interface.Presentation.Controllers
 
                 UserActivation.SendTo(user);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
         }
 
