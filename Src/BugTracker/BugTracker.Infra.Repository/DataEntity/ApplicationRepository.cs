@@ -86,5 +86,9 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
+        public IEnumerable<dynamic> FindAppAndBugsByName(String name, int id)
+        {
+            return FindAppAndBugsByAppId(id).Where(b => b.AppName.Contains(name)).ToList();
+        }
     }
 }

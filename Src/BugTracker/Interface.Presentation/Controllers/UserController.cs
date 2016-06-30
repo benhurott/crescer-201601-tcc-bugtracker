@@ -42,7 +42,8 @@ namespace Interface.Presentation.Controllers
         [HttpPost]
         public ActionResult Search(String name)
         {
-            var model = applicationService.FindByName(name);
+            var model = applicationService.FindAppAndBugsByName(name, UserSessionService.LoggedUser.IDUser)
+                .toApplicationAndBugsViewModel(); ;
 
             return View("Index", model);
         }
