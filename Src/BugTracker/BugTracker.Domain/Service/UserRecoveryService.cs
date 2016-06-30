@@ -25,7 +25,10 @@ namespace BugTracker.Domain.Service
 
         public UserRecovery FindByCode(string code)
         {
-            return userRecoveryRepository.FindByCode(code);
+            var userRecovery = userRecoveryRepository.FindByCode(code);
+            if (userRecovery != null && userRecovery.RequestDate.CompareTo(DateTime.Now) < 1)
+                return userRecovery;
+            return null;
         }
     }
 }

@@ -11,6 +11,5 @@ namespace BugTracker.Domain.Interface.Service
     {
         Activation FindByCode(string code);
         void Add(Activation activation);
-        void Remove(int id);
     }
 }
