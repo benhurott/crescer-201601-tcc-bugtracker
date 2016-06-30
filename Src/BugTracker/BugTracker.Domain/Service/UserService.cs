@@ -43,6 +43,18 @@ namespace BugTracker.Domain.Service
             userRepository.ActiveAccount(user);
         }
 
+        public User Update(User user)
+        {
+            return userRepository.Update(user);
+        }
+
+        public void UpdatePassword(User user,string password)
+        {
+            user.Password = Encrypt(password);
+
+            userRepository.Update(user);
+        }
+
         //TODO: Trocar o metodo de criptografia
         private string Encrypt(string password)
         {
@@ -59,5 +71,6 @@ namespace BugTracker.Domain.Service
                 return sBuilder.ToString();
             }
         }
+
     }
 }

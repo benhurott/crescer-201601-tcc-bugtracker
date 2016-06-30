@@ -15,15 +15,18 @@ namespace BugTracker.Infra.Repository.DataEntity
             using (var db = new DataContext())
             {
                 db.Entry<UserRecovery>(userRecovery).State = System.Data.Entity.EntityState.Added;
+
+                db.Entry<User>(userRecovery.RequestUser).State = System.Data.Entity.EntityState.Unchanged;
+
                 db.SaveChanges();
             }
         }
 
-        public UserRecovery FindByEmail(string email)
+        public UserRecovery FindByCode(string code)
         {
             using (var db = new DataContext())
             {
-                return db.UserRecovery.FirstOrDefault(_ => _.RequestUser.Email == email);
+                return db.UserRecovery.Include("RequestUser").FirstOrDefault(_ => _.HashCode == code);
             }
         }
     }

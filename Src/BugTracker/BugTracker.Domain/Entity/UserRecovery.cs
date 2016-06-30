@@ -21,6 +21,7 @@ namespace BugTracker.Domain.Entity
             this.RequestUser = requestUser;
             this.RequestDate = requestDate;
             this.HashCode = hashCode;
+            this.IDUser = requestUser.IDUser;
         }
 
         public UserRecovery(int id, User requestUser, DateTime requestDate, String hashCode) 

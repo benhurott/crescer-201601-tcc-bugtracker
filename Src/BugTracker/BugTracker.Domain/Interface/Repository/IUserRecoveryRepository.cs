@@ -10,6 +10,6 @@ namespace BugTracker.Domain.Interface.Repository
     public interface IUserRecoveryRepository
     {
         void Add(UserRecovery userRecovery);
-        UserRecovery FindByEmail(string email);
+        UserRecovery FindByCode(string code);
     }
 }

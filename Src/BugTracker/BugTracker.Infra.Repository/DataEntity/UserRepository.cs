@@ -35,6 +35,18 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
+        public User Update(User user)
+        {
+            using (var db = new DataContext())
+            {
+                db.Entry<User>(user).State = System.Data.Entity.EntityState.Modified;
+
+                db.SaveChanges();
+
+                return user;
+            }
+        }
+
         public User FindByAuthentication(string email, string password)
         {
             using (var db = new DataContext())

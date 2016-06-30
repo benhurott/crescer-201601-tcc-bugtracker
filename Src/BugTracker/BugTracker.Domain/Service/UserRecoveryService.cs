@@ -23,10 +23,9 @@ namespace BugTracker.Domain.Service
             userRecoveryRepository.Add(userRecovery);
         }
 
-
-        public UserRecovery FindByEmail(string email)
+        public UserRecovery FindByCode(string code)
         {
-            return userRecoveryRepository.FindByEmail(email);
+            return userRecoveryRepository.FindByCode(code);
         }
     }
 }
