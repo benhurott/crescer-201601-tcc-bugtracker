@@ -10,6 +10,8 @@ namespace BugTracker.Domain.Entity
     {
         public String Version { get; private set; }
 
+        public Browser() { }
+
         public Browser(string name, string version) : base(name)
         {
             this.Version = version;

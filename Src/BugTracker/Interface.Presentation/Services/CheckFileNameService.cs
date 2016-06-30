@@ -14,7 +14,7 @@ namespace Interface.Presentation.Services
 
             while (File.Exists(path))
             {
-                fileName.Insert(0, "C");
+                fileName = fileName.Insert(0, "C");
                 path = PathService.userImagePath + fileName;
             }
 

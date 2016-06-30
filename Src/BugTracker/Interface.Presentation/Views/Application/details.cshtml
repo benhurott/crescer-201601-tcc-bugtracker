@@ -1,40 +1,59 @@
 ﻿@model BugTracker.Domain.Entity.Application
 @{
-    ViewBag.Title = "details";
+    ViewBag.Title = "Application Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="panel panel-success col-md-7 box">
+
+<div class="panel panel-success col-md-12 box">
     <div class="panel-heading">
-        <h4>@Html.DisplayFor(model => model.Title)</h4>
+        <h4>Title</h4>
     </div>
     <div class="panel-body">
-            <table class="table table-striped table-hover ">
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Special Tag</th>
-                        <th>Url</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(model => model.Description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => model.SpecialTag)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => model.Url)
-                        </td>
-            </table>
+        @Html.DisplayFor(model => model.Title)
+        @Html.DisplayFor(model => model.Description)
+        @Html.DisplayFor(model => model.SpecialTag)
+        @Html.DisplayFor(model => model.Url)
     </div>
         <img src="~/Content/Images/Application/@Html.DisplayFor(model => model.Image)" class="icon details" />
-        <a href="~/Application/RegisterApp/@Model.IDApplication" type="button" class="btn btn-success">Edit @Model.Title</a>
-        <a href="~/User" type="button" class="btn btn-default">Back Home</a>
-        <a href="~/Application/DeleteApp/@Model.IDApplication" type="button" class="btn btn-danger">Delete @Model.Title</a>
-        <a href="#" type="button" class="btn btn-danger">Graphics</a>
+        <a href="~/Application/RegisterApp/@Model.IDApplication" type="button" class="btn btn-success">Edit </a>
+        <a href="~/Application/DeleteApp/@Model.IDApplication" type="button" class="btn btn-danger">Delete</a>
+</div>
+
+<div class="panel panel-success col-md-12 box">
+    <div class="panel-heading">
+        <h4>Graphics</h4>
     </div>
+    <div class="panel-body">
 
-        
+    </div>
+</div>
 
-        
+<div class="panel panel-success col-md-12 box">
+    <div class="panel-heading">
+        <h4>Bug Trackers</h4>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Trace</th>
+                    <th>Status</th>
+                    <th>Occurred Date</th>
+                    <th>Tags</th>
+                    <th>Browser Name</th>
+                    <th>Browser Version</th>
+                    <th>Operation System</th>
+                </tr>
+            </thead>
+            <tbody id="list-bug-tracks">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    var idApplication = '@Model.IDApplication';
+</script>
+<script src="~/Scripts/Custom/model/bug-tracker-model.js"></script>
+<script src="~/Scripts/Custom/view/bug-tracker-view.js"></script>
+<script> new BugTrackerView().init();</script>

@@ -153,6 +153,8 @@
     <Content Include="Scripts\Custom\User\account.js" />
     <Content Include="Scripts\Custom\application\delete.js" />
     <Content Include="Scripts\Custom\layout\layoutHome.js" />
+    <Content Include="Scripts\Custom\model\bug-tracker-model.js" />
+    <Content Include="Scripts\Custom\view\bug-tracker-view.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -177,7 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ActivationController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\BugTrackerController.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Controllers\LoginGitHubController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRecoveryController.cs" />
+    <Compile Include="Extensions\BugTrackerExtensions.cs" />
     <Compile Include="Extensions\DynamicExtensions.cs" />
     <Compile Include="Extensions\HttpCookieExtensions.cs" />
     <Compile Include="Filters\UserToken.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="Models\Application\ApplicationModel.cs" />
     <Compile Include="Models\Application\ApplicationViewModel.cs" />
     <Compile Include="Models\BugTracker\BugTrackerPostModel.cs" />
+    <Compile Include="Models\BugTracker\BugTrackerViewModel.cs" />
     <Compile Include="Models\UserRecovery\UserRecoveryViewModel.cs" />
     <Compile Include="Models\User\LoggedUserViewModel.cs" />
     <Compile Include="Models\User\RegisterUserViewModel.cs" />
@@ -234,6 +237,7 @@
     <Content Include="Views\Home\support.cshtml" />
     <Content Include="Views\UserRecovery\UserRecovery.cshtml" />
     <Content Include="Views\UserRecovery\ForgotPassword.cshtml" />
+    <Content Include="Views\BugTracker\_bug-trackers-application.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -14,6 +14,10 @@ namespace BugTracker.Infra.Repository.Map
         {
             ToTable("BugTracker");
             HasKey(_ => _.IDBugTracker);
+            HasRequired(_ => _.Application)
+                .WithMany(u => u.BugTrackers)
+                .HasForeignKey(a => a.IDApplication)
+                .WillCascadeOnDelete(false);
         }
     }
 }
