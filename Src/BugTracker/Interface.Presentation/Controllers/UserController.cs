@@ -75,7 +75,7 @@ namespace Interface.Presentation.Controllers
             }
 
             var editedAccount = new User(model.Id.Value, model.Name, 
-                                         model.Email, model.Password,
+                                         model.Email, null,
                                          fileName, apps, true, true);
 
             userService.Update(editedAccount);

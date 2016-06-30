@@ -36,7 +36,7 @@ namespace Interface.Presentation.Controllers
                 model.Url = app.Url;
                 model.Description = app.Description;
                 model.Icon = app.Image;
-                
+
                 model.Tag = app.SpecialTag;
 
                 return View("register-app", model);
@@ -44,37 +44,55 @@ namespace Interface.Presentation.Controllers
 
             return View("register-app");
         }
- 
+
         [HttpPost]
         [UserToken]
+        [ValidateAntiForgeryToken]
         public ActionResult NewEditApp(ApplicationModel model)
         {
+            if (ModelState.IsValid)
+            {
+                var idUser = UserSessionService.LoggedUser.IDUser;
 
-            var IdUser = UserSessionService.LoggedUser.IDUser;
-            var user = userService.FindById(IdUser);
-            String fileName = model.Icon;
+                var user = userService.FindById(idUser);
 
-            if (model.File != null)
-            {
-                fileName = model.File.FileName;
+                var application = applicationService.FindByIDUser(idUser);
+
+
+                if (application.FirstOrDefault(a => a.Url.Equals(model.Url)) == null)
+                {
+                    String fileName = model.Icon;
+
+                    if (model.File != null)
+                    {
+                        fileName = model.File.FileName;
+                    }
+
+                    fileName = UploadImageService.UploadApplicationImage(model.File);
+
+                    if (model.Id.HasValue)
+                    {
+                        var app = new Application(model.Id.Value, model.Title, model.Description,
+                                              model.Url, true, fileName,
+                                              model.Tag, idUser, user);
+                        applicationService.Edit(app);
+                    }
+                    else
+                    {
+                        var app = new Application(model.Title, model.Description,
+                                              model.Url, true, fileName,
+                                              model.Tag, idUser, user);
+                        applicationService.Add(app);
+                    }
+
+                }
+                else
+                {
+                    ModelState.AddModelError("INVALID_USER", "The url already exists in your applications");
+                    return View("register-app");
+                }
             }
-            
-            if (model.Id.HasValue)
-            {
-                var app = new Application(model.Id.Value, model.Title, model.Description,
-                                      model.Url, true, fileName,
-                                      model.Tag, IdUser, user);
-                applicationService.Edit(app);
-            }
-            else
-            {
-                var app = new Application(model.Title, model.Description,
-                                      model.Url, true, fileName,
-                                      model.Tag, IdUser, user);
-                applicationService.Add(app);
-            }
-            
-            UploadImageService.UploadApplicationImage(model.File);
+
             return RedirectToAction("Index", "User");
         }
 
@@ -83,11 +101,14 @@ namespace Interface.Presentation.Controllers
         public ActionResult DeleteApp(int id)
         {
             var app = applicationService.FindById(id);
-            var user = userService.FindById(app.IDUser);
+            if(app != null)
+            {
+                var user = userService.FindById(app.IDUser);
 
-            var appToDelete = new Application(app.IDApplication, app.Title, app.Description, app.Url, false, app.Image, app.SpecialTag, app.IDUser, user);
-            applicationService.Edit(appToDelete);
-
+                var appToDelete = new Application(app.IDApplication, app.Title, app.Description, app.Url, false, app.Image, app.SpecialTag, app.IDUser, user);
+                applicationService.Edit(appToDelete);
+            }
+            
             return RedirectToAction("Index", "User");
         }
 
