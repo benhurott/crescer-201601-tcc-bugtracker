@@ -10,7 +10,7 @@
 }
 <div class="container">
     <div class="alert alert-success">
-        @TempData["Activation"]
+        @TempData["Message"]
     </div>
 
     @using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new { @class = "form" }))

@@ -21,7 +21,7 @@ namespace Interface.Presentation.Mail_Body
 
         private static string SendTo(string mailTo)
         {
-            string code = Guid.NewGuid().ToString();
+            string code = Guid.NewGuid().ToString() + new Random().Next(1000).ToString();
 
             string body =
                 "<div>" +

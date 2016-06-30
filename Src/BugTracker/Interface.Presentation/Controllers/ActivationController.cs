@@ -34,10 +34,10 @@ namespace Interface.Presentation.Controllers
 
                 activationService.Remove(activation.IDActivation);
 
-                TempData["Activation"] = "Your account was successively activated";
+                TempData["Message"] = "Your account was successively activated";
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Login");
         }
     }
 }
