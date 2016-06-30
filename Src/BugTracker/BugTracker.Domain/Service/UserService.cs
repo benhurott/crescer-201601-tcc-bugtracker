@@ -45,6 +45,7 @@ namespace BugTracker.Domain.Service
 
         public User Update(User user)
         {
+            user.Password = this.Encrypt(user.Password);
             return userRepository.Update(user);
         }
 

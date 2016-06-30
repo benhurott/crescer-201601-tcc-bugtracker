@@ -51,7 +51,37 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public ActionResult Account()
         {
-            return View();
+            var user = userService.FindById(UserSessionService.LoggedUser.IDUser);
+            var viewModel = new UserEditAccountViewModel();
+            viewModel.Name = user.Name;
+            viewModel.Email = user.Email;
+            viewModel.Id = user.IDUser;
+            viewModel.Image = user.Image;
+
+            return View(viewModel);
+        }
+
+        [UserToken]
+        [HttpPost]
+        public ActionResult EditAccount(UserEditAccountViewModel model)
+        {
+            String fileName = model.Image;
+            var apps = new List<Application>();
+
+            if (model.File != null)
+            {
+                fileName = model.File.FileName;
+            }
+
+            var editedAccount = new User(model.Id.Value, model.Name, 
+                                         model.Email, model.Password,
+                                         fileName, apps, true, true);
+
+            userService.Update(editedAccount);
+            UploadImageService.UploadUserImage(model.File);
+
+            return View("index");
+
         }
 
         [UserToken]

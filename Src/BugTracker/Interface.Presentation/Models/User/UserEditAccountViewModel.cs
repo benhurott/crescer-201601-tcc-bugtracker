@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace Interface.Presentation.Models.User
 {
@@ -28,5 +29,8 @@ namespace Interface.Presentation.Models.User
         [DisplayName("Confirm Password")]
         [Compare("Password", ErrorMessage = "Password do not match")]
         public string ConfirmPassword { get; set; }
+
+        [DisplayName("New Photo")]
+        public HttpPostedFileBase File { get; set; }
     }
 }

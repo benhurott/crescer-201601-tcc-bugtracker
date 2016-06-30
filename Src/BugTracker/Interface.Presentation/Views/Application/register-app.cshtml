@@ -22,6 +22,7 @@
                     @Html.AntiForgeryToken()
 
         @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Icon)
 
         <div class="form-horizontal">
             <hr />
@@ -54,9 +55,8 @@
                 @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.TextBoxFor(model => model.File, new { type = "file" })
-                    @Html.ValidationMessageFor(model => model.File);
+                    @Html.ValidationMessageFor(model => model.File)
                 </div>
-                @Html.HiddenFor(model => model.Icon)
             </div>
 
             <div class="form-group">
