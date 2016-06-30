@@ -15,7 +15,7 @@ namespace BugTracker.Domain.Interface.Repository
         void Edit(Application application);
         Application FindById(int id);
         ICollection<Application> FindByName(String name);
-        ICollection<dynamic> FindAppIdLastTrack(int id);
+        IEnumerable<dynamic> FindAppAndBugsByAppId(int id);
 
     }
 }

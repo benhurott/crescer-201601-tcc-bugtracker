@@ -64,17 +64,24 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
-        public ICollection<dynamic> FindAppIdLastTrack(int id)
+        public IEnumerable<dynamic> FindAppAndBugsByAppId(int id)
         {
             using (var db = new DataContext())
             {
-                return db.Application.Select(
-                    _ => new
-                    {
-                        ApplicationName = _.Title,
-                        lastTracker = _.BugTrackers.Max(x => x.OccurredDate)
-                    }
-                ).ToList<dynamic>();
+                return db.Application
+                    .AsNoTracking()
+                    .Where(_ => _.IDUser == id)
+                    .Select(
+                        _ => new
+                        {
+                            AppName = _.Title,
+                            AppId = _.IDApplication,
+                            AppImage = _.Image,
+                            LastTrack = _.BugTrackers.OrderByDescending(x => x.IDBugTracker).FirstOrDefault(),
+                            TracksCountError = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.ERROR).Count(),
+                            TracksCountWarning = _.BugTrackers.Where(b => b.Status == BugTrackerStatus.WARNING).Count()                            
+                        }
+                    ).ToList();
                 
             }
         }

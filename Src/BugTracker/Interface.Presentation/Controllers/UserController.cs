@@ -2,8 +2,10 @@
 using BugTracker.Domain.Interface.Service;
 using BugTracker.Domain.Service;
 using Interface.Presentation.Filters;
+using Interface.Presentation.Models.Application;
 using Interface.Presentation.Models.User;
 using Interface.Presentation.Services;
+using Interface.Presentation.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,9 +31,11 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var apps = applicationService.FindByIDUser(UserSessionService.LoggedUser.IDUser);
+            var apps = 
+                applicationService.FindAppAndBugsByAppId(UserSessionService.LoggedUser.IDUser)
+                .toApplicationAndBugsViewModel();
+
             return View(apps);
-            
         }
 
         [UserToken]
