@@ -74,7 +74,7 @@ namespace Interface.Presentation.Controllers
                 applicationService.Add(app);
             }
             
-            UploadImageService.UploadUserImage(model.File);
+            UploadImageService.UploadApplicationImage(model.File);
             return RedirectToAction("Index", "User");
         }
 
