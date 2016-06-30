@@ -1,6 +1,11 @@
-﻿a {
+﻿.icon {
+    border-style:none;
+}
+
+a {
     color:#0d172e;
 }
+
 .panel-success {
     border:none;
 }
@@ -233,7 +238,7 @@ li,ul{
 
 .header-top img {
     border-radius: 50%;
-    max-width: 48px !important;
+    max-width: 70px !important;
     width: 100%;
 }
 

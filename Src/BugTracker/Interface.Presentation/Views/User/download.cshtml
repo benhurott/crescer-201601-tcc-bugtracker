@@ -4,16 +4,28 @@
     ViewBag.Title = "Donwload";
 }
 
+<div class="row">
+    <div class="panel panel-success col-md-11 box">
+        <h2>Donwload</h2>
+        @if (UserSessionService.IsLogged && UserSessionService.LoggedUser.AccountConfirmed)
+        {
+                <div>
+                    @Html.ActionLink("Compressed Version 1.0.0 ", "DownloadLibrary", new { type = "compressed"})
+                </div>
 
-<h2>donwload</h2>
-@if (UserSessionService.IsLogged && UserSessionService.LoggedUser.AccountConfirmed)
-{
-    @Html.ActionLink("Compressed:", Html.Raw("DownloadLibrary?type=compressed").ToHtmlString(), "User") 
-    @Html.ActionLink("Compressed:", @"DownloadLibrary?type=uncompressed", "User")
-}
-else
-{
-    @:Você deve primeiro realizar a confirmação de conta para acessar esta página.
-}
-
-
+                <div>
+                    @Html.ActionLink("Uncompressed Version 1.0.0 ", "DownloadLibrary", new { type = "uncompressed"})
+                </div>
+            
+                <div class="alert alert-info">
+                    <strong>Jquery is required.</strong>
+                </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                <strong>Not registred.</strong> 
+            </div>
+        }
+    </div>
+</div>
