@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BugTracker.Domain.Entity.Application>
+﻿@model List<Interface.Presentation.Models.Application.ApplicationAndBugsViewModel>
 
 @{
     ViewBag.Title = "home";
@@ -35,26 +35,26 @@
                     {
                         <tr>
                             <td>
-                                <img src="~/Content/Images/Application/@Html.DisplayFor(model => item.Image)" class="icon list" />
+                                <img src="~/Content/Images/Application/@item.AppImage" class="icon list" />
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Title)
+                                @Html.DisplayFor(modelItem => item.AppName)
                             </td>
                             <td>
-                                @if (item.BugTrackers != null && item.BugTrackers.Count > 0)
+                                 @Html.DisplayFor(modelItem => item.Bug.Description)
+                            </td>
+                            <td>
+                                @try
                                 {
-                                 @Html.DisplayFor(modelItem => item.BugTrackers.Last().Description)
+                                    @Html.DisplayFor(modelItem => item.Bug.OccurredDate.ToString("dd/MM/yyyy"))
+                                } catch(Exception e)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Bug.OccurredDate)
                                 }
                             </td>
-                            <td>
-                                @if (item.BugTrackers != null && item.BugTrackers.Count > 0)
-                                {
-                                    @Html.DisplayFor(modelItem => item.BugTrackers.Last().OccurredDate)
-                                }
-                            </td>
-                            <td><a href="~/Application/DetailsApp/@item.IDApplication" class="glyphicon glyphicon-th-list" alt="Detalhes"></a></td>
-                            <td><a href="~/Application/RegisterApp/@item.IDApplication" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
-                            <td><a href="~/Application/DeleteApp/@item.IDApplication" class="glyphicon glyphicon-trash" alt="Exlcuir"></a></td>
+                            <td><a href="~/Application/DetailsApp/@item.AppId" class="glyphicon glyphicon-th-list" alt="Detalhes"></a></td>
+                            <td><a href="~/Application/RegisterApp/@item.AppId" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
+                            <td><a href="~/Application/DeleteApp/@item.AppId" class="glyphicon glyphicon-trash" alt="Exlcuir"></a></td>
                         </tr>
                     }
                 </tbody>
@@ -64,24 +64,24 @@
     
     <div class="panel panel-success col-md-4 box">
         <div class="panel-heading">
-            <h4>Bugs:</h4>
+            <h4>Today</h4>
         </div>
         <div class="panel-body">
             <table class="table table-hover ">
                 <thead>
                     <tr>
                         <th>App Name</th>
-                        <th>Date - @DateTime.Today.AddDays(-7).ToShortDateString()</th>
-                        <th>Today</th>
+                        <th>Warnings</th>
+                        <th>Errors</th>
                     </tr>
                 </thead>
                 <tbody>
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td><a href="#"></a>@Html.DisplayFor(modelItem => item.Title)</td>
-                                <td><span class="glyphicon glyphicon-alert errors"></span>@item.BugTrackers.Count()</td>
-                                <td><span class="glyphicon glyphicon-alert errors"></span>@item.BugTrackers.Count()</td>
+                                <td><a href="#"></a>@Html.DisplayFor(modelItem => item.AppName)</td>
+                                <td><span class="glyphicon glyphicon-alert warnings"></span>@item.TracksCountWarning</td>
+                                <td><span class="glyphicon glyphicon-alert errors"></span>@item.TracksCountError</td> 
                             </tr>
                         }
                 </tbody>

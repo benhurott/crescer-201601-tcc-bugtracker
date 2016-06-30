@@ -48,9 +48,9 @@ namespace BugTracker.Domain.Service
             return applicationRepository.FindByName(name);
         }
 
-        public ICollection<dynamic> FindAppIdLastTrack(int id)
+        public IEnumerable<dynamic> FindAppAndBugsByAppId(int id)
         {
-            return applicationRepository.FindAppIdLastTrack(id);
+            return applicationRepository.FindAppAndBugsByAppId(id);
         }
         
     }

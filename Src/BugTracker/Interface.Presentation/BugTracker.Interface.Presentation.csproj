@@ -183,6 +183,7 @@
     <Compile Include="Controllers\LoginGitHubController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRecoveryController.cs" />
+    <Compile Include="Extensions\DynamicExtensions.cs" />
     <Compile Include="Extensions\HttpCookieExtensions.cs" />
     <Compile Include="Filters\UserToken.cs" />
     <Compile Include="Global.asax.cs">
@@ -190,6 +191,7 @@
     </Compile>
     <Compile Include="Mail_Body\Activation.cs" />
     <Compile Include="Mail_Body\RecoverPassword.cs" />
+    <Compile Include="Models\Application\ApplicationAndBugsViewModel.cs" />
     <Compile Include="Models\Application\ApplicationModel.cs" />
     <Compile Include="Models\Application\ApplicationViewModel.cs" />
     <Compile Include="Models\BugTracker\BugTrackerPostModel.cs" />
