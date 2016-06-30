@@ -101,11 +101,14 @@ namespace Interface.Presentation.Controllers
         public ActionResult DeleteApp(int id)
         {
             var app = applicationService.FindById(id);
-            var user = userService.FindById(app.IDUser);
+            if(app != null)
+            {
+                var user = userService.FindById(app.IDUser);
 
-            var appToDelete = new Application(app.IDApplication, app.Title, app.Description, app.Url, false, app.Image, app.SpecialTag, app.IDUser, user);
-            applicationService.Edit(appToDelete);
-
+                var appToDelete = new Application(app.IDApplication, app.Title, app.Description, app.Url, false, app.Image, app.SpecialTag, app.IDUser, user);
+                applicationService.Edit(appToDelete);
+            }
+            
             return RedirectToAction("Index", "User");
         }
 
