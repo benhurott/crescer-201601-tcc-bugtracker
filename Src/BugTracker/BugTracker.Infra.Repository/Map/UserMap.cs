@@ -9,9 +9,6 @@ namespace BugTracker.Infra.Repository.Map
         {
             ToTable("User");
             HasKey(_ => _.IDUser);
-
-            Property(_ => _.Name).HasMaxLength(150).IsRequired();
-            Property(_ => _.Name).HasMaxLength(200).IsOptional();
         }
     }
 }

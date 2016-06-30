@@ -11,15 +11,12 @@ namespace BugTracker.Infra.Repository.Map
     class ActivationMap : EntityTypeConfiguration<Activation>
     {
         public ActivationMap()
+	    {
+	        ToTable("Activation");
+                HasKey(a => a.IDActivation);
 
-	{
-
-	    ToTable("Activation");
-            HasKey(a => a.IDActivation);
-
-            HasRequired(_ => _.User)
-                .WithRequiredDependent(u => u.Activation);
-    
-	}
+                HasRequired(_ => _.User)
+                    .WithRequiredDependent(u => u.Activation);
+	    }
     }
 }

@@ -14,7 +14,7 @@ namespace BugTracker.Domain.Entity
         public virtual BugTracker BugTracker { get; private set; }
         public int IDBugTracker { get; private set; }
 
-        private BugTrackerNavigation() { }
+        public BugTrackerNavigation() { }
 
         public BugTrackerNavigation(Browser browser, OperationalSystem operationalSystem)
         {
