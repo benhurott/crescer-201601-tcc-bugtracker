@@ -149,7 +149,6 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Library\cwitracker_min.js" />
     <Content Include="Scripts\Custom\application\delete.js" />
     <Content Include="Scripts\Custom\layout\layoutHome.js" />
     <Content Include="Scripts\Custom\model\bug-tracker-model.js" />
@@ -160,8 +159,7 @@
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Library\cwitracker.js" />
-    <Content Include="Library\cwitrackerteste.js" />
+    <Content Include="Library\cwitracker_1_0_0.js" />
     <Content Include="Scripts\Custom\graphics\graphics.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />

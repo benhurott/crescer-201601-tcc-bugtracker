@@ -38,11 +38,11 @@ namespace BugTracker.Infra.Repository
 
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new UserRecoveryMap());
+            modelBuilder.Configurations.Add(new ActivationMap());
             modelBuilder.Configurations.Add(new ApplicationMap());
             modelBuilder.Configurations.Add(new BugTrackerMap());
             modelBuilder.Configurations.Add(new BugTrackerTagMap());
             modelBuilder.Configurations.Add(new BugTrackerNavigationMap());
-            modelBuilder.Configurations.Add(new ActivationMap());
             base.OnModelCreating(modelBuilder);
         }
     }

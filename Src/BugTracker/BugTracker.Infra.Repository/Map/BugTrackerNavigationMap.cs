@@ -16,7 +16,7 @@ namespace BugTracker.Infra.Repository.Map
             HasKey(_ => _.IDBugTrackerNavigation);
 
             HasRequired(_ => _.BugTracker)
-                .WithRequiredDependent(u => u.Navigations);
+                .WithRequiredDependent(u => u.Navigation);
 
             Property(_ => _.Browser.Name).HasColumnName("BrowserName");
             Property(_ => _.Browser.Version).HasColumnName("BrowserVersion");

@@ -15,7 +15,7 @@ namespace BugTracker.Domain.Entity
         public string Description { get; private set; }
         public DateTime OccurredDate { get; private set; }
         public virtual ICollection<BugTrackerTag> Tags { get; private set; }
-        public virtual BugTrackerNavigation Navigations { get; private set; }
+        public virtual BugTrackerNavigation Navigation { get; private set; }
             
         private BugTracker() { }
 
@@ -26,7 +26,7 @@ namespace BugTracker.Domain.Entity
             this.Description = description;
             this.OccurredDate = data;
             this.Tags = tags;
-            this.Navigations = navigation;
+            this.Navigation = navigation;
         }
 
         public BugTracker(int id, Application application, BugTrackerStatus status, String description, DateTime data, List<BugTrackerTag> tags, BugTrackerNavigation navigation)
