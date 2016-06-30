@@ -70,7 +70,7 @@ namespace BugTracker.Infra.Repository.DataEntity
             {
                 return db.Application
                     .AsNoTracking()
-                    .Where(_ => _.IDUser == id)
+                    .Where(_ => _.IDUser == id && _.Active == true)
                     .Select(
                         _ => new
                         {
