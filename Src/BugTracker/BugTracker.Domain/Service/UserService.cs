@@ -58,6 +58,11 @@ namespace BugTracker.Domain.Service
             userRepository.Update(user);
         }
 
+        public bool ComparePassword(String oldPassword, String newPassword)
+        {
+            return this.Encrypt(newPassword).Equals(oldPassword);
+        }
+
         private string Encrypt(string password)
         {
             string IV = "iu4fli2esfjwo42p";

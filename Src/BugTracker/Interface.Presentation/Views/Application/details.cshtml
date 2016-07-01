@@ -26,13 +26,11 @@
 </div>
 
 @section scripts{
-    <script>
-        var idApplication = '@Model.IDApplication';
-    </script>
 
     @Scripts.Render("~/bundles/application")
-    
+
     <script>
+        var idApplication = '@Model.IDApplication';
         new BugTrackerView().init();
     </script>
 }

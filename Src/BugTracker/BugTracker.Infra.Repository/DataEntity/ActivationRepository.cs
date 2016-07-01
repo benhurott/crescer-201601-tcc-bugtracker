@@ -16,7 +16,6 @@ namespace BugTracker.Infra.Repository.DataEntity
             {
                 return db.Activation
                     .Include("User")
-                    .AsNoTracking()
                     .FirstOrDefault(_ => _.Code == code);
             }
         }
