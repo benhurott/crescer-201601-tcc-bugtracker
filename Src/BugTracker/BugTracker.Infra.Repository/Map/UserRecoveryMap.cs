@@ -14,6 +14,10 @@ namespace BugTracker.Infra.Repository.Map
 	    {
             ToTable("ForgotPassword");
             HasKey(_ => _.IDForgotPassword);
+            HasRequired(a => a.RequestUser)
+                .WithMany(u => u.Forgots)
+                .HasForeignKey(a => a.IDUser)
+                .WillCascadeOnDelete(false);
         }        
     }
 }

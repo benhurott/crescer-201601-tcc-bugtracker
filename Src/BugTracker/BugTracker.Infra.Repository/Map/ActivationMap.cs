@@ -14,6 +14,12 @@ namespace BugTracker.Infra.Repository.Map
 	    {
 	        ToTable("UserActivation");
                 HasKey(a => a.IDUserActivation);
-	    }
+
+            HasRequired(a => a.User)
+                .WithMany(u => u.Activations)
+                .HasForeignKey(a => a.IDUser)
+                .WillCascadeOnDelete(false);
+
+        }
     }
 }
