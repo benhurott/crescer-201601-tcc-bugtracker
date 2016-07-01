@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C67ED428-B81E-0DE7-3086-477EB11A91E8" name="UserActivation">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:53:53 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDUserActivation" id="68D721B8-0A53-B2A9-B6C2-A5C5D551CD19">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:57:14 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDUser" id="BFF4013C-45D9-B0BE-8185-83768C3F4953">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:57:24 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="22F6FCD0-1D96-BA0E-0923-D6D887365435" referredColumn="744DA6C5-FC1A-4D7D-CDF4-EF709E0D9664"/>
+</associations>
+</Column>
+<Column name="RequestDate" id="31CA9FE8-2A36-8BC7-9B6F-76822EDC1458">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:57:14 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HashCode" id="833208E9-7527-848B-AC69-220FBC5E405D">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:57:14 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9E2528FC-F968-E036-9F33-5D8F1D1EFBDF" name="UserActivation_PK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:57:14 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="68D721B8-0A53-B2A9-B6C2-A5C5D551CD19"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DDA34128-2838-8539-2591-66FC8BBD3905" name="UserActivation_User_FK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:57:24 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BFF4013C-45D9-B0BE-8185-83768C3F4953"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

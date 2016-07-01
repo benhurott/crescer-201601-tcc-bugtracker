@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C112880F-52A4-6156-9664-751276437D03" containerWithKeyObject="CB610140-7A61-6773-6B89-8D22B1B4F550" localFKIndex="9CCFE56B-235E-C9F6-0D1A-E7D159A41032" name="BugTrackerTag_BugTracker_FK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>4E9BC9FD-315A-7F85-9A44-BD88DF9F9C4F</importedID>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>91872737-F910-643C-B6B8-F6A71297A98A</referredTableID>
+<keyObject>355AEECC-E2C3-7BE8-8678-551A853B805C</keyObject>
+<referredKeyID>355AEECC-E2C3-7BE8-8678-551A853B805C</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

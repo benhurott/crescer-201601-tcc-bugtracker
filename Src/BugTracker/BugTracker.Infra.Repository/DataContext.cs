@@ -14,14 +14,13 @@ namespace BugTracker.Infra.Repository
         public DbSet<UserRecovery> UserRecovery { get; set; }
         public DbSet<Application> Application { get; set; }
         public DbSet<Dominio.BugTracker> BugTrucker { get; set; }
-        public DbSet<BugTrackerNavigation> BugTrackerNavigation { get; set; }
         public DbSet<BugTrackerTag> BugTrackerTag { get; set; }
         public DbSet<Activation> Activation { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            this.Configuration.ProxyCreationEnabled = false;
-            this.Configuration.LazyLoadingEnabled = false;
+            this.Configuration.ProxyCreationEnabled = true;
+            this.Configuration.LazyLoadingEnabled = true;
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
@@ -42,7 +41,6 @@ namespace BugTracker.Infra.Repository
             modelBuilder.Configurations.Add(new ApplicationMap());
             modelBuilder.Configurations.Add(new BugTrackerMap());
             modelBuilder.Configurations.Add(new BugTrackerTagMap());
-            modelBuilder.Configurations.Add(new BugTrackerNavigationMap());
             base.OnModelCreating(modelBuilder);
         }
     }

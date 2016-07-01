@@ -14,23 +14,25 @@ namespace BugTracker.Domain.Entity
         public BugTrackerStatus Status { get; private set; }
         public string Description { get; private set; }
         public DateTime OccurredDate { get; private set; }
+        public virtual Browser Browser { get; private set; }
+        public virtual OperationalSystem OperationalSystem { get; private set; }
         public virtual ICollection<BugTrackerTag> Tags { get; private set; }
-        public virtual BugTrackerNavigation Navigation { get; private set; }
             
         private BugTracker() { }
 
-        public BugTracker(Application application, BugTrackerStatus status, String description, DateTime data, List<BugTrackerTag> tags, BugTrackerNavigation navigation)
+        public BugTracker(Application application, BugTrackerStatus status, String description, DateTime data, List<BugTrackerTag> tags, Browser browser, OperationalSystem operationalSystem)
         {
             this.Application = application;
             this.Status = status;
             this.Description = description;
             this.OccurredDate = data;
             this.Tags = tags;
-            this.Navigation = navigation;
+            this.OperationalSystem = operationalSystem;
+            this.Browser = browser;
         }
 
-        public BugTracker(int id, Application application, BugTrackerStatus status, String description, DateTime data, List<BugTrackerTag> tags, BugTrackerNavigation navigation)
-            : this(application, status, description, data, tags, navigation)
+        public BugTracker(int id, Application application, BugTrackerStatus status, String description, DateTime data, List<BugTrackerTag> tags, Browser browser, OperationalSystem operationalSystem)
+            : this(application, status, description, data, tags, browser, operationalSystem)
         {
             this.IDBugTracker = id;
         }

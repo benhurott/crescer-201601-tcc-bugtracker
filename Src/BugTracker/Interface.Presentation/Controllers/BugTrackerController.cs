@@ -61,12 +61,10 @@ namespace Interface.Presentation.Controllers
                         application,
                         bugTrackerPostModel.Status,
                         bugTrackerPostModel.Trace,
-                        DateTime.Today,
+                        DateTime.Now,
                         bugTrackerPostModel.ToTrackerTag(),
-                        new Domain.Entity.BugTrackerNavigation(
-                            new Domain.Entity.Browser(request.Browser.Browser, request.Browser.Version),
-                            new Domain.Entity.OperationalSystem(request.Browser.Platform)
-                        )
+                        new Domain.Entity.Browser(request.Browser.Browser, request.Browser.Version),
+                        new Domain.Entity.OperationalSystem(request.Browser.Platform)
                     )
                 );
 

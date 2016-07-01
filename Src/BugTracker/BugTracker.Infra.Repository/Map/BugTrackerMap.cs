@@ -14,6 +14,10 @@ namespace BugTracker.Infra.Repository.Map
         {
             ToTable("BugTracker");
             HasKey(_ => _.IDBugTracker);
+
+            Property(_ => _.Browser.Name).HasColumnName("BrowserName");
+            Property(_ => _.Browser.Version).HasColumnName("BrowserVersion");
+            Property(_ => _.OperationalSystem.Name).HasColumnName("PlatformName");
         }
     }
 }

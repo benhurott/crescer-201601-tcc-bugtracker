@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="BUG" id="82CAAF3C-066D-9527-2CC5-1CBF2BA7DFE0" version="3.5">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:46:58 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>82CAAF3C-066D-9527-2CC5-1CBF2BA7DFE0</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="F654F460-9322-1D80-8C67-63AD7D5C2452">
+<designStoragePath>C:\Users\gustavo.mello\Documents\crescer-201601-tcc-bugtracker\Doc\DB\bugtrucker</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="186C8F9F-47F5-0CBF-22C3-456696C8542A">
+<designStoragePath>C:\Users\gustavo.mello\Documents\crescer-201601-tcc-bugtracker\Doc\DB\bugtrackerr</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

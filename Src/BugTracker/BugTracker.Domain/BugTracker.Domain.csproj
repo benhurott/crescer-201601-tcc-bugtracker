@@ -49,17 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\Activation.cs" />
     <Compile Include="Entity\Application.cs" />
     <Compile Include="Entity\Browser.cs" />
     <Compile Include="Entity\BugTracker.cs" />
     <Compile Include="Entity\BugTrackerStatus.cs" />
-    <Compile Include="Entity\BugTrackerNavigation.cs" />
+    <Compile Include="Entity\ForgotPassword.cs" />
     <Compile Include="Entity\OperationalSystem.cs" />
     <Compile Include="Entity\Software.cs" />
     <Compile Include="Entity\BugTrackerTag.cs" />
     <Compile Include="Entity\User.cs" />
-    <Compile Include="Entity\UserRecovery.cs" />
+    <Compile Include="Entity\UserActivation.cs" />
     <Compile Include="Exceptions\TagVeryLargeException.cs" />
     <Compile Include="Interface\Repository\IActivationRepository.cs" />
     <Compile Include="Interface\Repository\IApplicationRepository.cs" />

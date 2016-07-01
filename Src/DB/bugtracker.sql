@@ -29,40 +29,15 @@ CREATE
     IDApplication INTEGER NOT NULL ,
     OccurredDate  DATETIME NOT NULL ,
     Description TEXT NOT NULL ,
-    Status INTEGER NOT NULL
+    Status         INTEGER NOT NULL ,
+    BrowserName    VARCHAR (100) NOT NULL ,
+    BrowserVersion VARCHAR (10) NOT NULL ,
+    PlatformName   VARCHAR (100) NOT NULL
   )
   ON "default"
 GO
 ALTER TABLE BugTracker ADD CONSTRAINT BugTrucker_PK PRIMARY KEY CLUSTERED (
 IDBugTracker)
-WITH
-  (
-    ALLOW_PAGE_LOCKS = ON ,
-    ALLOW_ROW_LOCKS  = ON
-  )
-  ON "default"
-GO
-
-CREATE
-  TABLE BugTrackerNavigation
-  (
-    IDBugTrackerNavigation INTEGER IDENTITY NOT NULL ,
-    IDBugTracker           INTEGER NOT NULL ,
-    BrowserName            VARCHAR (100) NOT NULL ,
-    BrowserVersion         VARCHAR (10) NOT NULL ,
-    PlatformName           VARCHAR (100) NOT NULL
-  )
-  ON "default"
-GO
-CREATE UNIQUE NONCLUSTERED INDEX
-BugTrackerNavigation__IDX ON BugTrackerNavigation
-(
-  IDBugTracker
-)
-ON "default"
-GO
-ALTER TABLE BugTrackerNavigation ADD CONSTRAINT BugTrackerNavigation_PK PRIMARY
-KEY CLUSTERED (IDBugTrackerNavigation)
 WITH
   (
     ALLOW_PAGE_LOCKS = ON ,
@@ -99,8 +74,8 @@ CREATE
     Password VARCHAR (255) ,
     Active BIT NOT NULL ,
     AccountConfirmed BIT NOT NULL ,
-    Image VARCHAR (255),
-    HashCode       VARCHAR (500) NOT NULL
+    Image    VARCHAR (255) ,
+    HashCode VARCHAR (500) NOT NULL
   )
   ON "default"
 GO
@@ -121,17 +96,37 @@ WITH
 GO
 
 CREATE
-  TABLE UserRecovery
+  TABLE UserActivation
   (
-    IDUserRecovery INTEGER IDENTITY NOT NULL ,
-    IDUser         INTEGER NOT NULL ,
-    RequestDate    DATETIME NOT NULL ,
-    HashCode       VARCHAR (500) NOT NULL
+    IDUserActivation INTEGER IDENTITY NOT NULL ,
+    IDUser           INTEGER NOT NULL ,
+    RequestDate      DATETIME NOT NULL ,
+    HashCode         VARCHAR (500) NOT NULL
   )
   ON "default"
 GO
-ALTER TABLE UserRecovery ADD CONSTRAINT UserRecovery_PK PRIMARY KEY CLUSTERED (
-IDUserRecovery)
+ALTER TABLE UserActivation ADD CONSTRAINT UserActivation_PK PRIMARY KEY
+CLUSTERED (IDUserActivation)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+GO
+
+CREATE
+  TABLE UserForgotPassword
+  (
+    IDUserForgotPassword INTEGER IDENTITY NOT NULL ,
+    IDUser               INTEGER NOT NULL ,
+    RequestDate          DATETIME NOT NULL ,
+    HashCode             VARCHAR (500) NOT NULL
+  )
+  ON "default"
+GO
+ALTER TABLE UserForgotPassword ADD CONSTRAINT UserForgotPassword_PK PRIMARY KEY
+CLUSTERED (IDUserForgotPassword)
 WITH
   (
     ALLOW_PAGE_LOCKS = ON ,
@@ -148,21 +143,6 @@ IDUser
 REFERENCES "User"
 (
 IDUser
-)
-ON
-DELETE
-  NO ACTION ON
-UPDATE NO ACTION
-GO
-
-ALTER TABLE BugTrackerNavigation
-ADD CONSTRAINT BugTrackerNavigation_BugTracker_FK FOREIGN KEY
-(
-IDBugTracker
-)
-REFERENCES BugTracker
-(
-IDBugTracker
 )
 ON
 DELETE
@@ -200,8 +180,8 @@ DELETE
 UPDATE NO ACTION
 GO
 
-ALTER TABLE UserRecovery
-ADD CONSTRAINT UserRecovery_User_FK FOREIGN KEY
+ALTER TABLE UserActivation
+ADD CONSTRAINT UserActivation_User_FK FOREIGN KEY
 (
 IDUser
 )
@@ -214,3 +194,20 @@ DELETE
   NO ACTION ON
 UPDATE NO ACTION
 GO
+
+ALTER TABLE UserForgotPassword
+ADD CONSTRAINT UserForgotPassword_User_FK FOREIGN KEY
+(
+IDUser
+)
+REFERENCES "User"
+(
+IDUser
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+

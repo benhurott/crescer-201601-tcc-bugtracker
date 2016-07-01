@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CED86C4E-5191-783B-71A2-F3B877328218" name="Application">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>4060C17A-EC6D-7562-2F92-9D7A88E1C3BE</importedID>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDApplication" id="46F07768-328B-A43A-40B6-C58B7B12D5FD">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>07EBC3E3-AEAE-62CE-3361-FE99471E5A4F</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDUser" id="8ECA60DA-4913-803C-D8AB-39C6C7A80B92">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>F946CA3D-DD1A-8CC0-3AFF-FD8ACB753583</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BEAC00BC-AEBC-F57F-8FCF-72819B2EB768" referredColumn="744DA6C5-FC1A-4D7D-CDF4-EF709E0D9664"/>
+</associations>
+</Column>
+<Column name="Title" id="F7C540F7-935F-F452-B38D-AAD2A9B144F2">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>B2FF3D29-B70B-9E2D-6329-0B4301E6A1D9</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description" id="5F6808C3-5611-3EEB-E4DC-6FA71B7EE423">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>07830620-AD90-21B6-679C-A6D2DD937986</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+<ownDataTypeParameters>300,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Url" id="8B0055C8-DEED-2B0D-A233-B7AAD802EB2D">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>F7E7F286-3D1C-BA1B-607D-BE3C4D1A3595</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Active" id="65CB159A-3395-00F7-45D7-9612C567D1C5">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>70007802-F1E9-3373-9C55-4154F8D8149A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Image" id="81F05D24-882A-BDD6-BACC-0FC6F6D35117">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>9849117F-41B2-B063-ECDD-B8436606A9DC</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SpecialTag" id="24C1A2EF-1AF7-D075-88D9-B20EACFCE559">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>C2B3D8F6-94C7-8C5D-4D70-352AAB9768FA</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="002BB9E3-17E9-6A50-903C-EE4FF1E59BB4" name="Application_PK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>6D5CC727-0411-DF8D-93E6-F3F3FA2E2944</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="46F07768-328B-A43A-40B6-C58B7B12D5FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5E0E4635-AB94-5F81-1014-D68C06398258" name="Application_User_FK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:23 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8ECA60DA-4913-803C-D8AB-39C6C7A80B92"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

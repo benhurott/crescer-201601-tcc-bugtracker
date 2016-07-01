@@ -55,7 +55,6 @@
     <Compile Include="Map\ActivationMap.cs" />
     <Compile Include="Map\ApplicationMap.cs" />
     <Compile Include="Map\BugTrackerMap.cs" />
-    <Compile Include="Map\BugTrackerNavigationMap.cs" />
     <Compile Include="Map\BugTrackerTagMap.cs" />
     <Compile Include="Map\UserMap.cs" />
     <Compile Include="Map\UserRecoveryMap.cs" />

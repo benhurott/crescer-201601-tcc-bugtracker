@@ -17,8 +17,8 @@ namespace Interface.Presentation.Extensions
                     bugTracker.OccurredDate,
                     bugTracker.Status,
                     string.Join(",", bugTracker.Tags.Select(x => x.Name)),
-                    bugTracker.Navigation.Browser,
-                    bugTracker.Navigation.OperationalSystem
+                    bugTracker.Browser,
+                    bugTracker.OperationalSystem
                 );
         }
 

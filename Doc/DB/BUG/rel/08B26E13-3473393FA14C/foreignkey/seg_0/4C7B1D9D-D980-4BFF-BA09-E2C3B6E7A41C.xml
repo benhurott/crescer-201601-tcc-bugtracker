@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4C7B1D9D-D980-4BFF-BA09-E2C3B6E7A41C" containerWithKeyObject="1018495C-7387-71B4-D9FB-54D8951FDEE0" localFKIndex="D875BD8D-E769-EB4C-689A-4CB24BBF857D" name="UserForgotPassword_User_FK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:52:55 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3FF34092-0C5A-1918-7070-EBB2E35BC3B9</referredTableID>
+<keyObject>530D974C-BA0B-5DA6-0C24-258B8E42CB89</keyObject>
+<referredKeyID>530D974C-BA0B-5DA6-0C24-258B8E42CB89</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

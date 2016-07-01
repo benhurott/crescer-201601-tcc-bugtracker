@@ -1,0 +1,135 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3FF34092-0C5A-1918-7070-EBB2E35BC3B9" name="User">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:21 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>1BF89241-786F-61B2-0D6F-27B9539D57C7</importedID>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDUser" id="744DA6C5-FC1A-4D7D-CDF4-EF709E0D9664">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>B53E8DEC-38F1-0F5E-B1A0-C361AE0B4B7E</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="E7B26865-8963-3AE1-0FAF-DD4889EC2251">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>56827416-EA20-3A25-87D2-79A77D9D5DE9</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Email" id="6FDEDDC2-CD51-341E-96C7-A74EE0E8BBF9">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>E13D89B2-BE44-259D-7001-8EB935A5800D</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Password" id="00A4934B-C35C-DD2A-60D6-72690A32520A">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>D4DCBB70-7AEC-643E-BB92-0416FCB887A3</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Active" id="A2F996CC-804E-ACCF-040A-29E1523E78EB">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>38FDADA2-4F11-233B-3757-C6A89517092D</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AccountConfirmed" id="FB5DDAD7-B1AA-8D0C-41BC-D5415ADAE977">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>2034CF10-E08A-6C6B-BF08-139F5AB35987</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Image" id="A9EE488F-1748-FB8C-84A7-374C606E90AB">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>C5586DDC-254A-D89B-86FD-89FECA54392D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HashCode" id="8A177048-9D73-AA71-B15B-F7BFD67DD2C0">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:49:04 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="530D974C-BA0B-5DA6-0C24-258B8E42CB89" name="User_PK">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>2B5BB271-7364-8FCD-EEDC-0A4F9A01C807</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="744DA6C5-FC1A-4D7D-CDF4-EF709E0D9664"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="08BAA119-07C6-9B19-B394-FD40F73462C7" name="User__Email">
+<createdBy>gustavo.mello</createdBy>
+<createdTime>2016-07-01 20:48:22 UTC</createdTime>
+<ownerDesignName>BUG</ownerDesignName>
+<importedID>FED12185-C7BF-F88C-D8DF-1F825B3E5672</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6FDEDDC2-CD51-341E-96C7-A74EE0E8BBF9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
