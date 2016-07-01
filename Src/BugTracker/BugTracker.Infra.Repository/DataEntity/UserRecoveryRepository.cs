@@ -10,11 +10,11 @@ namespace BugTracker.Infra.Repository.DataEntity
 {
     public class UserRecoveryRepository : IUserRecoveryRepository
     {
-        public void Add(UserRecovery userRecovery)
+        public void Add(ForgotPassword userRecovery)
         {
             using (var db = new DataContext())
             {
-                db.Entry<UserRecovery>(userRecovery).State = System.Data.Entity.EntityState.Added;
+                db.Entry<ForgotPassword>(userRecovery).State = System.Data.Entity.EntityState.Added;
 
                 db.Entry<User>(userRecovery.RequestUser).State = System.Data.Entity.EntityState.Unchanged;
 
@@ -22,7 +22,7 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
-        public UserRecovery FindByCode(string code)
+        public ForgotPassword FindByCode(string code)
         {
             using (var db = new DataContext())
             {

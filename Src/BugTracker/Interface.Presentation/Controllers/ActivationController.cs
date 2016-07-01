@@ -24,7 +24,7 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public ActionResult Code(string code)
         {
-            Activation activation = activationService.FindByCode(code);
+            UserActivation activation = activationService.FindByCode(code);
 
             if (activation != null)
             {

@@ -18,7 +18,7 @@ namespace Interface.Presentation.Mail_Body
 
         public static void SendTo(User user)
         {
-            activationService.Add(new BugTracker.Domain.Entity.Activation(SendTo(user.Email), user.IDUser, user));
+            activationService.Add(new BugTracker.Domain.Entity.UserActivation(SendTo(user.Email), user.IDUser, user));
         }
 
         private static string SendTo(string mailTo)

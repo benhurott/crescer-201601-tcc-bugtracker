@@ -21,7 +21,7 @@ namespace Interface.Presentation.Controllers
         [HttpPost]
         public ActionResult NewPassword(UserRecoveryViewModel userModel)
         {
-            UserRecovery userRecovery = userRecoveryService.FindByCode(userModel.IDCode);
+            ForgotPassword userRecovery = userRecoveryService.FindByCode(userModel.IDCode);
 
             if (userRecovery != null)
             {
@@ -62,7 +62,7 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public ActionResult Code(string code)
         {
-            UserRecovery userRecovery = userRecoveryService.FindByCode(code);
+            ForgotPassword userRecovery = userRecoveryService.FindByCode(code);
 
             if (userRecovery != null)
             {

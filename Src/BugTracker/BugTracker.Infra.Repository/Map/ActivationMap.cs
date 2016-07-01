@@ -8,15 +8,12 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Infra.Repository.Map
 {
-    class ActivationMap : EntityTypeConfiguration<Activation>
+    class ActivationMap : EntityTypeConfiguration<UserActivation>
     {
         public ActivationMap()
 	    {
-	        ToTable("Activation");
-                HasKey(a => a.IDActivation);
-
-                HasRequired(_ => _.User)
-                    .WithRequiredDependent(u => u.Activation);
+	        ToTable("UserActivation");
+                HasKey(a => a.IDUserActivation);
 	    }
     }
 }

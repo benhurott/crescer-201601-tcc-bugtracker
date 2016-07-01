@@ -18,15 +18,15 @@ namespace BugTracker.Domain.Service
             this.activationRepository = activationRepository;
         }
 
-        public Activation FindByCode(string code)
+        public UserActivation FindByCode(string code)
         {
             var activation = this.activationRepository.FindByCode(code);
-            if (activation != null && activation.DateRequest.CompareTo(DateTime.Now) < 1)
+            if (activation != null && activation.RequestDate.CompareTo(DateTime.Now) < 1)
                 return activation;
             return null;
         }
 
-        public void Add(Activation activation)
+        public void Add(UserActivation activation)
         {
             this.activationRepository.Add(activation);
         }

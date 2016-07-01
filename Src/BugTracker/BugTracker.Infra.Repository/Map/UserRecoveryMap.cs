@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Infra.Repository.Map
 {
-    public class UserRecoveryMap : EntityTypeConfiguration<UserRecovery>
+    public class UserRecoveryMap : EntityTypeConfiguration<ForgotPassword>
     {
         public UserRecoveryMap ()
 	    {
-            ToTable("UserRecovery");
-            HasKey(_ => _.IDUserRecovery);
-	    }        
+            ToTable("ForgotPassword");
+            HasKey(_ => _.IDForgotPassword);
+        }        
     }
 }

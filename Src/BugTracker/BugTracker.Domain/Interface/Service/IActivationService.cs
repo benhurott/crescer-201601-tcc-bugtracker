@@ -9,7 +9,7 @@ namespace BugTracker.Domain.Interface.Service
 {
     public interface IActivationService
     {
-        Activation FindByCode(string code);
-        void Add(Activation activation);
+        UserActivation FindByCode(string code);
+        void Add(UserActivation activation);
     }
 }

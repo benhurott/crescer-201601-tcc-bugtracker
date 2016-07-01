@@ -18,12 +18,12 @@ namespace BugTracker.Domain.Service
             this.userRecoveryRepository = applicationRepository;
         }
 
-        public void Add(UserRecovery userRecovery)
+        public void Add(ForgotPassword userRecovery)
         {
             userRecoveryRepository.Add(userRecovery);
         }
 
-        public UserRecovery FindByCode(string code)
+        public ForgotPassword FindByCode(string code)
         {
             var userRecovery = userRecoveryRepository.FindByCode(code);
             if (userRecovery != null && userRecovery.RequestDate.CompareTo(DateTime.Now) < 1)

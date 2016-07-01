@@ -92,7 +92,7 @@ namespace Interface.Presentation.Controllers
 
                     user = userService.Add(user);
 
-                    UserActivation.SendTo(user);
+                    //UserActivation.SendTo(user);
                 }
             }
             else

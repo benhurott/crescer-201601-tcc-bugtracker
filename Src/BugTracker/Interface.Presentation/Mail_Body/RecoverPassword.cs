@@ -16,7 +16,7 @@ namespace Interface.Presentation.Mail_Body
 
         public static void SendTo(User user)
         {
-            userRecoveryService.Add(new UserRecovery(user, DateTime.Now, RecoverPassword.SendTo(user.Email)));
+            userRecoveryService.Add(new ForgotPassword(user, DateTime.Now, RecoverPassword.SendTo(user.Email)));
         }
 
         private static string SendTo(string mailTo)

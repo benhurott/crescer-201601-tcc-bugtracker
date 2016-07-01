@@ -11,11 +11,11 @@ namespace BugTracker.Infra.Repository
         public DataContext() : base("Conn"){ }
 
         public DbSet<User> User { get; set; }
-        public DbSet<UserRecovery> UserRecovery { get; set; }
+        public DbSet<ForgotPassword> UserRecovery { get; set; }
         public DbSet<Application> Application { get; set; }
         public DbSet<Dominio.BugTracker> BugTrucker { get; set; }
         public DbSet<BugTrackerTag> BugTrackerTag { get; set; }
-        public DbSet<Activation> Activation { get; set; }
+        public DbSet<UserActivation> Activation { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

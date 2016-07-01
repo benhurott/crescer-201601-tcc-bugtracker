@@ -9,7 +9,7 @@ namespace BugTracker.Domain.Interface.Repository
 {
     public interface IUserRecoveryRepository
     {
-        void Add(UserRecovery userRecovery);
-        UserRecovery FindByCode(string code);
+        void Add(ForgotPassword userRecovery);
+        ForgotPassword FindByCode(string code);
     }
 }

@@ -9,8 +9,8 @@ namespace BugTracker.Domain.Interface.Repository
 {
     public interface IActivationRepository
     {
-        Activation FindByCode(string code);
-        void Add(Activation activation);
+        UserActivation FindByCode(string code);
+        void Add(UserActivation activation);
         void Remove(int id);
     }
 }
