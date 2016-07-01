@@ -51,47 +51,54 @@ namespace Interface.Presentation.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult NewRegister(RegisterUserViewModel userModel)
         {
-            BugTracker.Domain.Entity.User userFound = userService.FindByEmail(userModel.Email);
-
-            if (userFound != null)
+            if (ModelState.IsValid)
             {
-                if (userFound.Password != null)
+                BugTracker.Domain.Entity.User userFound = userService.FindByEmail(userModel.Email);
+
+                if (userFound != null)
                 {
-                    ModelState.AddModelError("INVALID_USER", "Email is already in use");
-                    return View("Register");
+                    if (userFound.Password != null)
+                    {
+                        ModelState.AddModelError("INVALID_USER", "Email is already in use");
+                        return View("Register");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("INVALID_USER", "Email is used with github, you can set a password in your perfil settings");
+                        return View("Register");
+                    }
                 }
                 else
                 {
-                    ModelState.AddModelError("INVALID_USER", "Email is used with github, you can set a password in your perfil settings");
-                    return View("Register");
+                    string fileName = "default-perfil.jpg";
+
+                    if (userModel.FileImage != null)
+                    {
+                        fileName = UploadImageService.UploadUserImage(userModel.FileImage);
+                    }
+
+                    BugTracker.Domain.Entity.User user = new User(
+                        userModel.Name,
+                        userModel.Email,
+                        userModel.Password,
+                        fileName,
+                        null,
+                        true,
+                        false);
+
+                    user = userService.Add(user);
+
+                    UserActivation.SendTo(user);
                 }
             }
             else
             {
-                string fileName = "default-perfil.jpg";
-
-                if(userModel.FileImage != null)
-                {
-                    fileName = UploadImageService.UploadUserImage(userModel.FileImage);
-                }
-
-                BugTracker.Domain.Entity.User user = new User(
-                    userModel.Name,
-                    userModel.Email,
-                    userModel.Password,
-                    fileName,
-                    null,
-                    true,
-                    false);
-
-                user = userService.Add(user);
-
-                UserActivation.SendTo(user);
-
-                return RedirectToAction("Index","Home");
+            return View("register");
             }
+            return RedirectToAction("Index","Login");
         }
 
         //TODO: (Remover) Exemplo de upload de imagem

@@ -190,6 +190,8 @@
     <Compile Include="Extensions\BugTrackerExtensions.cs" />
     <Compile Include="Extensions\DynamicExtensions.cs" />
     <Compile Include="Extensions\HttpCookieExtensions.cs" />
+    <Compile Include="Filters\ImageExtensionValidation.cs" />
+    <Compile Include="Filters\FileSizeValidation.cs" />
     <Compile Include="Filters\UserToken.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

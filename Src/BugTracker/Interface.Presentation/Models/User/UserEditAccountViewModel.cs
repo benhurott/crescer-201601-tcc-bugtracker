@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interface.Presentation.Filters;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
@@ -20,6 +21,8 @@ namespace Interface.Presentation.Models.User
         public String Image { get; set; }
 
         [DisplayName("New Photo")]
+        [ImageExtensionValidation(ErrorMessage = "Only images .jpg, .jpeg and .png")]
+        [FileSizeValidation(100 * 1024, ErrorMessage = "File size must be lesser than 100 kb")]
         public HttpPostedFileBase File { get; set; }
 
         [DisplayName("Old Password")]

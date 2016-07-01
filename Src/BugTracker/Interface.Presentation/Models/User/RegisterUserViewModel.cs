@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Interface.Presentation.Filters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -17,7 +18,8 @@ namespace Interface.Presentation.Models.User
         [EmailAddress]
         public string Email { get; set; }
 
-
+        [ImageExtensionValidation(ErrorMessage = "Only images .jpg, .jpeg and .png")]
+        [FileSizeValidation( 100 * 1024, ErrorMessage = "File size must be lesser than 100 kb")]
         [DisplayName("Perfil Image")]
         public HttpPostedFileBase FileImage { get; set; }
 
