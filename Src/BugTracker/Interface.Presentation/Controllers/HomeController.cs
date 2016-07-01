@@ -85,6 +85,7 @@ namespace Interface.Presentation.Controllers
                         userModel.Email,
                         userModel.Password,
                         fileName,
+                        Guid.NewGuid().ToString() + new Random().Next(100),
                         null,
                         true,
                         false);
@@ -93,32 +94,12 @@ namespace Interface.Presentation.Controllers
 
                     UserActivation.SendTo(user);
                 }
-<<<<<<< Updated upstream
             }
             else
             {
             return View("register");
             }
             return RedirectToAction("Index","Login");
-=======
-
-                BugTracker.Domain.Entity.User user = new User(
-                    userModel.Name,
-                    userModel.Email,
-                    userModel.Password,
-                    fileName,
-                    Guid.NewGuid().ToString(),
-                    null,
-                    true,
-                    false);
-
-                user = userService.Add(user);
-
-                UserActivation.SendTo(user);
-
-                return RedirectToAction("Index","Home");
-            }
->>>>>>> Stashed changes
         }
 
         //TODO: (Remover) Exemplo de upload de imagem
