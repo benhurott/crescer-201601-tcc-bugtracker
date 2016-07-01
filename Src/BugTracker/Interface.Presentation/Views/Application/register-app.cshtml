@@ -1,9 +1,7 @@
 ﻿@model Interface.Presentation.Models.ApplicationModel
-
 @{
     ViewBag.Title = "CreateApp";
 }
-
 <div class="panel panel-success col-md-12 box">
     <div class="panel-heading">
         @if (Model != null)
@@ -15,11 +13,10 @@
             <h4>New application</h4>
         }
 
-
     </div>
     @using (Html.BeginForm("NewEditApp", "Application", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-       @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
         @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(model => model.Icon)
@@ -34,7 +31,6 @@
                     @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                 </div>
             </div>
-
             <div class="form-group">
                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -42,7 +38,6 @@
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
-
             <div class="form-group">
                 @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -50,7 +45,7 @@
                     @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
                 </div>
             </div>
-            
+
             <div class="form-group">
                 @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -58,7 +53,6 @@
                     @Html.ValidationMessageFor(model => model.File)
                 </div>
             </div>
-
             <div class="form-group">
                 @Html.LabelFor(model => model.Tag, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -66,7 +60,6 @@
                     @Html.ValidationMessageFor(model => model.Tag, "", new { @class = "text-danger" })
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Register" class="btn btn-success" />
@@ -75,7 +68,3 @@
         </div>
     }
 </div>
-
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

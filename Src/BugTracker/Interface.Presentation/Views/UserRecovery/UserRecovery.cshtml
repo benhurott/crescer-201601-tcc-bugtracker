@@ -12,7 +12,7 @@
 @using (Html.BeginForm("NewPassword", "UserRecovery", FormMethod.Post, new { @class = "form" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>UserRecoveryViewModel</h4>
         <hr />

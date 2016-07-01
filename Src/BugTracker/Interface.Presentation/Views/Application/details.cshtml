@@ -3,7 +3,6 @@
     ViewBag.Title = "Application Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="panel panel-success col-md-12 box">
     <div class="panel-heading">
         <h4>@Html.DisplayFor(model => model.Title) (<span id="countBugs"></span>)</h4>
@@ -21,15 +20,19 @@
                     <th>Operation System</th>
                 </tr>
             </thead>
-            <tbody id="list-bug-tracks">
-            </tbody>
+            <tbody id="list-bug-tracks"></tbody>
         </table>
     </div>
 </div>
 
-<script>
-    var idApplication = '@Model.IDApplication';
-</script>
-<script src="~/Scripts/Custom/model/bug-tracker-model.js"></script>
-<script src="~/Scripts/Custom/view/bug-tracker-view.js"></script>
-<script> new BugTrackerView().init();</script>
+@section scripts{
+    <script>
+        var idApplication = '@Model.IDApplication';
+    </script>
+
+    @Scripts.Render("~/bundles/application")
+    
+    <script>
+        new BugTrackerView().init();
+    </script>
+}

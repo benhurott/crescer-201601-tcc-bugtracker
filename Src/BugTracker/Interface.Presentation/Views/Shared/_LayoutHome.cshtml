@@ -4,12 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="https://bootswatch.com/sandstone/bootstrap.min.css">
-    <link href="~/Content/Custom/panel.css" rel="stylesheet" />
-    <link href="~/Content/Custom/layout-home.css" rel="stylesheet" />
     <link rel="shortcut icon" href="~/Content/Images/Application/cockroach.png" type="image/x-icon" />
+    @Styles.Render("~/Content/layout-home")
     @RenderSection("css", false)
-</head> 
+</head>
 <body>
     <nav class="navigation-main navigation-fixed nav navbar-inverse">
         <div class="navbar-header navigation-header">
@@ -26,9 +24,8 @@
     <div>
         @RenderBody()
     </div>
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/Custom/layout/layoutHome.js"></script>
+
+    @Scripts.Render("~/bundles/layout-home")
+    @RenderSection("scripts", false)
 </body>
 </html>

@@ -4,10 +4,6 @@
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
     ViewBag.Title = "login";
 }
-
-@section css{
-    <link href="~/content/Custom/login.css" rel="stylesheet" />
-}
 <div class="container">
     <div class="alert alert-success">
         @TempData["Message"]
@@ -20,34 +16,30 @@
         <div class="integration">
             <a href=@Url.Action("SignInGitHub","LoginGitHub") class="btn btn-block btn-default">Sign with GitHub</a>
         </div>
-            <div class="form-horizontal">
-                <hr />
-                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Login" class="btn btn-success" />
-                        <a class="btn btn-default" href=@Url.Action("Register","Home")>Register</a>
-                        <a class="btn btn-info" href=@Url.Action("ForgotPassword","UserRecovery")>Forgot Password</a>
-                    </div>
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
             </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Login" class="btn btn-success" />
+                    <a class="btn btn-default" href=@Url.Action("Register","Home")>Register</a>
+                    <a class="btn btn-info" href=@Url.Action("ForgotPassword","UserRecovery")>Forgot Password</a>
+                </div>
+            </div>
+        </div>
     }
 </div>
-
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

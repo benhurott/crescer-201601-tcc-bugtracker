@@ -1,5 +1,4 @@
 ﻿@model List<Interface.Presentation.Models.Application.ApplicationAndBugsViewModel>
-
 @{
     ViewBag.Title = "Home";
 }
@@ -10,12 +9,10 @@
         </div>
         <div class="panel-body">
             <div class="row">
-
                 <form action="~/User/Search/" method="post">
                     <input type="text" class="form-control" name="name" placeholder="App name...">
                     <input href="~/User/Search/" class="btn btn-success col-sm-2 glyphicon glyphicon-zoom-in" type="submit" value="Search" />
                 </form>
-
                 <a href="~/Application/RegisterApp/" class="btn btn-success col-sm-2">New App</a>
             </div>
             <table class="table">
@@ -63,7 +60,6 @@
             </table>
         </div>
     </div>
-
     <div class="panel panel-success col-md-3 box">
         <div class="panel-heading">
             <h4>Today</h4>
@@ -91,5 +87,3 @@
         </div>
     </div>
 </div>
-
-
