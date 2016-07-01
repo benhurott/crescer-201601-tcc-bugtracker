@@ -12,8 +12,8 @@ namespace BugTracker.Infra.Repository.Map
     {
         public UserRecoveryMap ()
 	    {
-            ToTable("ForgotPassword");
-            HasKey(_ => _.IDForgotPassword);
+            ToTable("UserForgotPassword");
+            HasKey(_ => _.IDUserForgotPassword);
             HasRequired(a => a.RequestUser)
                 .WithMany(u => u.Forgots)
                 .HasForeignKey(a => a.IDUser)

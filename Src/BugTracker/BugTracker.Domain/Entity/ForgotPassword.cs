@@ -8,7 +8,7 @@ namespace BugTracker.Domain.Entity
 {
     public class ForgotPassword
     {
-        public int IDForgotPassword { get; private set; }
+        public int IDUserForgotPassword { get; private set; }
         public virtual User RequestUser { get; private set; }
         public int IDUser { get; private set; }
         public DateTime RequestDate { get; private set; }
@@ -27,7 +27,7 @@ namespace BugTracker.Domain.Entity
         public ForgotPassword(int id, User requestUser, DateTime requestDate, String hashCode) 
             : this(requestUser, requestDate, hashCode)
         {
-            this.IDForgotPassword = id;
+            this.IDUserForgotPassword = id;
         }
     }
 }
