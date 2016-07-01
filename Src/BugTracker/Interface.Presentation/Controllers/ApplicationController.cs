@@ -53,52 +53,51 @@ namespace Interface.Presentation.Controllers
             if (ModelState.IsValid)
             {
                 var idUser = UserSessionService.LoggedUser.IDUser;
-
                 var user = userService.FindById(idUser);
-
                 var application = applicationService.FindByIDUser(idUser);
+                
+                String fileName = model.File != null ? model.File.FileName : "application-default.png";
 
 
-                if (application.FirstOrDefault(a => a.Url.Equals(model.Url)) == null)
+                if (model.Id.HasValue)
                 {
-                    String fileName = model.File != null ? model.File.FileName : "application-default.png";
-
-
-                    if (model.Id.HasValue)
+                    if (model.File == null)
                     {
-                        if (model.File == null)
-                        {
-                            fileName = model.Icon;
-                        }
-                        else
-                        {
-                            fileName = UploadImageService.UploadApplicationImage(model.File);
-                        }
-
-                        var app = new Application(model.Id.Value, model.Title, model.Description,
-                                              model.Url, true, fileName,
-                                              model.Tag, idUser, user);
-                        applicationService.Edit(app);
+                        fileName = model.Icon;
                     }
                     else
+                    {
+                        fileName = UploadImageService.UploadApplicationImage(model.File);
+                    }
+
+                    var app = new Application(model.Id.Value, model.Title, model.Description,
+                                            model.Url, true, fileName,
+                                            model.Tag, idUser, user);
+                    applicationService.Edit(app);
+                }
+                else
+                {
+                    if (application.FirstOrDefault(a => a.Url.Equals(model.Url)) == null)
                     {
                         if (model.File != null)
                         {
                             fileName = UploadImageService.UploadApplicationImage(model.File);
                         }
                         var app = new Application(model.Title, model.Description,
-                                              model.Url, true, fileName,
-                                              model.Tag, idUser, user);
+                                                model.Url, true, fileName,
+                                                model.Tag, idUser, user);
                         applicationService.Add(app);
                     }
+                    else
+                    {
+                        ModelState.AddModelError("INVALID_URL", "This  url already exist");
+                        return View("register-app", model);
+                    }
+                        
+                }
 
-                }
-                else
-                {
-                    ModelState.AddModelError("INVALID_USER", "The url already exists in your applications");
-                    return View("register-app");
-                }
             }
+             
 
             return RedirectToAction("Index", "User");
         }

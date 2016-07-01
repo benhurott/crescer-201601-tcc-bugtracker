@@ -12,7 +12,7 @@
 }
 
 .box{
-  margin-left: 10px;
+  margin-left: 30px;
   height: 77%;
   overflow-y: auto;
 }
@@ -53,4 +53,14 @@
 
 .paenl-edit{
     display: none;
+}
+
+.panel-heading{
+    padding: -10px;
+    margin: -20px;
+    margin-bottom:10px;
+}
+
+.panel{
+    padding: 20px;
 }
