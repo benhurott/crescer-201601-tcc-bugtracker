@@ -67,8 +67,27 @@ namespace Interface.Presentation.Controllers
         [HttpPost]
         public ActionResult EditAccount(UserEditAccountViewModel model)
         {
+<<<<<<< Updated upstream
             EditAcccountService.EditUser(model, userService);
             return View("account", model);
+=======
+            String fileName = model.Image;
+            var apps = new List<Application>();
+
+            if (model.File != null)
+            {
+                fileName = model.File.FileName;
+            }
+
+            var editedAccount = new User(model.Id.Value, model.Name, 
+                                         model.Email, null,
+                                         fileName, model.HashCode, apps, true, true);
+
+            userService.Update(editedAccount);
+            UploadImageService.UploadUserImage(model.File);
+
+            return View("index");
+>>>>>>> Stashed changes
 
         }
 
@@ -83,16 +102,35 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public FileResult DownloadLibrary(string type)
         {
-            string fileName = "cwitracker.js";
+            string path = Server.MapPath("~/Library/");
+            
+            string libraryName = "cwitracker_1_0_0";
+            
+            int idUser = UserSessionService.LoggedUser.IDUser;
+            
+            //forma o nome do arquivo: pasta + nome da bibliota + id do usuário logado + extensão da bibliotecas
+            string fileUser = path + libraryName + "-" + idUser + ".js";
 
-            if (type == "uncompressed")
+            if (!System.IO.File.Exists(fileUser))
             {
-                fileName = "cwitracker_min.js";
+                var user = userService.FindById(idUser);
+
+                var libraryCode =
+                    System.IO.File.ReadAllText(path + libraryName + ".js")
+                    .Replace("hash_code_user", "'" + user.HashCode + "'");
+
+                using (StreamWriter w = System.IO.File.AppendText(fileUser))
+                {
+                    w.WriteLine(libraryCode);
+                    w.Close();
+                }
             }
 
-            byte[] fileBytes = System.IO.File.ReadAllBytes(Server.MapPath("~/Library/") + fileName);
-
-            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+            return File(
+                System.IO.File.ReadAllBytes(fileUser),
+                System.Net.Mime.MediaTypeNames.Application.Octet,
+                fileUser
+            );
         }
     }
 }

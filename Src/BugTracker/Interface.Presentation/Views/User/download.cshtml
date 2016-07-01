@@ -4,19 +4,12 @@
     ViewBag.Title = "Donwload";
 }
 
-<div class="row">
-    <div class="panel panel-success col-md-11 box">
-        <h2>Donwload</h2>
-            <div>
-                @Html.ActionLink("Compressed Version 1.0.0 ", "DownloadLibrary", new { type = "compressed"})
-            </div>
-
-            <div>
-                @Html.ActionLink("Uncompressed Version 1.0.0 ", "DownloadLibrary", new { type = "uncompressed"})
-            </div>
-            
-            <div class="alert alert-info">
-                <strong>Jquery is required.</strong>
-            </div>
+<div class="panel panel-success col-md-12 box">
+    <div class="panel-heading">
+        <h4>Download</h4>
     </div>
+    <div>
+        @Html.ActionLink("BugTracker Version 1.0.0 ", "DownloadLibrary")
+    </div>
+    <strong>Jquery is required.</strong>
 </div>

@@ -19,6 +19,9 @@ namespace Interface.Presentation.Models.BugTracker
         [Required(ErrorMessage = "Field 'TRACE' is required")]
         public String Trace { get; set; }
 
+        [Required(ErrorMessage = "Broken library. Please, download again")]
+        public String HashCode { get; set; }
+
         public List<BugTrackerTag> ToTrackerTag()
         {
             List<BugTrackerTag> formatedTags = new List<BugTrackerTag>();

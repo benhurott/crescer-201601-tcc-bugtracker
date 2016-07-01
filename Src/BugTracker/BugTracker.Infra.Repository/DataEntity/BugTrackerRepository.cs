@@ -47,5 +47,13 @@ namespace BugTracker.Infra.Repository.DataEntity
                     .ToList();
             }
         }
+
+        public int GetCountBugsByApp(int idApplication)
+        { 
+            using (var db = new DataContext())
+            {
+                return db.BugTrucker.Where(_ => _.IDApplication == idApplication).Count();
+            }
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace BugTracker.Domain.Interface.Service
     {
         ICollection<Domain.Entity.BugTracker> FindByIDApplication(int id);
         ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(int idApplication, int limit, int page);
+        int GetCountBugsByApp(int idApplication);
         void Add(Domain.Entity.BugTracker bugTracker);
     }
 }

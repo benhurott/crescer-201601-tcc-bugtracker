@@ -14,9 +14,10 @@ namespace BugTracker.Domain.Interface.Repository
         void Add(Application application);
         void Edit(Application application);
         Application FindById(int id);
-        ICollection<Application> FindByName(String name);
+        Application FindByUrlAndUserHashCode(string url, string hashCode);
+        ICollection<Application> FindByName(string name);
         IEnumerable<dynamic> FindAppAndBugsByAppId(int id);
-        IEnumerable<dynamic> FindAppAndBugsByName(String name, int id);
+        IEnumerable<dynamic> FindAppAndBugsByName(string name, int id);
 
     }
 }

@@ -27,14 +27,19 @@ namespace Interface.Presentation.Controllers
         [HttpPost]
         public JsonResult Add(BugTrackerPostModel bugTrackerPostModel)
         {
-            var application = applicationService.FindByUrl(HttpContext.Request.Url.Host);
             var request = HttpContext.Request;
+
+            var application = 
+                applicationService.FindByUrlAndUserHashCode(
+                    HttpContext.Request.Url.Host,
+                    bugTrackerPostModel.HashCode
+                 );
 
             if (application == null)
             {
                 throw new HttpException(
                     (int)HttpStatusCode.BadRequest,
-                    "Domain request invalid. Verify your domain in painel."
+                    "Domain invalid or Libray broke. Verify your domain in painel and donwload again library."
                 );
             }
 
@@ -90,7 +95,7 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public JsonResult GetCountBugTrackerByApp(int idApplication)
         {
-            return Json(new { data = 1 }); 
+            return Json(new { count = bugTrackerService.GetCountBugsByApp(idApplication) }, JsonRequestBehavior.AllowGet); 
         }
     }
 }

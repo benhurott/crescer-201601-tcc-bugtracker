@@ -28,29 +28,32 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>
-                                <img src="~/Content/Images/Application/@item.AppImage" class="icon list" />
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.AppName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Bug.Description)
-                            </td>
-                            <td>
-                                @try
-                                {
-                                    @Html.DisplayFor(modelItem => item.Bug.OccurredDate.ToString("dd/MM/yyyy"))
-                                }
-                                catch (Exception e)
-                                {
-                                    @Html.DisplayFor(modelItem => item.Bug.OccurredDate)
-                                }
-                            </td>
+                            @try
+                            {
+                                <td>
+                                    <img src="~/Content/Images/Application/@item.AppImage" class="icon list" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AppName)
+                                </td>
+                                <td>
+                                    <a href="#" data-toggle="tooltip" title="@item.Bug.Description">
+                                        <i class="fa fa-code" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    @item.Bug.OccurredDate.ToString("dd/MM/yyyy HH:mm")
+                                </td>
+                            }
+                            catch (Exception e)
+                            {
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            }
                             <td><a href="~/Application/DetailsApp/@item.AppId" class="glyphicon glyphicon-th-list" alt="Detalhes"></a></td>
                             <td><a href="~/Application/RegisterApp/@item.AppId" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
                             <td><a href="#" class="glyphicon glyphicon-trash delete" alt="Exlcuir" id="@item.AppId"></a></td>

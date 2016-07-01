@@ -14,8 +14,9 @@ namespace BugTracker.Domain.Interface.Service
         void Add(Application application);
         void Edit(Application application);
         Application FindById(int id);
-        ICollection<Application> FindByName(String name);
+        ICollection<Application> FindByName(string name);
+        Application FindByUrlAndUserHashCode(string url, string hashCode);
         IEnumerable<dynamic> FindAppAndBugsByAppId(int id);
-        IEnumerable<dynamic> FindAppAndBugsByName(String name, int id);
+        IEnumerable<dynamic> FindAppAndBugsByName(string name, int id);
     }
 }

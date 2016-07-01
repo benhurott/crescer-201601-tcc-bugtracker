@@ -10,6 +10,7 @@ namespace BugTracker.Domain.Entity
         public String Email { get; private set; }
         public String Password { get; set; }
         public String Image { get; private set; }
+        public String HashCode { get; private set; }
         public virtual ICollection<Application> Applications { get; private set; }
         public bool Active { get; set; }
         public bool AccountConfirmed { get; set; }
@@ -17,7 +18,7 @@ namespace BugTracker.Domain.Entity
 
         public User() { }
 
-        public User(String name, String email, String Password, String Image, List<Application> applications, bool Active, bool AccountConfirmed)
+        public User(String name, String email, String Password, String Image, string hashCode, List<Application> applications, bool Active, bool AccountConfirmed)
         {
             this.Name = name;
             this.Email = email;
@@ -26,10 +27,11 @@ namespace BugTracker.Domain.Entity
             this.Applications = applications;
             this.Active = Active;
             this.AccountConfirmed = AccountConfirmed;
+            this.HashCode = hashCode;
         }
 
-        public User(int id, String name, String email, String password, String Image, List<Application> applications, bool active, bool accountConfirmed) 
-            : this(name, email, password, Image, applications,  active, accountConfirmed)
+        public User(int id, String name, String email, String password, String Image, string hashCode, List<Application> applications, bool active, bool accountConfirmed) 
+            : this(name, email, password, Image, hashCode, applications,  active, accountConfirmed)
         {
             this.IDUser = id;
         }

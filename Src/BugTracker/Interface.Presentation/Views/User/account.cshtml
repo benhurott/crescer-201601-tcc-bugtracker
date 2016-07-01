@@ -32,6 +32,7 @@
 
                 @Html.HiddenFor(model => model.Id)
                 @Html.HiddenFor(model => model.Image)
+                @Html.HiddenFor(model => model.HashCode)
 
                 <div class="form-horizontal">
                     @Html.ValidationSummary(false, "", new { @class = "text-danger" })

@@ -16,10 +16,9 @@ namespace Interface.Presentation.Extensions
                     bugTracker.Description,
                     bugTracker.OccurredDate,
                     bugTracker.Status,
-                    bugTracker.Tags,
-                    bugTracker.Navigation.Browser.Name,
-                    bugTracker.Navigation.Browser.Version,
-                    bugTracker.Navigation.OperationalSystem.Name
+                    string.Join(",", bugTracker.Tags.Select(x => x.Name)),
+                    bugTracker.Navigation.Browser,
+                    bugTracker.Navigation.OperationalSystem
                 );
         }
 

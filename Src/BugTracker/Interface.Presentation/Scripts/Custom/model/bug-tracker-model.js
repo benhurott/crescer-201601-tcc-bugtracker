@@ -12,7 +12,7 @@ BugTrackerModel.prototype.getPagined = function (page) {
     });
 }
 
-BugTrackerModel.prototype.length = function (idApplication) {
+BugTrackerModel.prototype.countBugs = function (idApplication) {
     return $.ajax({
         url: this.urlCount,
         data: { idApplication: idApplication }

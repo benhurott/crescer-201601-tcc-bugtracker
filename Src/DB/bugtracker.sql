@@ -99,7 +99,8 @@ CREATE
     Password VARCHAR (255) ,
     Active BIT NOT NULL ,
     AccountConfirmed BIT NOT NULL ,
-    Image VARCHAR (255)
+    Image VARCHAR (255),
+    HashCode       VARCHAR (500) NOT NULL
   )
   ON "default"
 GO

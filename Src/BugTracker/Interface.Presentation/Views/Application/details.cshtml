@@ -6,31 +6,7 @@
 
 <div class="panel panel-success col-md-12 box">
     <div class="panel-heading">
-        <h4>Title</h4>
-    </div>
-    <div class="panel-body">
-        @Html.DisplayFor(model => model.Title)
-        @Html.DisplayFor(model => model.Description)
-        @Html.DisplayFor(model => model.SpecialTag)
-        @Html.DisplayFor(model => model.Url)
-    </div>
-        <img src="~/Content/Images/Application/@Html.DisplayFor(model => model.Image)" class="icon details" />
-        <a href="~/Application/RegisterApp/@Model.IDApplication" type="button" class="btn btn-success">Edit </a>
-        <a href="~/Application/DeleteApp/@Model.IDApplication" type="button" class="btn btn-danger">Delete</a>
-</div>
-
-<div class="panel panel-success col-md-12 box">
-    <div class="panel-heading">
-        <h4>Graphics</h4>
-    </div>
-    <div class="panel-body">
-
-    </div>
-</div>
-
-<div class="panel panel-success col-md-12 box">
-    <div class="panel-heading">
-        <h4>Bug Trackers</h4>
+        <h4>@Html.DisplayFor(model => model.Title) (<span id="countBugs"></span>)</h4>
     </div>
     <div class="panel-body">
         <table class="table">

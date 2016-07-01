@@ -43,5 +43,6 @@ namespace Interface.Presentation.Models.User
         [Compare("NewPassword", ErrorMessage = "Password do not match")]
         public string ConfirmPassword { get; set; }
 
+        public string HashCode { get; set; }
     }
 }

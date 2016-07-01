@@ -54,5 +54,10 @@ namespace BugTracker.Domain.Service
         {
             return bugTrackerRepository.FindByApplicationPagined(idApplication, limit, page);
         }
+
+        public int GetCountBugsByApp(int idApplication)
+        {
+            return bugTrackerRepository.GetCountBugsByApp(idApplication);
+        }
     }
 }

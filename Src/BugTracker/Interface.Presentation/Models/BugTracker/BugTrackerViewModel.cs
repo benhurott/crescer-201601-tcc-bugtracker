@@ -11,20 +11,18 @@ namespace Interface.Presentation.Models.BugTracker
         public String Trace { get; set; }
         public DateTime OccuredDate { get; set; }
         public BugTrackerStatus Status { get; set; }
-        public ICollection<BugTrackerTag> Tags { get; set; }
-        public String BrowserName { get; set; }
-        public String BrowserVersion { get; set; }
-        public String OperationSystem { get; set; }
+        public string Tags { get; set; }
+        public Browser Browser {get;set;}
+        public OperationalSystem OperationalSystem { get; set; }
 
-        public BugTrackerViewModel(String trace, DateTime occurredDate, BugTrackerStatus status, ICollection<BugTrackerTag> tags, string browserName, string browserVersion, string operationSystem)
+        public BugTrackerViewModel(String trace, DateTime occurredDate, BugTrackerStatus status, string tags, Browser browser, OperationalSystem operationalSystem)
         {
             this.Trace = trace;
             this.OccuredDate = occurredDate;
             this.Status = status;
             this.Tags = tags;
-            this.BrowserName = browserName;
-            this.BrowserVersion = browserVersion;
-            this.OperationSystem = operationSystem;
+            this.OperationalSystem = operationalSystem;
+            this.Browser = browser;
         }
     }
 }

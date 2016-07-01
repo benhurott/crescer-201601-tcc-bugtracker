@@ -10,6 +10,7 @@ BugTrackerView.prototype.init = function () {
     self = (this);
 
     this.loadData();
+    this.showCountBugs();
 
     this.win.scroll(function () {
         if ($(document).height() - self.win.height() === self.win.scrollTop())
@@ -27,3 +28,11 @@ BugTrackerView.prototype.loadData = function () {
         $('#list-bug-tracks').append(data);
     });
 };
+
+BugTrackerView.prototype.showCountBugs = function () {
+    this.bModel.countBugs(idApplication).done(function (data) {
+        $('#countBugs').append(data.count);
+    });
+};  
+
+

@@ -70,11 +70,11 @@ namespace Interface.Presentation.Controllers
                 if (userFound == null)
                 {
                     userFound = userService.Add(new BugTracker.Domain.Entity.User(
-
                             name,
                             primaryEmail,
                             null,
                             profileImage,
+                            Guid.NewGuid().ToString(),
                             null,
                             true,
                             true

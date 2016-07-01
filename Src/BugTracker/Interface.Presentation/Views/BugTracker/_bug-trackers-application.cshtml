@@ -3,12 +3,20 @@
 @foreach (var bug in Model)
 {
     <tr>
-        <td>@bug.Trace</td>
+        <td>
+            <a href="#" data-toggle="tooltip" title="@bug.Trace">
+                <i class="fa fa-code" aria-hidden="true"></i>
+            </a>
+        </td>
         <td>@bug.Status</td>
-        <td>@bug.OccuredDate.ToString("dd/MM/yyyy")</td>
-        <td>TAGS</td>
-        <td>@bug.BrowserName</td>
-        <td>@bug.BrowserVersion</td>
-        <td>@bug.OperationSystem</td>
+        <td>@bug.OccuredDate.ToString("dd/MM/yyyy HH:mm")</td>
+        <td>
+            <a href="#" data-toggle="tooltip" title="@bug.Tags">
+                <i class="fa fa-tags" aria-hidden="true"></i>
+            </a>
+        </td>
+        <td>@bug.Browser.Name</td>
+        <td>@bug.Browser.Version</td>
+        <td>@bug.OperationalSystem.Name</td>
     </tr>
 }   

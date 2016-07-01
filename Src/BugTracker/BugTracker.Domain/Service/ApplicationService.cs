@@ -28,6 +28,11 @@ namespace BugTracker.Domain.Service
             return applicationRepository.FindByUrl(url);
         }
 
+        public Application FindByUrlAndUserHashCode(string url, string hashCode)
+        {
+            return applicationRepository.FindByUrlAndUserHashCode(url, hashCode);
+        }
+        
         public void Add(Application application)
         {
             applicationRepository.Add(application);
