@@ -13,18 +13,18 @@ namespace Interface.Presentation.Services
 
         public static void EditUser(UserEditAccountViewModel model, IUserService userService)
         {
-            var userFounded = userService.FindById(UserSessionService.LoggedUser.IDUser);
 
+            var userFounded = userService.FindById(UserSessionService.LoggedUser.IDUser);
             String fileName = model.Image;
+            String oldPassword = userFounded.Password;
 
             if (model.File != null)
             {
                 fileName = model.File.FileName;
             }
 
-            if (model.NewPassword != null)
+            if (userService.ComparePassword(oldPassword, model.NewPassword))
             {
-                //TODO Encriptografar OldPassWord antes de Comparar
                 if (userFounded.Password.Equals(model.OldPassword))
                 {
                     var editedAccount = new User(model.Id.Value, model.Name, model.Email, model.NewPassword,
