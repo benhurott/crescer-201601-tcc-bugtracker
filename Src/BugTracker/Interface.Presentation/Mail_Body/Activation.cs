@@ -1,5 +1,7 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Service;
+using Interface.Presentation.Controllers;
+using Interface.Presentation.Models.Email;
 using Interface.Presentation.Services;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,13 @@ namespace Interface.Presentation.Mail_Body
         {
             string code = Guid.NewGuid().ToString() + new Random().Next(1000).ToString();
 
+            var model = new EmailModel() {
+                Link = code,
+                Body = "This email is about a new account you made in BugTracker website, click on the button bellow to activate it"};
+
+            string body = EmailService.EmailRazorViewToString(model);
+
+            /*
             string body =
                 "<div>" +
                     "<div style=\"width: 85%;text-align: center;margin: 0 auto;background-color: #d4d8b4;\">" +
@@ -45,6 +54,8 @@ namespace Interface.Presentation.Mail_Body
                         "</div>" +
                     "</div>" +
                 "</div>";
+
+    */
 
             mail.Send(mailTo, "Activation of BugTracker account", body, true);
 

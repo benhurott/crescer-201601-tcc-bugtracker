@@ -188,6 +188,7 @@
     <Compile Include="Controllers\ActivationController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\BugTrackerController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginGitHubController.cs" />
@@ -209,6 +210,7 @@
     <Compile Include="Models\Application\ApplicationViewModel.cs" />
     <Compile Include="Models\BugTracker\BugTrackerPostModel.cs" />
     <Compile Include="Models\BugTracker\BugTrackerViewModel.cs" />
+    <Compile Include="Models\Email\EmailModel.cs" />
     <Compile Include="Models\UserRecovery\UserRecoveryViewModel.cs" />
     <Compile Include="Models\User\LoggedUserViewModel.cs" />
     <Compile Include="Models\User\RegisterUserViewModel.cs" />
@@ -221,6 +223,7 @@
     <Compile Include="Services\CheckFileNameService.cs" />
     <Compile Include="Services\EditAccountService.cs" />
     <Compile Include="Services\DownloadImageService.cs" />
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\MailServiceInjection.cs" />
     <Compile Include="Services\PathService.cs" />
     <Compile Include="Services\UploadImageService.cs" />
@@ -247,6 +250,7 @@
     <Content Include="Views\UserRecovery\UserRecovery.cshtml" />
     <Content Include="Views\UserRecovery\ForgotPassword.cshtml" />
     <Content Include="Views\BugTracker\_bug-trackers-application.cshtml" />
+    <Content Include="Views\Shared\_LayoutEmail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -257,6 +261,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\" />
+    <Folder Include="Views\Email\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Domain\BugTracker.Domain.csproj">
