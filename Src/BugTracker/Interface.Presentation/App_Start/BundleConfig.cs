@@ -33,7 +33,8 @@ namespace Interface.Presentation.App_Start
                         "~/Scripts/jquery.validate.js",
                         "~/Scripts/jquery.validate.unobtrusive.js",
                         "~/Scripts/jquery.unobtrusive-ajax.js",
-                        "~/Scripts/bootstrap.js"));
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/Custom/layout/layout-nav.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/layout-home").Include(
                         "~/Scripts/jquery-1.10.2.js",
