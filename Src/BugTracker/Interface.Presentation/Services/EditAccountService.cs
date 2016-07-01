@@ -23,9 +23,10 @@ namespace Interface.Presentation.Services
                 fileName = model.File.FileName;
             }
 
-            if (userService.ComparePassword(oldPassword, model.NewPassword))
+            if (model.OldPassword != null && model.NewPassword != null)
             {
-                if (userFounded.Password.Equals(model.OldPassword))
+                
+                if (userService.ComparePassword(oldPassword, model.NewPassword))
                 {
                     var editedAccount = new User(model.Id.Value, model.Name, model.Email, model.NewPassword,
                                          fileName, model.HashCode, null, true, true);
