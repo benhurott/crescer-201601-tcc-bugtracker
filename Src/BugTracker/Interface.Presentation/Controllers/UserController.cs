@@ -86,6 +86,7 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public FileResult DownloadLibrary(string type)
         {
+            //TODO: colocar no serviço
             string path = Server.MapPath("~/Library/");
             
             string libraryName = "cwitracker_1_0_0";
