@@ -28,7 +28,7 @@ namespace Interface.Presentation.Services
                 if (userFounded.Password.Equals(model.OldPassword))
                 {
                     var editedAccount = new User(model.Id.Value, model.Name, model.Email, model.NewPassword,
-                                         fileName, Guid.NewGuid().ToString() + new Random().Next(100), null, true, true);
+                                         fileName, model.HashCode, null, true, true);
 
                     userService.Update(editedAccount);
                 }
