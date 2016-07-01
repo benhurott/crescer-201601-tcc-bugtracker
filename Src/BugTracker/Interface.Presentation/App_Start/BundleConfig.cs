@@ -18,9 +18,11 @@ namespace Interface.Presentation.App_Start
                         "~/Scripts/jquery.unobtrusive-ajax.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/application").Include(
-                        "~/Scripts/Custom/application/delete.js",
                         "~/Scripts/Custom/model/bug-tracker-model.js",
                         "~/Scripts/Custom/view/bug-tracker-view.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/home").Include(
+                        "~/Scripts/Custom/application/delete.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/account").Include(
                         "~/Scripts/Custom/User/account.js"));

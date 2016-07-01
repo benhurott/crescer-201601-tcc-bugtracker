@@ -61,17 +61,20 @@ namespace Interface.Presentation.Controllers
 
                 if (application.FirstOrDefault(a => a.Url.Equals(model.Url)) == null)
                 {
-                    String fileName = model.Icon;
+                    String fileName = model.File != null ? model.File.FileName : "application-default.png";
 
-                    if (model.File != null)
-                    {
-                        fileName = model.File.FileName;
-                    }
-
-                    fileName = UploadImageService.UploadApplicationImage(model.File);
 
                     if (model.Id.HasValue)
                     {
+                        if (model.File == null)
+                        {
+                            fileName = model.Icon;
+                        }
+                        else
+                        {
+                            fileName = UploadImageService.UploadApplicationImage(model.File);
+                        }
+
                         var app = new Application(model.Id.Value, model.Title, model.Description,
                                               model.Url, true, fileName,
                                               model.Tag, idUser, user);
@@ -79,6 +82,10 @@ namespace Interface.Presentation.Controllers
                     }
                     else
                     {
+                        if (model.File != null)
+                        {
+                            fileName = UploadImageService.UploadApplicationImage(model.File);
+                        }
                         var app = new Application(model.Title, model.Description,
                                               model.Url, true, fileName,
                                               model.Tag, idUser, user);
