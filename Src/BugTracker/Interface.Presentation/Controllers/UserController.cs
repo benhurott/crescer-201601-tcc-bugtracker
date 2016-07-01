@@ -67,10 +67,10 @@ namespace Interface.Presentation.Controllers
         [HttpPost]
         public ActionResult EditAccount(UserEditAccountViewModel model)
         {
-<<<<<<< Updated upstream
+
             EditAcccountService.EditUser(model, userService);
             return View("account", model);
-=======
+
             String fileName = model.Image;
             var apps = new List<Application>();
 
@@ -87,7 +87,6 @@ namespace Interface.Presentation.Controllers
             UploadImageService.UploadUserImage(model.File);
 
             return View("index");
->>>>>>> Stashed changes
 
         }
 
