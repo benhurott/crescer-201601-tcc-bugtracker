@@ -69,25 +69,10 @@ namespace Interface.Presentation.Controllers
         {
 
             EditAcccountService.EditUser(model, userService);
+            UserSessionService.RefreshSession(model);
+
             return View("account", model);
-
-            String fileName = model.Image;
-            var apps = new List<Application>();
-
-            if (model.File != null)
-            {
-                fileName = model.File.FileName;
-            }
-
-            var editedAccount = new User(model.Id.Value, model.Name, 
-                                         model.Email, null,
-                                         fileName, model.HashCode, apps, true, true);
-
-            userService.Update(editedAccount);
-            UploadImageService.UploadUserImage(model.File);
-
-            return View("index");
-
+            
         }
 
         [UserToken]

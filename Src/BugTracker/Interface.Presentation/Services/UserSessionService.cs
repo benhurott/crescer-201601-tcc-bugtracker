@@ -62,5 +62,15 @@ namespace Interface.Presentation.Services
                 HttpContext.Current.Session.Abandon();
             }
         }
+
+        public static void RefreshSession(UserEditAccountViewModel editedAcount)
+        {
+            var oldUser = LoggedUser;
+            var newUser = new LoggedUserViewModel(oldUser.IDUser, editedAcount.Name, editedAcount.Email
+                , editedAcount.Image, oldUser.Applications, oldUser.AccountConfirmed);
+
+            HttpContext.Current.Session[LOGGED_USER] = newUser;
+            
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace Interface.Presentation.Models.User
             this.Applications = applications;
             this.AccountConfirmed = accountConfirmed;
         }
+        
         //TODO: adicionar o ICollection de aplication no user
         // já implementado --  ApplicationViewModel.CollectionToViewModel(u.Applications)
         public LoggedUserViewModel(Domain.User u) : 

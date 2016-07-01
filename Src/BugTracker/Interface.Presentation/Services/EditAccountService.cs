@@ -42,9 +42,7 @@ namespace Interface.Presentation.Services
 
                 userService.Update(editedAccount);
             }
-
-
-
+            
             UploadImageService.UploadUserImage(model.File);
 
         }
