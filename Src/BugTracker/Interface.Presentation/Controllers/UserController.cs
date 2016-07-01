@@ -20,6 +20,7 @@ namespace Interface.Presentation.Controllers
         private IApplicationService applicationService;
 
         private IUserService userService;
+        
 
         public UserController()
         {
@@ -66,22 +67,8 @@ namespace Interface.Presentation.Controllers
         [HttpPost]
         public ActionResult EditAccount(UserEditAccountViewModel model)
         {
-            String fileName = model.Image;
-            var apps = new List<Application>();
-
-            if (model.File != null)
-            {
-                fileName = model.File.FileName;
-            }
-
-            var editedAccount = new User(model.Id.Value, model.Name, 
-                                         model.Email, null,
-                                         fileName, apps, true, true);
-
-            userService.Update(editedAccount);
-            UploadImageService.UploadUserImage(model.File);
-
-            return View("index");
+            EditAcccountService.EditUser(model, userService);
+            return View("account", model);
 
         }
 

@@ -1,10 +1,12 @@
 ﻿'use strict'
 
 $(function () {
-
-    
     $('#edit-acount').on("click", function () {
-        debugger;
-        $('#panel').slideDown();
+        $('#panel-edit').slideDown();
     });
+
+    $('#edit-password').on("click", function () {
+        $('#panel-password').slideDown();
+    });
+
 });
