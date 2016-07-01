@@ -8,6 +8,8 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 using StackExchange.Profiling;
+using Interface.Presentation.App_Start;
+using System.Web.Optimization;
 
 namespace Interface.Presentation
 {
@@ -17,6 +19,9 @@ namespace Interface.Presentation
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            BundleTable.EnableOptimizations = true;
         }
     }
 }
