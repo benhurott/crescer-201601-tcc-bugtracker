@@ -3,7 +3,7 @@
 function BugTrackerView() {
     this.bModel = new BugTrackerModel();
     this.win = $(window);
-    this.filters = { idApplication: idApplication, Page: 0 };
+    this.filters = { idApplication: idApplication, Page: 0, Limit: 30 };
 }
 
 BugTrackerView.prototype.init = function () {

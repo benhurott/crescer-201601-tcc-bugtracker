@@ -50,9 +50,9 @@ namespace BugTracker.Domain.Service
             return bugTrackerRepository.FindByIDApplication(id);
         }
 
-        public ICollection<Entity.BugTracker> FindByApplicationPagined(int idApplication, int limit, int page, string trace, List<Domain.Entity.BugTrackerStatus> status)
+        public ICollection<Entity.BugTracker> FindByApplicationPagined(Entity.BugTrackerFilter filter)
         {
-            return bugTrackerRepository.FindByApplicationPagined(idApplication, limit, page, trace, status);
+            return bugTrackerRepository.FindByApplicationPagined(filter);
         }
 
         public IList<dynamic> GetGraphicModelByIdApplication(int id) 
@@ -60,9 +60,9 @@ namespace BugTracker.Domain.Service
             return bugTrackerRepository.GetGraphicModelByIdApplication(id);
         }
 
-        public IList<dynamic> GetCountBugsByApp(int idApplication, string trace, List<Domain.Entity.BugTrackerStatus> status)
+        public IList<dynamic> GetCountBugsByApp(Entity.BugTrackerFilter filter)
         {
-            return bugTrackerRepository.GetCountBugsByApp(idApplication, trace, status);
+            return bugTrackerRepository.GetCountBugsByApp(filter);
         }
     }
 }

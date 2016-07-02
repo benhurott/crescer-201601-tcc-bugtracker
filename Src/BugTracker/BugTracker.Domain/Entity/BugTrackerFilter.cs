@@ -1,16 +1,17 @@
-﻿using BugTracker.Domain.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Interface.Presentation.Models.BugTracker
+namespace BugTracker.Domain.Entity
 {
-    public class BugTrackerFilterModel
+    public class BugTrackerFilter
     {
         public string Trace { get; set; }
         public int idApplication { get; set; }
         public int Page { get; set; }
+        public int Limit { get; set; }
         public List<BugTrackerStatus> Status { get; set; }
     }
 }
