@@ -133,30 +133,28 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-sandstone.css" />
     <Content Include="Content\bootstrap-sandstone.min.css" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Custom\index.css" />
     <Content Include="Content\Custom\layout-home.css" />
     <Content Include="Content\Custom\layout.css" />
-    <Content Include="Content\Custom\login.css" />
     <Content Include="Content\Custom\panel.css" />
     <Content Include="Content\Custom\new-home.css" />
+    <Content Include="Content\Custom\sl-slide.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Library\bugTracker.js" />
+    <Content Include="Library\bugTracker_1.js" />
     <Content Include="Library\cwitracker_min.js" />
+    <Content Include="Scripts\Custom\layout\jquery.ba-cond.min.js" />
+    <Content Include="Scripts\Custom\layout\jquery.slitslider.js" />
     <Content Include="Scripts\Custom\layout\layout-nav.js" />
+    <Content Include="Scripts\Custom\TesteLibrary\TesteLibrary.js" />
     <Content Include="Scripts\Custom\user\account.js" />
     <Content Include="Scripts\Custom\application\delete.js" />
     <Content Include="Scripts\Custom\layout\layoutHome.js" />
@@ -214,6 +212,8 @@
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.ba-cond.min.js" />
+    <Content Include="Scripts\jquery.slitslider.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -233,6 +233,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginGitHubController.cs" />
+    <Compile Include="Controllers\SendEmailController.cs" />
+    <Compile Include="Controllers\TesteLibraryController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRecoveryController.cs" />
     <Compile Include="Extensions\BugTrackerExtensions.cs" />
@@ -245,6 +247,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BaseControllerEmpty.cs" />
+    <Compile Include="Mail_Body\SendEmailToBugtracker.cs" />
     <Compile Include="Mail_Body\UserActivationMail.cs" />
     <Compile Include="Mail_Body\UserRecoverPasswordMail.cs" />
     <Compile Include="Models\Application\ApplicationAndBugsViewModel.cs" />
@@ -253,6 +256,7 @@
     <Compile Include="Models\BugTracker\BugTrackerPostModel.cs" />
     <Compile Include="Models\BugTracker\BugTrackerViewModel.cs" />
     <Compile Include="Models\Email\EmailModel.cs" />
+    <Compile Include="Models\Email\SendEmailModel.cs" />
     <Compile Include="Models\UserRecovery\UserRecoveryViewModel.cs" />
     <Compile Include="Models\User\LoggedUserViewModel.cs" />
     <Compile Include="Models\User\RegisterUserViewModel.cs" />
@@ -289,11 +293,12 @@
     <Content Include="Views\Home\register.cshtml" />
     <Content Include="Views\Home\documentation.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
-    <Content Include="Views\Home\support.cshtml" />
+    <Content Include="Views\Home\contact.cshtml" />
     <Content Include="Views\UserRecovery\UserRecovery.cshtml" />
     <Content Include="Views\UserRecovery\ForgotPassword.cshtml" />
     <Content Include="Views\BugTracker\_bug-trackers-application.cshtml" />
     <Content Include="Views\Shared\_LayoutEmail.cshtml" />
+    <Content Include="Views\TesteLibrary\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -305,6 +310,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="obj\" />
     <Folder Include="Views\Email\" />
+    <Folder Include="Views\SendEmail\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Domain\BugTracker.Domain.csproj">

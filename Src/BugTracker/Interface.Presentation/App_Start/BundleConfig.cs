@@ -52,10 +52,7 @@ namespace Interface.Presentation.App_Start
             //CSS
 
             bundles.Add(new StyleBundle("~/Content/layout-home").Include(
-                        "~/Content/bootstrap-sandstone.css",
-                        "~/Content/Custom/layout-home.css",
-                        "~/content/Custom/login.css",
-                        "~/content/Custom/index.css"));
+                        "~/Content/Custom/layout-home.css"));
 
             bundles.Add(new StyleBundle("~/Content/layout").Include(
                         "~/Content/bootstrap-sandstone.css",

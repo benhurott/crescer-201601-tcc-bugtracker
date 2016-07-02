@@ -1,4 +1,18 @@
-﻿.logo{
+﻿html, body {
+	height: 100%;
+}
+
+body{
+    margin-top: 94px;
+}
+
+.navbar-inverse{
+    border: none;
+    background-color: #0e1a35;
+    padding: 11px 0;
+}
+
+.logo{
     height: 60px;
     width: auto;
     margin-right: 20px;

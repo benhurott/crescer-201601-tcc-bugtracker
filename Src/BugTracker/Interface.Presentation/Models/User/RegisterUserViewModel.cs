@@ -10,10 +10,10 @@ namespace Interface.Presentation.Models.User
 {
     public class RegisterUserViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Name is required")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Email address is required")]
         [DisplayName("E-mail")]
         [EmailAddress]
         public string Email { get; set; }

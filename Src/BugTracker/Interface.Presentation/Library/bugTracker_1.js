@@ -1,108 +1,53 @@
 'use strict';
 
 function CwiTracker() {
-    this.hashCode = 'b7c9413d-0747-45ed-84e9-ade95cbba15b81';
+    this.hashCode = 'f0eb824b-0aac-42ca-b859-6b484eaef30f710';
     this.urlPost = '/BugTracker/Add';
     this.ERROR = 1;
     this.INFO = 2;
     this.WARNING = 3;
 }
 
-CwiTracker.track = function (obj, callback) {
+CwiTracker.prototype.track = function (obj, callback) {
+    var errors = this.partialValidate(obj); 
+
+    if (errors.length !== 0) {
+        callback(errors, null); return false;
+    }
+       
+    if (typeof callback !== "function") {
+        console.log('The second parameter should a function.'); return false;
+    }
+
     obj['HashCode'] = this.hashCode;
+    obj['Trace'] = JSON.stringify(obj['Trace']);
 
     $.ajax({
         url: this.urlPost,
         data: obj,
         type: 'POST',
         success: function (success) {
-            callback(null, success);
+            callback(null, success.msg); 
         },
         error: function (error) {
-            callback(error, null);
+            callback(error.responseText, null);
         }
     });
 }
 
-var CwiTracker = new CwiTracker();
-'use strict';
+CwiTracker.prototype.partialValidate = function (obj) {
+    var errors = "";
 
-function CwiTracker() {
-    this.hashCode = 'b7c9413d-0747-45ed-84e9-ade95cbba15b81';
-    this.urlPost = '/BugTracker/Add';
-    this.ERROR = 1;
-    this.INFO = 2;
-    this.WARNING = 3;
-}
+    if (typeof (obj.Trace) === 'undefined')
+        errors += " Field 'TRACE' is required.";
 
-CwiTracker.track = function (obj, callback) {
-    obj['HashCode'] = this.hashCode;
+    if (typeof (obj.Status) === 'undefined')
+        errors += " Field 'STATUS' is required.";
 
-    $.ajax({
-        url: this.urlPost,
-        data: obj,
-        type: 'POST',
-        success: function (success) {
-            callback(null, success);
-        },
-        error: function (error) {
-            callback(error, null);
-        }
-    });
-}
+    if (typeof (obj.Tags) === 'undefined')
+        errors += " Field 'TAGS' is required.";
 
-var CwiTracker = new CwiTracker();
-'use strict';
+    return errors;
+};
 
-function CwiTracker() {
-    this.hashCode = 'b7c9413d-0747-45ed-84e9-ade95cbba15b81';
-    this.urlPost = '/BugTracker/Add';
-    this.ERROR = 1;
-    this.INFO = 2;
-    this.WARNING = 3;
-}
-
-CwiTracker.track = function (obj, callback) {
-    obj['HashCode'] = this.hashCode;
-
-    $.ajax({
-        url: this.urlPost,
-        data: obj,
-        type: 'POST',
-        success: function (success) {
-            callback(null, success);
-        },
-        error: function (error) {
-            callback(error, null);
-        }
-    });
-}
-
-var CwiTracker = new CwiTracker();
-'use strict';
-
-function CwiTracker() {
-    this.hashCode = 'f918b93e-7f96-43db-a4a9-1b0413f8cb0794';
-    this.urlPost = '/BugTracker/Add';
-    this.ERROR = 1;
-    this.INFO = 2;
-    this.WARNING = 3;
-}
-
-CwiTracker.track = function (obj, callback) {
-    obj['HashCode'] = this.hashCode;
-
-    $.ajax({
-        url: this.urlPost,
-        data: obj,
-        type: 'POST',
-        success: function (success) {
-            callback(null, success);
-        },
-        error: function (error) {
-            callback(error, null);
-        }
-    });
-}
-
-var CwiTracker = new CwiTracker();
+var CWITracker = new CwiTracker();

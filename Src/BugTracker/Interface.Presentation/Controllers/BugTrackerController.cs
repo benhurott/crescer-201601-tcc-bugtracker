@@ -41,7 +41,7 @@ namespace Interface.Presentation.Controllers
             {
                 throw new HttpException(
                     (int)HttpStatusCode.BadRequest,
-                    "Domain invalid or Libray broke. Verify your domain in painel and donwload again library."
+                    "Domain invalid or Libray broke. Verify your domain in painel and download again library."
                 );
             }
 
@@ -70,7 +70,7 @@ namespace Interface.Presentation.Controllers
                     )
                 );
 
-                return Json(new { info = "Success!" });
+                return Json(new { msg = "Success!" });
             }
             catch (Domain.Exceptions.TagVeryLargeException e)
             {

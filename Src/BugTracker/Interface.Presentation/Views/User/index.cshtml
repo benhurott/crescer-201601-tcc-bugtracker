@@ -3,7 +3,7 @@
     ViewBag.Title = "Home";
 }
 <div class="row">
-    <div class="panel panel-success col-md-8 box">
+    <div class="panel panel-success col-md-6 box">
         <div class="panel-heading">
             <h4>Applications</h4>
         </div>
@@ -53,14 +53,14 @@
                             }
                             <td><a href="~/Application/DetailsApp/@item.AppId" class="glyphicon glyphicon-th-list" alt="Detalhes"></a></td>
                             <td><a href="~/Application/RegisterApp/@item.AppId" class="glyphicon glyphicon-pencil" alt="Editar"></a></td>
-                            <td><a href="#" class="glyphicon glyphicon-trash delete" alt="Exlcuir" id="@item.AppId"></a></td>
+                            <td><a href="#" class="glyphicon glyphicon-trash delete" alt="Exlcuir" data-delete-id="@item.AppId"></a></td>
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="panel panel-success col-md-3 box">
+    <div class="panel panel-success col-md-5 box">
         <div class="panel-heading">
             <h4>Today</h4>
         </div>

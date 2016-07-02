@@ -33,7 +33,7 @@ namespace Interface.Presentation.Controllers
         }
 
         [HttpGet]
-        public ActionResult Support()
+        public ActionResult Contact()
         {
             return View();
         }

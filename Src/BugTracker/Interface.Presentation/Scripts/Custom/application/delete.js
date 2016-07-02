@@ -1,16 +1,15 @@
 ﻿'use strict'
 
 $(function () {
+    $('.delete').each(function () {
+        var self = $(this);
 
-    $('.delete').on("click", function () {
-
-        var id = $(this).attr('id');
-
-        $('.delete').popover({
+        self.popover({
+            live: true,
             placement: 'left',
             html: 'true',
             title: 'Sure?',
-            content: 'Are you sure to delete this application?' + '<a href="/Application/DeleteApp/' + id + '">Yes</a>'
+            content: 'Are you sure to delete this application?' + '<a href="/Application/DeleteApp/' + self.attr('data-delete-id') + '">Yes</a>'
         });
-    });
+    })
 });

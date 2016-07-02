@@ -371,7 +371,7 @@ header {
     display: block;
     font-size: 17px;
     font-weight: 500;
-    padding: 28px 20px;
+    padding: 28px 10px;
     text-decoration: none;
 }
 
@@ -424,7 +424,7 @@ header {
 }
 
 .user-dashboard {
-    padding: 21px 20px;
+    padding: 21px 0px;
 }
 
 .user-dashboard h1 {
