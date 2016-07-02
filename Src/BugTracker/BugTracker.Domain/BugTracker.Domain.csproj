@@ -53,6 +53,7 @@
     <Compile Include="Entity\Browser.cs" />
     <Compile Include="Entity\BugTracker.cs" />
     <Compile Include="Entity\BugTrackerStatus.cs" />
+    <Compile Include="Entity\BugTrackerFilter.cs" />
     <Compile Include="Entity\ForgotPassword.cs" />
     <Compile Include="Entity\OperationalSystem.cs" />
     <Compile Include="Entity\Software.cs" />
@@ -68,6 +69,8 @@
     <Compile Include="Interface\Service\IActivationService.cs" />
     <Compile Include="Interface\Service\IApplicationService.cs" />
     <Compile Include="Interface\Service\IBugTrackerService.cs" />
+    <Compile Include="Interface\Service\IDownloadService.cs" />
+    <Compile Include="Interface\Service\IFileService.cs" />
     <Compile Include="Interface\Service\IMailService.cs" />
     <Compile Include="Interface\Service\IUserRecoveryService.cs" />
     <Compile Include="Interface\Service\IUserService.cs" />
@@ -75,6 +78,7 @@
     <Compile Include="Service\ActivationService.cs" />
     <Compile Include="Service\ApplicationService.cs" />
     <Compile Include="Service\BugTrackerService.cs" />
+    <Compile Include="Service\DownloadService.cs" />
     <Compile Include="Service\UserRecoveryService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>

@@ -211,3 +211,19 @@ UPDATE NO ACTION
 GO
 
 
+CREATE INDEX User_PasswordAndEmail on [User] (Password, Email)
+
+CREATE INDEX Application_IDUser ON [Application](IDUser)
+CREATE INDEX Application_Url ON [Application](Url)
+
+CREATE INDEX UserForgotPassword_IDUser ON UserForgotPassword(IDUser)
+CREATE INDEX UserForgotPassword_HashCode ON UserForgotPassword(HashCode)
+
+CREATE INDEX UserActivation_IDUser ON UserActivation(IDUser)
+CREATE INDEX UserActivation_HashCode ON UserActivation(HashCode)
+
+CREATE INDEX BugTracker_IDApplication ON BugTracker(IDApplication)
+CREATE INDEX BugTracker_Status ON BugTracker(Status)
+
+CREATE INDEX BugTrackerTag_IDBugTracker ON BugTrackerTag(IDBugTracker)
+

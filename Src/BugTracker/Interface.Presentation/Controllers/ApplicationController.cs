@@ -129,6 +129,8 @@ namespace Interface.Presentation.Controllers
                 return RedirectToAction("Index", "User");
             }
 
+            ViewBag.Status = Enum.GetNames(typeof(BugTracker.Domain.Entity.BugTrackerStatus));
+
             return View("details", app);
         }
     }

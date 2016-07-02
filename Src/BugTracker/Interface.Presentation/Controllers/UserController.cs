@@ -18,7 +18,7 @@ namespace Interface.Presentation.Controllers
     public class UserController : Controller
     {
         private IApplicationService applicationService;
-
+        private IDownloadService downloadService;
         private IUserService userService;
         
 
@@ -26,6 +26,7 @@ namespace Interface.Presentation.Controllers
         {
             applicationService = ApplicationServiceInjection.Create();
             userService = UserServiceInjection.Create();
+            downloadService = DownloadServiceInjection.Create();
         }
 
         [UserToken]
@@ -86,35 +87,15 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public FileResult DownloadLibrary(string type)
         {
-            //TODO: colocar no serviço
-            string path = Server.MapPath("~/Library/");
-            
-            string libraryName = "cwitracker_1_0_0";
-            
-            int idUser = UserSessionService.LoggedUser.IDUser;
-            
-            //forma o nome do arquivo: pasta + nome da bibliota + id do usuário logado + extensão da bibliotecas
-            string fileUser = path + libraryName + "-" + idUser + ".js";
+            User user = userService.FindById( UserSessionService.LoggedUser.IDUser);
 
-            if (!System.IO.File.Exists(fileUser))
-            {
-                var user = userService.FindById(idUser);
-
-                var libraryCode =
-                    System.IO.File.ReadAllText(path + libraryName + ".js")
-                    .Replace("hash_code_user", "'" + user.HashCode + "'");
-
-                using (StreamWriter w = System.IO.File.AppendText(fileUser))
-                {
-                    w.WriteLine(libraryCode);
-                    w.Close();
-                }
-            }
+            downloadService.SetPath(Server.MapPath("~/Library/"));
+            downloadService.CreateFileForUser(user);
 
             return File(
-                System.IO.File.ReadAllBytes(fileUser),
+                downloadService.GetFileByte(user),
                 System.Net.Mime.MediaTypeNames.Application.Octet,
-                fileUser
+                downloadService.GetFileName()
             );
         }
     }

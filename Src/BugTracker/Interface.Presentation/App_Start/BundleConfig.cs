@@ -21,6 +21,10 @@ namespace Interface.Presentation.App_Start
                         "~/Scripts/Custom/model/bug-tracker-model.js",
                         "~/Scripts/Custom/view/bug-tracker-view.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/graphics").Include(
+                        "~/Scripts/highcharts/4.2.0/highcharts.js",
+                        "~/Scripts/highcharts/4.2.0/themes/grid-light.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                         "~/Scripts/Custom/application/delete.js"));
 

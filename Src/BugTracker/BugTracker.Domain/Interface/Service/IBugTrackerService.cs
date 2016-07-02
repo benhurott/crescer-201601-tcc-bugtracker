@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BugTracker.Domain.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,9 @@ namespace BugTracker.Domain.Interface.Service
     public interface IBugTrackerService
     {
         ICollection<Domain.Entity.BugTracker> FindByIDApplication(int id);
-        ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(int idApplication, int limit, int page);
-        int GetCountBugsByApp(int idApplication);
+        ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(BugTrackerFilter filter);
+        IList<dynamic> GetGraphicModelByIdApplication(int id);
+        IList<dynamic> GetCountBugsByApp(BugTrackerFilter filter);
         void Add(Domain.Entity.BugTracker bugTracker);
     }
 }

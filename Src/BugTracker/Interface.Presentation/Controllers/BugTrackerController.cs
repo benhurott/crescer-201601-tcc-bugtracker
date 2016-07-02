@@ -1,9 +1,11 @@
-﻿using BugTracker.Domain.Interface.Service;
+﻿using BugTracker.Domain.Entity;
+using BugTracker.Domain.Interface.Service;
 using Interface.Presentation.Extensions;
 using Interface.Presentation.Filters;
 using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -80,20 +82,36 @@ namespace Interface.Presentation.Controllers
             }
         }
 
-        [HttpGet]
-        public ActionResult GetBugTrackerPaginedByApp(int idApplication, int page)
+        [HttpPost]
+        public ActionResult GetBugTrackerPaginedByApp(BugTrackerFilter filter)
         {
-            int limit = 30;
-
-            var bugTrackers = bugTrackerService.FindByApplicationPagined(idApplication, limit, page);
+            var bugTrackers = bugTrackerService.FindByApplicationPagined(filter);
 
             return PartialView("_bug-trackers-application", bugTrackers.FromModel());
         }
 
-        [HttpGet]
-        public JsonResult GetCountBugTrackerByApp(int idApplication)
+        [HttpPost]
+        public JsonResult GetCountBugTrackerByApp(BugTrackerFilter filter)
         {
-            return Json(new { count = bugTrackerService.GetCountBugsByApp(idApplication) }, JsonRequestBehavior.AllowGet); 
+            return formatReturn(bugTrackerService.GetCountBugsByApp(filter));
+        }
+
+        [HttpGet]
+        public JsonResult GetGraphicModelByIdApplication(int idApplication)
+        {
+            return formatReturn(bugTrackerService.GetGraphicModelByIdApplication(idApplication));
+        }
+
+        private JsonResult formatReturn(IList<dynamic> data)
+        {
+            return Json(
+                new
+                {
+                    data = data,
+                    status = Enum.GetNames(typeof(Domain.Entity.BugTrackerStatus))
+                },
+                JsonRequestBehavior.AllowGet
+            );
         }
     }
 }

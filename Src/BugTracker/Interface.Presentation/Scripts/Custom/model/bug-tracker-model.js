@@ -3,18 +3,29 @@
 function BugTrackerModel() {
     this.urlGetPagined = '/BugTracker/GetBugTrackerPaginedByApp';
     this.urlCount = '/BugTracker/GetCountBugTrackerByApp';
+    this.urlGetGraphics = '/BugTracker/GetGraphicModelByIdApplication';
 }
 
-BugTrackerModel.prototype.getPagined = function (page) {
+BugTrackerModel.prototype.getPagined = function (filter) {
+    console.log(filter);
     return $.ajax({
         url: this.urlGetPagined,
-        data: { idApplication: idApplication, page: page }
+        type: "POST",
+        data: { filter: filter}
     });
 }
 
-BugTrackerModel.prototype.countBugs = function (idApplication) {
+BugTrackerModel.prototype.countBugs = function (filter) {
     return $.ajax({
         url: this.urlCount,
-        data: { idApplication: idApplication }
+        type: "POST",
+        data: {filter: filter}
+    });
+}
+
+BugTrackerModel.prototype.getGraphics = function (idApplication, filters) {
+    return $.ajax({
+        url: this.urlGetGraphics,
+        data: { idApplication: idApplication, filters: filters }
     });
 }
