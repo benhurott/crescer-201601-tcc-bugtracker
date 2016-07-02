@@ -85,14 +85,14 @@ namespace Interface.Presentation.Controllers
                         userModel.Email,
                         userModel.Password,
                         fileName,
-                        Guid.NewGuid().ToString() + new Random().Next(100),
+                        Guid.NewGuid().ToString() + new Random().Next(1000),
                         null,
                         true,
                         false);
 
                     user = userService.Add(user);
 
-                    //UserActivation.SendTo(user);
+                    UserActivationMail.SendTo(user);
                 }
             }
             else

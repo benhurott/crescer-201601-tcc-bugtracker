@@ -46,7 +46,7 @@ namespace Interface.Presentation.Controllers
 
             if(user != null)
             {
-                RecoverPassword.SendTo(user);
+                UserRecoverPasswordMail.SendTo(user);
 
                 TempData["Message"] = "You will receive an email to change your password in a few minutes";
             }
