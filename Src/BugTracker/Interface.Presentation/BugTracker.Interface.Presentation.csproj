@@ -149,10 +149,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Library\bugTracker.js" />
+    <Content Include="Library\bugTracker_1.js" />
     <Content Include="Library\cwitracker_min.js" />
     <Content Include="Scripts\Custom\layout\jquery.ba-cond.min.js" />
     <Content Include="Scripts\Custom\layout\jquery.slitslider.js" />
     <Content Include="Scripts\Custom\layout\layout-nav.js" />
+    <Content Include="Scripts\Custom\TesteLibrary\TesteLibrary.js" />
     <Content Include="Scripts\Custom\user\account.js" />
     <Content Include="Scripts\Custom\application\delete.js" />
     <Content Include="Scripts\Custom\layout\layoutHome.js" />
@@ -232,6 +234,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginGitHubController.cs" />
     <Compile Include="Controllers\SendEmailController.cs" />
+    <Compile Include="Controllers\TesteLibraryController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserRecoveryController.cs" />
     <Compile Include="Extensions\BugTrackerExtensions.cs" />
@@ -295,6 +298,7 @@
     <Content Include="Views\UserRecovery\ForgotPassword.cshtml" />
     <Content Include="Views\BugTracker\_bug-trackers-application.cshtml" />
     <Content Include="Views\Shared\_LayoutEmail.cshtml" />
+    <Content Include="Views\TesteLibrary\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
