@@ -42,5 +42,6 @@ namespace Interface.Presentation.Models
         [FileSizeValidation(100 * 1024, ErrorMessage = "File size must be lesser than 100 kb")]
         public HttpPostedFileBase File { get; set; }
 
+       
     }
 }

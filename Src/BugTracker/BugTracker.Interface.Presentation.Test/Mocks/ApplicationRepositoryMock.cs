@@ -11,14 +11,14 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
     class ApplicationRepositoryMock : IApplicationRepository
     {
 
-        private List<Application> AppsList;
+        public List<Application> AppsList;
 
         public ApplicationRepositoryMock()
         {
             AppsList = new List<Application>();
             var userTest = new User();
-            var app1 = new Application("Teste1", "app para teste", "www.teste", true, "default", "tag", 0, userTest);
-            var app2 = new Application("Teste2", "app para teste", "www.teste", true, "default", "tag", 0, userTest);
+            var app1 = new Application(1, "Teste1", "app para teste", "www.teste", true, "default", "tag", 1, userTest);
+            var app2 = new Application(2, "Teste2", "app para teste", "www.teste", true, "default", "tag", 1, userTest);
 
             AppsList.Add(app1);
             AppsList.Add(app2);

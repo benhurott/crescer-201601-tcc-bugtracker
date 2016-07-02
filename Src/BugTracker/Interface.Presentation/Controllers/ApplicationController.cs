@@ -1,5 +1,6 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Service;
+using BugTracker.Domain.Service;
 using Interface.Presentation.Filters;
 using Interface.Presentation.Models;
 using Interface.Presentation.Models.Application;
@@ -21,6 +22,12 @@ namespace Interface.Presentation.Controllers
         {
             applicationService = ApplicationServiceInjection.Create();
             userService = UserServiceInjection.Create();
+        }
+
+        public ApplicationController(ApplicationService appService, UserService userService)
+        {
+            this.applicationService = appService;
+            this.userService = userService;
         }
 
         [UserToken]
