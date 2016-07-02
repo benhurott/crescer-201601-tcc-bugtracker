@@ -1,5 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One);
 
+body {
+    margin-top: 80px;
+}
+
+.validation-summary-errors {
+    padding: 17px 18px;
+    color: rgba(220, 34, 34, 0.7);
+    background: rgba(14, 26, 53, 0.12);
+    font-size: 20px;
+}
+
 .alert {
     padding: 0;
     border: none;
@@ -944,5 +955,11 @@ ul.faq {
         align-content: center;
         align-items: center;
         padding: 12px 0;
+    }
+}
+
+@media (max-width: 980px) {
+    body {
+        margin-top: 0;
     }
 }
