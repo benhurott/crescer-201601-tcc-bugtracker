@@ -1,4 +1,5 @@
-﻿using BugTracker.Domain.Interface.Repository;
+﻿using BugTracker.Domain.Entity;
+using BugTracker.Domain.Interface.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
-        public ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(int idApplication, int limit, int page, string trace, List<Domain.Entity.BugTrackerStatus> status)
+        public ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(BugTrackerFilter filter)
         {
             using (var db = new DataContext())
             {
@@ -40,23 +41,23 @@ namespace BugTracker.Infra.Repository.DataEntity
                     .AsNoTracking()
                     .Include("Tags")
                     .OrderBy(_ => _.IDBugTracker)
-                    .Skip(limit * (page - 1))
-                    .Take(limit)
-                    .Where(_ => _.IDApplication == idApplication);
+                    .Skip(filter.Limit * (filter.Page - 1))
+                    .Take(filter.Limit)
+                    .Where(_ => _.IDApplication == filter.idApplication);
 
-                return addFilter(query, trace, status).ToList();
+                return addFilter(query, filter.Trace, filter.Status).ToList();
             }
         }
 
-        public IList<dynamic> GetCountBugsByApp(int idApplication, string trace, List<Domain.Entity.BugTrackerStatus> status)
+        public IList<dynamic> GetCountBugsByApp(BugTrackerFilter filter)
         {
             using (var db = new DataContext())
             {
                 var query = db.BugTrucker
                     .AsNoTracking()
-                    .Where(_ => _.IDApplication == idApplication);
+                    .Where(_ => _.IDApplication == filter.idApplication);
 
-                 return addFilter(query, trace, status)
+                return addFilter(query, filter.Trace, filter.Status)
                         .GroupBy(x => x.Status)
                         .Select(s => new
                         {
@@ -66,6 +67,7 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
+        //TODO: Criar objeto para representar os filros
         private IEnumerable<Domain.Entity.BugTracker> addFilter(IEnumerable<Domain.Entity.BugTracker> query, string trace, List<Domain.Entity.BugTrackerStatus> status)
         {
             if (!string.IsNullOrEmpty(trace))
@@ -81,7 +83,7 @@ namespace BugTracker.Infra.Repository.DataEntity
             return query;
         }
 
-        //TODO: dois métodos praticamente iguais
+        //TODO: dois métodos praticamente iguais.
         public IList<dynamic> GetGraphicModelByIdApplication(int id)
         {
             using (var db = new DataContext())

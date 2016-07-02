@@ -154,6 +154,7 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Library\bugTracker.js" />
     <Content Include="Library\cwitracker_min.js" />
     <Content Include="Scripts\Custom\layout\layout-nav.js" />
     <Content Include="Scripts\Custom\user\account.js" />
@@ -249,7 +250,6 @@
     <Compile Include="Models\Application\ApplicationAndBugsViewModel.cs" />
     <Compile Include="Models\Application\ApplicationModel.cs" />
     <Compile Include="Models\Application\ApplicationViewModel.cs" />
-    <Compile Include="Models\BugTracker\BugTrackerFilterModel.cs" />
     <Compile Include="Models\BugTracker\BugTrackerPostModel.cs" />
     <Compile Include="Models\BugTracker\BugTrackerViewModel.cs" />
     <Compile Include="Models\Email\EmailModel.cs" />
@@ -266,6 +266,7 @@
     <Compile Include="Services\EditAccountService.cs" />
     <Compile Include="Services\DownloadImageService.cs" />
     <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\FileServiceInjection.cs" />
     <Compile Include="Services\MailServiceInjection.cs" />
     <Compile Include="Services\PathService.cs" />
     <Compile Include="Services\UploadImageService.cs" />

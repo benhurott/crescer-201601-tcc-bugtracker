@@ -1,4 +1,5 @@
-﻿using BugTracker.Domain.Interface.Service;
+﻿using BugTracker.Domain.Entity;
+using BugTracker.Domain.Interface.Service;
 using Interface.Presentation.Extensions;
 using Interface.Presentation.Filters;
 using Interface.Presentation.Models.BugTracker;
@@ -82,19 +83,17 @@ namespace Interface.Presentation.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetBugTrackerPaginedByApp(BugTrackerFilterModel filter)
+        public ActionResult GetBugTrackerPaginedByApp(BugTrackerFilter filter)
         {
-            int limit = 30;
-
-            var bugTrackers = bugTrackerService.FindByApplicationPagined(filter.idApplication, limit, filter.Page, filter.Trace, filter.Status);
+            var bugTrackers = bugTrackerService.FindByApplicationPagined(filter);
 
             return PartialView("_bug-trackers-application", bugTrackers.FromModel());
         }
 
         [HttpPost]
-        public JsonResult GetCountBugTrackerByApp(BugTrackerFilterModel filter)
+        public JsonResult GetCountBugTrackerByApp(BugTrackerFilter filter)
         {
-            return formatReturn(bugTrackerService.GetCountBugsByApp(filter.idApplication, filter.Trace, filter.Status));
+            return formatReturn(bugTrackerService.GetCountBugsByApp(filter));
         }
 
         [HttpGet]
