@@ -20,23 +20,16 @@
     <!--Header-->
     <header class="navbar navbar-fixed-top">
         <div class="navbar-inner">
-            <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <a id="logo" class="pull-left" href=@Url.Action("Index", "Home")><img src="~/Content/Images/WebSite/banner-top.png" /></a>
-                <div class="nav-collapse collapse pull-right">
-                    <ul class="nav">
-                        <li class="nav-link" data-target-id="Home"><a href=@Url.Action("Index", "Home")>Home</a></li>
-                        <li class="nav-link" data-target-id="Documentation"><a href=@Url.Action("Documentation", "Home")>Documentation</a></li>
-                        <li class="nav-link" data-target-id="Contact"><a href=@Url.Action("Contact", "Home")>Contact</a></li>
-                        <li class="login">
-                            <a data-toggle="modal" href="#loginForm"><i class="icon-lock fa fa-sign-in" aria-hidden="true"></i></a>
-                        </li>
-                    </ul>
-                </div><!--/.nav-collapse -->
+            <a id="logo" class="pull-left" href=@Url.Action("Index", "Home")><img src="~/Content/Images/WebSite/banner-top.png" /></a>
+            <div class="pull-right navigation-bar">
+                <ul class="nav">
+                    <li class="nav-link" data-target-id="Home"><a href=@Url.Action("Index", "Home")>Home</a></li>
+                    <li class="nav-link" data-target-id="Documentation"><a href=@Url.Action("Documentation", "Home")>Documentation</a></li>
+                    <li class="nav-link" data-target-id="Contact"><a href=@Url.Action("Contact", "Home")>Contact</a></li>
+                    <li class="login">
+                        <a data-toggle="modal" href="#loginForm"><i class="icon-lock fa fa-sign-in" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </header>
@@ -64,7 +57,7 @@
             {
                 @Html.AntiForgeryToken()
 
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-small input-email", placeholder="E-mail" } })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-small input-email", placeholder = "E-mail" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
 
                 @Html.PasswordFor(model => model.Password, new { @class = "input-small", placeholder = "Password" })
