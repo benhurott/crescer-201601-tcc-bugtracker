@@ -1,5 +1,6 @@
 ﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Interface.Service;
+using Interface.Presentation.App_Start;
 using Interface.Presentation.Extensions;
 using Interface.Presentation.Filters;
 using Interface.Presentation.Models.BugTracker;
@@ -27,6 +28,7 @@ namespace Interface.Presentation.Controllers
         }
 
         [HttpPost]
+        [AllowOriginAttributeConfig]
         public JsonResult Add(BugTrackerPostModel bugTrackerPostModel)
         {
             var request = HttpContext.Request;
