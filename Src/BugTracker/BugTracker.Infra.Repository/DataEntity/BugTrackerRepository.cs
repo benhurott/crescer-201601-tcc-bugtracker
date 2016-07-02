@@ -32,26 +32,72 @@ namespace BugTracker.Infra.Repository.DataEntity
             }
         }
 
-        public ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(int idApplication, int limit, int page)
+        public ICollection<Domain.Entity.BugTracker> FindByApplicationPagined(int idApplication, int limit, int page, string trace, List<Domain.Entity.BugTrackerStatus> status)
         {
             using (var db = new DataContext())
             {
-                return db.BugTrucker
+                var query = db.BugTrucker
                     .AsNoTracking()
                     .Include("Tags")
                     .OrderBy(_ => _.IDBugTracker)
                     .Skip(limit * (page - 1))
                     .Take(limit)
-                    .Where(_ => _.IDApplication == idApplication)
-                    .ToList();
+                    .Where(_ => _.IDApplication == idApplication);
+
+                return addFilter(query, trace, status).ToList();
             }
         }
 
-        public int GetCountBugsByApp(int idApplication)
-        { 
+        public IList<dynamic> GetCountBugsByApp(int idApplication, string trace, List<Domain.Entity.BugTrackerStatus> status)
+        {
             using (var db = new DataContext())
             {
-                return db.BugTrucker.Where(_ => _.IDApplication == idApplication).Count();
+                var query = db.BugTrucker
+                    .AsNoTracking()
+                    .Where(_ => _.IDApplication == idApplication);
+
+                 return addFilter(query, trace, status)
+                        .GroupBy(x => x.Status)
+                        .Select(s => new
+                        {
+                            Status = s.Key,
+                            Count = s.Count()
+                        }).ToArray();
+            }
+        }
+
+        private IEnumerable<Domain.Entity.BugTracker> addFilter(IEnumerable<Domain.Entity.BugTracker> query, string trace, List<Domain.Entity.BugTrackerStatus> status)
+        {
+            if (!string.IsNullOrEmpty(trace))
+            {
+                query = query.Where(_ => _.Description.Contains(trace));
+            }
+
+            if (status != null )
+            {
+                query = query.Where(_ => status.Contains(_.Status));
+            }
+
+            return query;
+        }
+
+        //TODO: dois métodos praticamente iguais
+        public IList<dynamic> GetGraphicModelByIdApplication(int id)
+        {
+            using (var db = new DataContext())
+            {
+                DateTime dateLimit = DateTime.Now.AddDays(-7);
+
+                return db.BugTrucker
+                    .AsNoTracking()
+                    .Where(_ => _.IDApplication == id && _.OccurredDate >= dateLimit)
+                    .GroupBy(x => x.Status)
+                    .Select(s => new
+                     {
+                            Status = s.Key,
+                            Count = s.Count()
+                     })
+                    .ToArray();
             }
         }
     }

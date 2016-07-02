@@ -114,7 +114,7 @@ namespace Interface.Presentation.Controllers
             return File(
                 System.IO.File.ReadAllBytes(fileUser),
                 System.Net.Mime.MediaTypeNames.Application.Octet,
-                fileUser
+                libraryName + ".js"
             );
         }
     }
