@@ -55,7 +55,7 @@ namespace Interface.Presentation.Controllers
                 var idUser = UserSessionService.LoggedUser.IDUser;
                 var user = userService.FindById(idUser);
                 var application = applicationService.FindByIDUser(idUser);
-                
+
                 String fileName = model.File != null ? model.File.FileName : "application-default.png";
 
 
@@ -77,27 +77,35 @@ namespace Interface.Presentation.Controllers
                 }
                 else
                 {
-                    if (application.FirstOrDefault(a => a.Url.Equals(model.Url)) == null)
+                    if (application.Count() < 5)
                     {
-                        if (model.File != null)
+                        if (application.FirstOrDefault(a => a.Url.Equals(model.Url)) == null)
                         {
-                            fileName = UploadImageService.UploadApplicationImage(model.File);
+                            if (model.File != null)
+                            {
+                                fileName = UploadImageService.UploadApplicationImage(model.File);
+                            }
+                            var app = new Application(model.Title, model.Description,
+                                                    model.Url, true, fileName,
+                                                    model.Tag, idUser, user);
+                            applicationService.Add(app);
                         }
-                        var app = new Application(model.Title, model.Description,
-                                                model.Url, true, fileName,
-                                                model.Tag, idUser, user);
-                        applicationService.Add(app);
+                        else
+                        {
+                            ModelState.AddModelError("INVALID_URL", "This  url already exist");
+                            return View("register-app", model);
+                        }
                     }
                     else
                     {
-                        ModelState.AddModelError("INVALID_URL", "This  url already exist");
+                        ModelState.AddModelError("INVALID_APPLICATION_NUMBER", "The limit of applications you can have is 5");
                         return View("register-app", model);
                     }
-                        
+
                 }
 
             }
-             
+
 
             return RedirectToAction("Index", "User");
         }
@@ -107,14 +115,14 @@ namespace Interface.Presentation.Controllers
         public ActionResult DeleteApp(int id)
         {
             var app = applicationService.FindById(id);
-            if(app != null)
+            if (app != null)
             {
                 var user = userService.FindById(app.IDUser);
 
                 var appToDelete = new Application(app.IDApplication, app.Title, app.Description, app.Url, false, app.Image, app.SpecialTag, app.IDUser, user);
                 applicationService.Edit(appToDelete);
             }
-            
+
             return RedirectToAction("Index", "User");
         }
 
