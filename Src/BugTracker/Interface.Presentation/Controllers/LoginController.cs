@@ -41,6 +41,12 @@ namespace Interface.Presentation.Controllers
                     userService.FindByAuthentication(
                             userLoginViewModel.Email, userLoginViewModel.Password
                         );
+                if(!userFounded.AccountConfirmed)
+                {
+                    ModelState.AddModelError("INVALID_USER", "Please active your account, an e-mail has been sent to your inbox");
+
+                    return View("Index", userLoginViewModel);
+                }
 
                 if (userFounded != null)
                 {
