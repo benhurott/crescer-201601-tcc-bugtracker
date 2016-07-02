@@ -53,11 +53,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Mocks\ApplicationRepositoryMock.cs" />
-<<<<<<< HEAD
     <Compile Include="Mocks\UserRepositoryMock.cs" />
     <Compile Include="UnitTests\ApplicationControllerTest.cs" />
-=======
->>>>>>> 351500af40d212bfb1f4d16d82c8de4b109d14af
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -93,11 +90,4 @@
   </Choose>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
