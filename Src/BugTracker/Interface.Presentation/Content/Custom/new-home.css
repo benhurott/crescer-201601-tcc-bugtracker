@@ -19,6 +19,11 @@ a {
     color:#0d172e;
 }
 
+#filters{
+    padding-bottom:75px;
+    margin-top: 30px;
+}
+
 .panel-success {
     border:none;
 }
@@ -31,6 +36,11 @@ a:focus,a:hover,a{
     outline:none;
     text-decoration: none;
 }
+
+.status-filter {
+    margin-top: 10px;
+}
+
 li,ul{
     list-style: none;
     padding: 0;

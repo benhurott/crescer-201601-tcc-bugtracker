@@ -16,6 +16,7 @@
   height: 77%;
   overflow-y: auto;
 }
+
 .graphics{
   height: 200px;
   width: 300px;
@@ -26,12 +27,21 @@
   width: 30px;
 }
 
-.errors{
-  color: red;
+.errors, .ERROR{
+  color: #c9302c;
 }
 
-.warnings{
-  color: yellow;
+.warnings, .WARNING{
+  color: #ec971f;
+}
+
+.info, .INFO {
+    color: #46b8da;
+}
+
+.ERROR, .WARNING, .INFO {
+    margin-left: 20px;
+    font-size:20px;
 }
 
 .icon{
