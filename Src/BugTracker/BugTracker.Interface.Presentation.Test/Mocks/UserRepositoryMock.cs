@@ -25,12 +25,20 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public void ActiveAccount(User user)
         {
-            throw new NotImplementedException();
+            var userToActive = Users.FirstOrDefault( x => x.Equals(user));
+        
+            Users.Remove(user);
+            userToActive.AccountConfirmed = true;
+            Users.Add(userToActive);
+        
+            
         }
 
         public User Add(User user)
         {
-            throw new NotImplementedException();
+            Users.Add(user);
+
+            return user;
         }
 
         public User FindByAuthentication(string email, string password)
@@ -40,7 +48,7 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public User FindByEmail(string email)
         {
-            throw new NotImplementedException();
+            return Users.FirstOrDefault(x => x.Email == email);
         }
 
         public User FindById(int id)
@@ -50,7 +58,11 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public User Update(User user)
         {
-            throw new NotImplementedException();
+            var userToEdit = this.FindById(user.IDUser);
+            Users.Remove(userToEdit);
+            userToEdit = user;
+            Users.Add(userToEdit);
+            return userToEdit;
         }
     }
 }
