@@ -3,6 +3,7 @@ using BugTracker.Domain.Interface.Service;
 using Interface.Presentation.App_Start;
 using Interface.Presentation.Extensions;
 using Interface.Presentation.Filters;
+using Interface.Presentation.Mail_Body;
 using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
 using System;
@@ -33,9 +34,9 @@ namespace Interface.Presentation.Controllers
         {
             var request = HttpContext.Request;
 
-            var application = 
+            var application =
                 applicationService.FindByUrlAndUserHashCode(
-                    HttpContext.Request.Url.Host,
+                HttpContext.Request.UrlReferrer.Host,
                     bugTrackerPostModel.HashCode
                  );
 
@@ -60,7 +61,7 @@ namespace Interface.Presentation.Controllers
 
             try
             {
-                bugTrackerService.Add(
+                var sendEmail = bugTrackerService.Add(
                     new Domain.Entity.BugTracker(
                         application,
                         bugTrackerPostModel.Status,
@@ -71,6 +72,11 @@ namespace Interface.Presentation.Controllers
                         new Domain.Entity.OperationalSystem(request.Browser.Platform)
                     )
                 );
+
+                if (sendEmail)
+                {
+                    TagMasterMail.SendTo(application.User.Email,application.Title);
+                }
 
                 return Json(new { msg = "Success!" });
             }
