@@ -8,7 +8,7 @@ using BugTracker.Domain.Entity;
 
 namespace BugTracker.Interface.Presentation.Test.Mocks
 {
-    class ApplicationRepositoryMock : IApplicationRepository
+    public class ApplicationRepositoryMock : IApplicationRepository
     {
 
         public List<Application> AppsList;
@@ -16,9 +16,9 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
         public ApplicationRepositoryMock()
         {
             AppsList = new List<Application>();
-            var userTest = new User();
-            var app1 = new Application(1, "Teste1", "app para teste", "www.teste", true, "default", "tag", 1, userTest);
-            var app2 = new Application(2, "Teste2", "app para teste", "www.teste", true, "default", "tag", 1, userTest);
+            var userTest = new User("user test", "test@amil", "password", "default", "test hash", null, true, true);
+            var app1 = new Application(1, "Test1", "app to test", "www.test1", true, "default", "tag", 1, userTest);
+            var app2 = new Application(2, "Test2", "app to test", "www.test2", true, "default", "tag", 1, userTest);
 
             AppsList.Add(app1);
             AppsList.Add(app2);
@@ -73,7 +73,7 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public Application FindByUrl(string url)
         {
-            return AppsList.FirstOrDefault(x => x.Url.Contains(url));
+            return AppsList.FirstOrDefault(x => x.Url == (url));
         }
 
         public Application FindByUrlAndUserHashCode(string url, string hashCode)
