@@ -52,6 +52,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Mocks\ActivationRepositoryMock.cs" />
     <Compile Include="Mocks\ApplicationRepositoryMock.cs" />
     <Compile Include="Mocks\UserRepositoryMock.cs" />
     <Compile Include="UnitTests\ApplicationControllerTest.cs" />
@@ -67,9 +68,7 @@
       <Name>BugTracker.Interface.Presentation</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UnitTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
