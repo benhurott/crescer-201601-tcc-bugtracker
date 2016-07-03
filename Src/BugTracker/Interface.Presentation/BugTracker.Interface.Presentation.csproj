@@ -295,7 +295,7 @@
     <Content Include="Views\Home\documentation.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <Content Include="Views\Home\contact.cshtml" />
-    <Content Include="Views\UserRecovery\UserRecovery.cshtml" />
+    <Content Include="Views\UserRecovery\NewPassword.cshtml" />
     <Content Include="Views\UserRecovery\ForgotPassword.cshtml" />
     <Content Include="Views\BugTracker\_bug-trackers-application.cshtml" />
     <Content Include="Views\Shared\_LayoutEmail.cshtml" />

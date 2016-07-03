@@ -2,6 +2,12 @@
 
     $('.nav-link[data-target-id="' + document.title + '"]').addClass('active');
 
+    var $information = $('#informations');
+
+    if ($information.height() > 0) {
+        $information.css('display', 'block');
+    }
+
 })
 
 jQuery(function ($) {

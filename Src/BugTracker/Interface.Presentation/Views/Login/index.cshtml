@@ -9,13 +9,7 @@
     <link href="~/Content/Custom/forms.css" rel="stylesheet" />
 }
 
-<div class="container">
-    <div class="alert alert-info">
-        @TempData["Message"]
-    </div>
-</div>
-
-@using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new { @class = "form", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new { @class = "form" }))
 {
     @Html.AntiForgeryToken()
     <div class="container">

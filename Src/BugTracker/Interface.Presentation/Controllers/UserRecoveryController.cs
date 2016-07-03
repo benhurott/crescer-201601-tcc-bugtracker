@@ -21,16 +21,19 @@ namespace Interface.Presentation.Controllers
         [HttpPost]
         public ActionResult NewPassword(UserRecoveryViewModel userModel)
         {
-            ForgotPassword userRecovery = userRecoveryService.FindByCode(userModel.IDCode);
-
-            if (userRecovery != null)
+            if (ModelState.IsValid)
             {
-                userService.UpdatePassword(userRecovery.RequestUser, userModel.Password);
+                ForgotPassword userRecovery = userRecoveryService.FindByCode(userModel.IDCode);
 
-                TempData["Message"] = "Your passwor has been changed with success, try to login";
+                if (userRecovery != null)
+                {
+                    userService.UpdatePassword(userRecovery.RequestUser, userModel.Password);
+
+                    TempData["Message"] = "Your passwor has been changed with success, try to login";
+                }
+                return RedirectToAction("Index", "Login");
             }
-
-                return RedirectToAction("Index","Login");
+            return View("NewPassword", userModel);
         }
 
         [HttpGet]
@@ -44,7 +47,7 @@ namespace Interface.Presentation.Controllers
         {
             var user = userService.FindByEmail(email);
 
-            if(user != null)
+            if (user != null)
             {
                 UserRecoverPasswordMail.SendTo(user);
 
@@ -66,13 +69,13 @@ namespace Interface.Presentation.Controllers
 
             if (userRecovery != null)
             {
-                var model = new UserRecoveryViewModel() { IDCode = code};
-                return View("UserRecovery",model);
+                var model = new UserRecoveryViewModel() { IDCode = code };
+                return View("NewPassword", model);
             }
 
-                TempData["Message"] = "This link is no longer avalible";
+            TempData["Message"] = "This link is no longer avalible";
 
-                return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "Login");
         }
     }
 }

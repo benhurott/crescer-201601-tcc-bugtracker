@@ -9,7 +9,6 @@ namespace Interface.Presentation.Models.UserRecovery
 {
     public class UserRecoveryViewModel
     {
-        [Required]
         public string IDCode { get; set; }
 
         [PasswordPropertyText(true)]
