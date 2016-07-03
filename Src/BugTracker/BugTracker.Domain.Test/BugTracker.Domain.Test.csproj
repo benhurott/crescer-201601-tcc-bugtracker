@@ -55,8 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceTests\ApplicationServiceTest.cs" />
     <Compile Include="ServiceTests\BugTrackerServiceTest.cs" />
-    <Compile Include="ServiceTests\UserActvationTest.cs" />
+    <Compile Include="ServiceTests\UserActvationServiceTest.cs" />
     <Compile Include="ServiceTests\UserRecoveryServiceTest.cs" />
+    <Compile Include="ServiceTests\UserServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Domain\BugTracker.Domain.csproj">
