@@ -18,6 +18,36 @@
     margin-top: 18px;
 }
 
+.form-login {
+    display: flex;
+    width: 350px;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    flex-direction: column;
+    height: 135px;
+}
+
+    .form-login * {
+        width: 100%;
+    }
+
+.form-inputs {
+    display: flex;
+    width: 415px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    flex-direction: column;
+}
+
+
+.btn-login {
+    padding: 8px 33px;
+}
+
 .btn-file {
     padding: 21px 10px;
 }

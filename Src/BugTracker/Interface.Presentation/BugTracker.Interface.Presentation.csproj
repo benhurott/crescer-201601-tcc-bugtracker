@@ -140,7 +140,7 @@
     <Content Include="Content\Custom\layout.css" />
     <Content Include="Content\Custom\panel.css" />
     <Content Include="Content\Custom\new-home.css" />
-    <Content Include="Content\Custom\register.css" />
+    <Content Include="Content\Custom\forms.css" />
     <Content Include="Content\Custom\sl-slide.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

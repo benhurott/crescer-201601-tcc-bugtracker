@@ -58,10 +58,8 @@
                 @Html.AntiForgeryToken()
 
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-small input-email", placeholder = "E-mail" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
 
                 @Html.PasswordFor(model => model.Password, new { @class = "input-small", placeholder = "Password" })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
                 <button type="submit" class="btn btn-info">Sign in</button>
             }
