@@ -4,6 +4,19 @@ body {
     margin-top: 80px;
 }
 
+#project-img {
+    text-align: center;
+    margin-top: 43px;
+}
+
+#imgShow {
+    border: 1px solid rgba(14, 26, 53, 0.17);
+    border-radius: 50px;
+    padding: 17px 52px;
+    box-shadow: 1px 1px 19px -12px #0e1a35;
+}
+
+
 .validation-summary-errors {
     padding: 17px 18px;
     color: rgba(220, 34, 34, 0.7);
