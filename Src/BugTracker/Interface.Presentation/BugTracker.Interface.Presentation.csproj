@@ -245,6 +245,7 @@
     </Compile>
     <Compile Include="Helpers\BaseControllerEmpty.cs" />
     <Compile Include="Mail_Body\SendEmailToBugtracker.cs" />
+    <Compile Include="Mail_Body\TagMasterMail.cs" />
     <Compile Include="Mail_Body\UserActivationMail.cs" />
     <Compile Include="Mail_Body\UserRecoverPasswordMail.cs" />
     <Compile Include="Models\Application\ApplicationAndBugsViewModel.cs" />
