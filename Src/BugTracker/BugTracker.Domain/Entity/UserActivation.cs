@@ -23,5 +23,11 @@ namespace BugTracker.Domain.Entity
             this.User = user;
             this.RequestDate = DateTime.Today;
         }
+
+        public UserActivation(string hashCode, int idUser, User user, DateTime date) : this (hashCode, idUser, user)
+        {
+            this.RequestDate = date;
+        }
+
     }
 }
