@@ -26,15 +26,15 @@ namespace BugTracker.Domain.Service
             {
                 bugTrackerRepository.Add(bugTracker);
 
-                var existeTagMaster = bugTracker.ContainsSpecialTag();
+                var existsTagMaster = bugTracker.ContainsSpecialTag();
 
-                if (existeTagMaster != null)
+                if (existsTagMaster != null)
                 {
                     this.emailService.Send
                     (
                         bugTracker.Application.User.Email,
-                        "Erro master",
-                        "Erro no e-mail",
+                        "Critical error in Application " + bugTracker.Application.Description,
+                        "adsadasdsad",
                         false
                     );
                 }
