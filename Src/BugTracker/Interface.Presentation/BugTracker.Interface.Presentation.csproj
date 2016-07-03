@@ -140,7 +140,7 @@
     <Content Include="Content\Custom\layout.css" />
     <Content Include="Content\Custom\panel.css" />
     <Content Include="Content\Custom\new-home.css" />
-    <Content Include="Content\Custom\register.css" />
+    <Content Include="Content\Custom\forms.css" />
     <Content Include="Content\Custom\sl-slide.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -295,11 +295,12 @@
     <Content Include="Views\Home\documentation.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <Content Include="Views\Home\contact.cshtml" />
-    <Content Include="Views\UserRecovery\UserRecovery.cshtml" />
+    <Content Include="Views\UserRecovery\NewPassword.cshtml" />
     <Content Include="Views\UserRecovery\ForgotPassword.cshtml" />
     <Content Include="Views\BugTracker\_bug-trackers-application.cshtml" />
     <Content Include="Views\Shared\_LayoutEmail.cshtml" />
     <Content Include="Views\TesteLibrary\Index.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

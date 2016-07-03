@@ -19,7 +19,7 @@ namespace Interface.Presentation.Controllers
         public ActionResult Index()
         {
             if (UserSessionService.IsLogged)
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -41,19 +41,19 @@ namespace Interface.Presentation.Controllers
                     userService.FindByAuthentication(
                             userLoginViewModel.Email, userLoginViewModel.Password
                         );
-                if(!userFounded.AccountConfirmed)
-                {
-                    ModelState.AddModelError("INVALID_USER", "Please active your account, an e-mail has been sent to your inbox");
-
-                    return View("Index", userLoginViewModel);
-                }
 
                 if (userFounded != null)
                 {
+                    if (!userFounded.AccountConfirmed)
+                    {
+                        ModelState.AddModelError("INVALID_USER", "Please active your account, an e-mail has been sent to your inbox");
+
+                        return View("Index", userLoginViewModel);
+                    }
                     var userLoggedModel = new LoggedUserViewModel(userFounded);
 
                     UserSessionService.CreateSession(userLoggedModel);
-                    return RedirectToAction("Index","User");
+                    return RedirectToAction("Index", "User");
                 }
                 else
                 {
@@ -61,7 +61,7 @@ namespace Interface.Presentation.Controllers
                 }
             }
 
-            return View("Index",userLoginViewModel);
+            return View("Index", userLoginViewModel);
         }
     }
 }
