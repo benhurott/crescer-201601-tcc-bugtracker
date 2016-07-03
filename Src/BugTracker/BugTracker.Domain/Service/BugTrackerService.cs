@@ -1,11 +1,7 @@
 ﻿using BugTracker.Domain.Exceptions;
 using BugTracker.Domain.Interface.Repository;
 using BugTracker.Domain.Interface.Service;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BugTracker.Domain.Service
 {
