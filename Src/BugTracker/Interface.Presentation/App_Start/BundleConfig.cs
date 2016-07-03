@@ -22,8 +22,7 @@ namespace Interface.Presentation.App_Start
                         "~/Scripts/Custom/view/bug-tracker-view.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/graphics").Include(
-                        "~/Scripts/highcharts/4.2.0/highcharts.js",
-                        "~/Scripts/highcharts/4.2.0/themes/grid-light.js"));
+                        "~/Scripts/highcharts/4.2.0/highcharts.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                         "~/Scripts/Custom/application/delete.js"));
@@ -34,9 +33,6 @@ namespace Interface.Presentation.App_Start
             bundles.Add(new ScriptBundle("~/bundles/layout").Include(
                         "~/Scripts/jquery-1.10.2.js",
                         "~/Scripts/modernizr-2.6.2.js",
-                        "~/Scripts/jquery.validate.js",
-                        "~/Scripts/jquery.validate.unobtrusive.js",
-                        "~/Scripts/jquery.unobtrusive-ajax.js",
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/Custom/layout/layout-nav.js"));
 
@@ -56,7 +52,6 @@ namespace Interface.Presentation.App_Start
 
             bundles.Add(new StyleBundle("~/Content/layout").Include(
                         "~/Content/bootstrap-sandstone.css",
-                        "~/Content/Custom/panel.css",
                         "~/Content/Custom/layout.css",
                         "~/Content/Custom/new-home.css"));
         }
