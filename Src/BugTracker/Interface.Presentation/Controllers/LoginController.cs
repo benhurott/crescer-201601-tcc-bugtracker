@@ -13,11 +13,16 @@ namespace Interface.Presentation.Controllers
 {
     public class LoginController : Controller
     {
-        IUserService userService = UserServiceInjection.Create();
+        IUserService userService;
 
         public LoginController(IUserService userService)
         {
             this.userService = userService;
+        }
+
+        public LoginController()
+        {
+            userService = UserServiceInjection.Create();
         }
 
         [HttpGet]
