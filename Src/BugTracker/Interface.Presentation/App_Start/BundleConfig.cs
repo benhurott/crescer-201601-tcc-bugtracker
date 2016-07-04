@@ -50,6 +50,9 @@ namespace Interface.Presentation.App_Start
             bundles.Add(new StyleBundle("~/Content/layout-home").Include(
                         "~/Content/Custom/layout-home.css"));
 
+            bundles.Add(new StyleBundle("~/Content/documentation").Include(
+                        "~/Content/Custom/documentation.css"));
+
             bundles.Add(new StyleBundle("~/Content/layout").Include(
                         "~/Content/bootstrap-sandstone.css",
                         "~/Content/Custom/layout.css",
