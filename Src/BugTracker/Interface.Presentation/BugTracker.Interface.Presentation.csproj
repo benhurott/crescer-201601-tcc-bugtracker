@@ -148,7 +148,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Library\bugTracker.js" />
-    <Content Include="Library\bugTracker_1.js" />
     <Content Include="Scripts\Custom\layout\jquery.ba-cond.min.js" />
     <Content Include="Scripts\Custom\layout\jquery.slitslider.js" />
     <Content Include="Scripts\Custom\layout\layout-nav.js" />
