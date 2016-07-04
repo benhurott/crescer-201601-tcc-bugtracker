@@ -132,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-sandstone.css" />
-    <Content Include="Content\bootstrap-sandstone.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Custom\documentation.css" />
@@ -152,6 +151,7 @@
     <Content Include="Scripts\Custom\layout\jquery.ba-cond.min.js" />
     <Content Include="Scripts\Custom\layout\jquery.slitslider.js" />
     <Content Include="Scripts\Custom\layout\layout-nav.js" />
+    <Content Include="Scripts\Custom\SliderSL\SliderSL.js" />
     <Content Include="Scripts\Custom\user\account.js" />
     <Content Include="Scripts\Custom\application\delete.js" />
     <Content Include="Scripts\Custom\layout\layoutHome.js" />
