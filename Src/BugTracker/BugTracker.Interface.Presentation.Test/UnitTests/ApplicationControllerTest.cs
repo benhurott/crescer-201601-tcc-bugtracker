@@ -1,11 +1,14 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Interface.Presentation.Controllers;
+﻿using BugTracker.Domain.Entity;
 using BugTracker.Domain.Service;
 using BugTracker.Interface.Presentation.Test.Mocks;
-using System.Web.Mvc;
+using Interface.Presentation.Controllers;
 using Interface.Presentation.Models;
-using BugTracker.Domain.Entity;
+using Interface.Presentation.Models.User;
+using Interface.Presentation.Services;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace BugTracker.Interface.Presentation.Test
 {
@@ -16,10 +19,16 @@ namespace BugTracker.Interface.Presentation.Test
         private ApplicationController ApplicationController;
         private ApplicationRepositoryMock ApplicationRepositoryMock;
         private UserRepositoryMock UserRepositoryMock;
+        
 
         [TestInitialize()]
         public void SetController()
         {
+            HttpContextMock.CreateMockContext();
+
+            var loggedUSerTest = new LoggedUserViewModel(new User(1, "test", "email", "password", "image", "hash", new List<Application>(), true, true));
+            UserSessionService.CreateSession(loggedUSerTest);
+            
             UserRepositoryMock = new UserRepositoryMock();
             ApplicationRepositoryMock = new ApplicationRepositoryMock();
             ApplicationController = new ApplicationController(new ApplicationService(ApplicationRepositoryMock), new UserService(UserRepositoryMock));
@@ -51,22 +60,24 @@ namespace BugTracker.Interface.Presentation.Test
             Assert.AreEqual(modelResult.ToString(), modelExpected.ToString());
 
         }
-        /* //TODO: fazer mock do httpcontext
+
         [TestMethod]
         public void NewEdiToAddNewApp()
         {
-        
             var appToAdd = new ApplicationModel();
-            ApplicationController.NewEditApp(appToAdd);
+            var countAppList = ApplicationRepositoryMock.AppsList.Count;
+            Assert.AreEqual( countAppList, 2);
 
-            Assert.AreEqual(ApplicationRepositoryMock.AppsList.Count, 3);
+            ApplicationController.NewEditApp(appToAdd);
+            countAppList = ApplicationRepositoryMock.AppsList.Count;
+            Assert.AreEqual(countAppList, 3);
             
         }
 
+        
         [TestMethod]
         public void NewEdiToEditApp()
         {
-          
             var appToEdit = new ApplicationModel();
             appToEdit.Id = 1;
             appToEdit.Title = "edited app";
@@ -76,7 +87,7 @@ namespace BugTracker.Interface.Presentation.Test
             Assert.IsNotNull(ApplicationRepositoryMock.FindByName("edited app"));
 
         }
-
+        
         [TestMethod]
         public void DetailsValidIdUserApp()
         {
@@ -84,10 +95,17 @@ namespace BugTracker.Interface.Presentation.Test
             var model = ApplicationController.DetailsApp(1) as ViewResult;
             var app = model.ViewData.Model;
 
-            Assert.Equals(ApplicationRepositoryMock.FindById(1), app);
+            Assert.AreEqual(ApplicationRepositoryMock.FindById(1), app);
 
         }
-        */
+
+        [TestMethod]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void DetailsIvalidIdUserApp()
+        {
+            var model = ApplicationController.DetailsApp(999) as ViewResult;
+            var app = model.ViewData.Model;
+        }
 
         [TestMethod]
         public void DeleteApp()

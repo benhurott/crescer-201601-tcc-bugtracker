@@ -226,6 +226,7 @@
     <Compile Include="Controllers\ActivationController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\BugTrackerController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginGitHubController.cs" />
@@ -295,6 +296,8 @@
     <Content Include="Views\BugTracker\_bug-trackers-application.cshtml" />
     <Content Include="Views\Shared\_LayoutEmail.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
