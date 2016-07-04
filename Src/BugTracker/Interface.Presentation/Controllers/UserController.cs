@@ -85,7 +85,11 @@ namespace Interface.Presentation.Controllers
         {
             if(file != null)
             {
-                userService.UpdateImage(UserSessionService.LoggedUser.IDUser, UploadImageService.UploadUserImage(file));
+                var imageName = UploadImageService.UploadUserImage(file);
+
+                userService.UpdateImage(UserSessionService.LoggedUser.IDUser, imageName);
+
+                UserSessionService.RefreshUserImageSession(imageName);
             }
             return RedirectToAction("Account");
         }
