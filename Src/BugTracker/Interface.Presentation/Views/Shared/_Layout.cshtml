@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link rel="shortcut icon" href="~/Content/Images/Application/cockroach.png" type="image/x-icon" />
     @Styles.Render("~/Content/layout")
     @RenderSection("css", false)
@@ -21,7 +22,7 @@
                     </button>
                 </div>
             </nav>
-            <div class="search hidden-xs hidden-sm">
+            <div class="search hidden-xs banner-top">
                 <a href=@Url.Action("Index", "User")><img src="~/content/images/website/banner-top.png" class="logo" /></a>
             </div>
         </div>
@@ -61,10 +62,10 @@
             <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
                 <div class="navi">
                     <ul>
-                        <li class="link" data-target-id="Home"><a href=@Url.Action("", "User")><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-                        <li class="link" data-target-id="Donwload"><a href=@Url.Action("Download", "User")><i class="glyphicon glyphicon-download" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Download</span></a></li class="link">
-                        <li class="link" data-target-id="Doceument"><a href=@Url.Action("Documentation", "Home") target="_blank"><i class="glyphicon glyphicon-book" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Documentation</span></a></li>
-                        <li class="link" data-target-id="Account"><a href=@Url.Action("Account", "User")><i class="glyphicon glyphicon-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
+                        <li class="link" data-target-id="Home"><a href=@Url.Action("", "User")><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                        <li class="link" data-target-id="Donwload"><a href=@Url.Action("Download", "User")><i class="fa fa-download" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Download</span></a></li class="link">
+                        <li class="link" data-target-id="Doceument"><a href=@Url.Action("Documentation", "Home") target="_blank"><i class="fa fa-book" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Documentation</span></a></li>
+                        <li class="link" data-target-id="Account"><a href=@Url.Action("Account", "User")><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
                     </ul>
                 </div>
             </div>
