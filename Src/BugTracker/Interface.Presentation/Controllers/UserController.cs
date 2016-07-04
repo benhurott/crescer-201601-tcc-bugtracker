@@ -68,6 +68,7 @@ namespace Interface.Presentation.Controllers
 
         [UserToken]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditAccount(UserEditAccountViewModel model)
         {
 
@@ -76,6 +77,17 @@ namespace Interface.Presentation.Controllers
 
             return View("account", model);
             
+        }
+
+        [UserToken]
+        [HttpPost]
+        public ActionResult ChangePerfilImage(HttpPostedFileBase file)
+        {
+            if(file != null)
+            {
+                userService.UpdateImage(UserSessionService.LoggedUser.IDUser, UploadImageService.UploadUserImage(file));
+            }
+            return RedirectToAction("Account");
         }
 
         [UserToken]

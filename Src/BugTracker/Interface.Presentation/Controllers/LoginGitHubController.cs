@@ -74,7 +74,7 @@ namespace Interface.Presentation.Controllers
                             primaryEmail,
                             null,
                             profileImage,
-                            Guid.NewGuid().ToString(),
+                            Guid.NewGuid().ToString() + new Random().Next(100).ToString(),
                             null,
                             true,
                             true
