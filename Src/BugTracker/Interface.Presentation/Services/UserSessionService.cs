@@ -1,4 +1,5 @@
-﻿using Interface.Presentation.Extensions;
+﻿using BugTracker.Domain.Entity;
+using Interface.Presentation.Extensions;
 using Interface.Presentation.Models.User;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,11 @@ namespace Interface.Presentation.Services
         private const string COOKIE = "COOKIE_AUTHENTICATION";
 
         private static Dictionary<string, string> loggedUsers = new Dictionary<string, string>();
+
+        public static void SetContext(HttpContext context)
+        {
+            HttpContext.Current = context;
+        }
 
         public static LoggedUserViewModel LoggedUser
         {
