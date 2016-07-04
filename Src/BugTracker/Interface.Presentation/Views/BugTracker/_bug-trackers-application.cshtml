@@ -3,14 +3,14 @@
 {
     <tr>
         <td>
-            <a href="#" data-toggle="tooltip" title="@bug.Trace">
-                <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+            <a href="#" data-toggle="tooltip" data-placement="right" title="@bug.Trace" >
+                @(bug.Trace.Length <= 15 ? @bug.Trace : @bug.Trace.Substring(0, 14))
             </a>
         </td>
         <td>@bug.Status</td>
         <td>@bug.OccuredDate.ToString("dd/MM/yyyy HH:mm")</td>
         <td>
-            <a href="#" data-toggle="tooltip" title="@bug.Tags">
+            <a href="#" data-toggle="tooltip" data-placement="right" title="@bug.Tags">
                 <i class="glyphicon glyphicon-tags" aria-hidden="true"></i>
             </a>
         </td>
@@ -18,4 +18,9 @@
         <td>@bug.Browser.Version</td>
         <td>@bug.OperationalSystem.Name</td>
     </tr>
-}   
+}
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

@@ -45,8 +45,8 @@
                                     @Html.DisplayFor(modelItem => item.AppName)
                                 </td>
                                 <td>
-                                    <a href="#" data-toggle="tooltip" title="@item.Bug.Description">
-                                        <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                                    <a href="#" data-toggle="tooltip" data-placement="right" title="@item.Bug.Description">
+                                        @(item.Bug.Description.Length <= 15 ? @item.Bug.Description : @item.Bug.Description.Substring(0, 14))
                                     </a>
                                 </td>
                                 <td>
@@ -55,7 +55,6 @@
                             }
                             catch (Exception e)
                             {
-                                <td></td>
                                 <td></td>
                                 <td></td>
                             }
