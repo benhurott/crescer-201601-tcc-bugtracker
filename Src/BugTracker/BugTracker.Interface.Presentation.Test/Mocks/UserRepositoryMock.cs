@@ -43,7 +43,7 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public User FindByAuthentication(string email, string password)
         {
-            throw new NotImplementedException();
+            return Users.FirstOrDefault(x => x.Email == email && x.Password == password);
         }
 
         public User FindByEmail(string email)

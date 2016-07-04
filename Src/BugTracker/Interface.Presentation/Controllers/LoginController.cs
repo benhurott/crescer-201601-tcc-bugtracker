@@ -15,6 +15,11 @@ namespace Interface.Presentation.Controllers
     {
         IUserService userService = UserServiceInjection.Create();
 
+        public LoginController(IUserService userService)
+        {
+            this.userService = userService;
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
