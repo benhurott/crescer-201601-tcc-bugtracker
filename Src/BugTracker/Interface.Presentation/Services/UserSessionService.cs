@@ -78,5 +78,15 @@ namespace Interface.Presentation.Services
             HttpContext.Current.Session[LOGGED_USER] = newUser;
             
         }
+
+        public static void RefreshUserImageSession(string fileName)
+        {
+            var oldUser = LoggedUser;
+            var newUser = new LoggedUserViewModel(oldUser.IDUser, oldUser.Name, oldUser.Email
+                , fileName, oldUser.Applications, oldUser.AccountConfirmed);
+
+            HttpContext.Current.Session[LOGGED_USER] = newUser;
+
+        }
     }
 }
