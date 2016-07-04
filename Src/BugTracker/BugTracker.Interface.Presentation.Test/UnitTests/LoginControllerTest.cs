@@ -19,21 +19,22 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
 
         private UserRepositoryMock UserRepositoryMock;
         private LoginController LoginController;
+        private UserService UserService;
 
         [TestInitialize()]
         public void setController()
         {
+            HttpContextMock.CreateMockContext();
             this.UserRepositoryMock = new UserRepositoryMock();
-            this.LoginController = new LoginController(new UserService(UserRepositoryMock));
+            this.UserService = new UserService(UserRepositoryMock);
+            this.LoginController = new LoginController(UserService);
         }
         
-        //TODO: nescessario uso da encrpitação
-        /*
         [TestMethod]
         public void LoginWithAcountNotConfirmed()
         {
             var userUnconfirmed = new User(3, "User Test 3", "teste@3", "test password", "default", "hash", null, false, false);
-            UserRepositoryMock.Add(userUnconfirmed);
+            UserService.Add(userUnconfirmed);
 
             var signInModel = new UserLoginViewModel();
             signInModel.Email = "teste@3";
@@ -41,9 +42,9 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
 
             var viewResult = LoginController.SignIn(signInModel) as ViewResult;
             var errorModel = viewResult.ViewData.ModelState.FirstOrDefault(x => x.Key == "INVALID_USER");
-            Assert.AreEqual(errorModel.Value.Errors.First().ErrorMessage, "Please active your account, an e - mail has been sent to your inbox");
+            Assert.AreEqual(errorModel.Value.Errors.First().ErrorMessage, "Please active your account, an e-mail has been sent to your inbox");
         }
-        */
+        
 
         [TestMethod]
         public void LoginWithAcountInexistent()
@@ -57,5 +58,18 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
             Assert.AreEqual(errorModel.Value.Errors.First().ErrorMessage, "Email or password is invalid");
         }
 
+        [TestMethod]
+        public void LoginWithAcountExistentAndConfirmed()
+        {
+            var validUser = new User(1, "User Test 1", "teste@1", "test", "default", "hash", null, true, true);
+            UserService.Add(validUser);
+
+            var signInValidModel = new UserLoginViewModel();
+            signInValidModel.Email = validUser.Email;
+            signInValidModel.Password = "test";
+            
+            var viewResult = LoginController.SignIn(signInValidModel) as ViewResult;
+            Assert.IsNull(viewResult);
+        }
     }
 }

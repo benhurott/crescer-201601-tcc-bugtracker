@@ -105,7 +105,7 @@ namespace Interface.Presentation.Controllers
         [HttpGet]
         public FileResult DownloadLibrary(string type)
         {
-            User user = userService.FindById( UserSessionService.LoggedUser.IDUser);
+            User user = userService.FindById(UserSessionService.LoggedUser.IDUser);
 
             downloadService.SetPath(Server.MapPath("~/Library/"));
             downloadService.CreateFileForUser(user);
