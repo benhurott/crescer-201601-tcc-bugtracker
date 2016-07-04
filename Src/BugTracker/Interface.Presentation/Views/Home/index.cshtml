@@ -4,7 +4,7 @@
 }
 
 @section css{
-    <link href="~/Content/Custom/sl-slide.css" rel="stylesheet" />
+    @Styles.Render("~/Content/slideSL")
 }
 
 <!--Slider-->
@@ -19,7 +19,7 @@
                         <img class="pull-right" src="~/Content/Images/WebSite/slider/img3.png" alt="" />
                         <h2>Unique Solutions</h2>
                         <h3 class="gap">We already support all devices screens</h3>
-                        <a class="btn btn-large btn-transparent" href=@Url.Action("Register", "Home")>Register</a>                      
+                        <a class="btn btn-large btn-transparent" href=@Url.Action("Register", "Home")>Register</a>
                     </div>
                 </div>
             </div>
@@ -61,8 +61,6 @@
     <!-- /slider-wrapper -->
 </section>
 <!--/Slider-->
-
-
 
 <section class="main-info">
     <div class="container">
@@ -158,7 +156,6 @@
     </div>
 </section>
 <!--/Services-->
-
 <!--Footer-->
 <footer id="footer">
     <div class="container">
@@ -178,45 +175,5 @@
 
 
 @section scripts{
-    @*@Scripts.Render("~/bundles/home")*@
-<script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <!-- Required javascript files for Slider -->
-    <script src="~/Scripts/jquery.ba-cond.min.js"></script>
-    <script src="~/Scripts/jquery.slitslider.js"></script>
-    <!-- /Required javascript files for Slider -->
-
-    <!-- SL Slider -->
-    <script type="text/javascript">
-        $(function () {
-            var Page = (function () {
-
-                var $navArrows = $('#nav-arrows'),
-                slitslider = $('#slider').slitslider({
-                    autoplay: true
-                }),
-
-                init = function () {
-                    initEvents();
-                },
-                initEvents = function () {
-                    $navArrows.children(':last').on('click', function () {
-                        slitslider.next();
-                        return false;
-                    });
-
-                    $navArrows.children(':first').on('click', function () {
-                        slitslider.previous();
-                        return false;
-                    });
-                };
-
-                return { init: init };
-
-            })();
-
-            Page.init();
-        });
-    </script>
-    <!-- /SL Slider -->
-
+    @Scripts.Render("~/bundles/slider-sl")
 }

@@ -3,6 +3,10 @@
     ViewBag.Title = "Documentation";
 }
 
+@section css{
+    @Styles.Render("~/Content/documentation")
+}
+
 <div class="row">
     <div class="panel panel-success col-md-6 box" id="documentation">
         <div class="panel-heading text-center">
@@ -18,7 +22,7 @@
                 Você só precisa referencia-la em sua página.
                 <b>*lembre-se, a referência dovjquery é necessário para o funcionamento da biblioteca.</b>
             </div>
-            <div id="Using" >
+            <div id="Using">
                 Após a instalação, você poderá realizar o trackeamento dos seus bugs de forma muito simples.
                 <br /><br />
                 <b>Exemplo:</b>
@@ -66,10 +70,6 @@
         </div>
     </div>
 </div>
-
-@section css{
-    <link href="~/Content/Custom/documentation.css" rel="stylesheet" />
-}
 
 @section scripts{
 
