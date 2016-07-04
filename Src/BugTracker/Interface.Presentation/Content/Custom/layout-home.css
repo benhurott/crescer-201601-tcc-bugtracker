@@ -1,7 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One);
 
+#services {
+    padding: 60px 47px;
+}
+
+#footer {
+    padding: 7px 55px;
+}
+
 body {
     margin-top: 80px;
+}
+
+.media {
+    margin: 50px 0px;
 }
 
 #project-img {
