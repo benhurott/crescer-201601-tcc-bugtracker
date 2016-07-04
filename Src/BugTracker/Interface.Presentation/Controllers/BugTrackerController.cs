@@ -33,6 +33,7 @@ namespace Interface.Presentation.Controllers
         public JsonResult Add(BugTrackerPostModel bugTrackerPostModel)
         {
             var request = HttpContext.Request;
+            JsonResult returnJson;
 
             var application =
                 applicationService.FindByUrlAndUserHashCode(
@@ -42,21 +43,14 @@ namespace Interface.Presentation.Controllers
 
             if (application == null)
             {
-                throw new HttpException(
-                    (int)HttpStatusCode.BadRequest,
-                    "Domain invalid or Libray broke. Verify your domain in painel and download again library."
-                );
+                HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                returnJson = Json(new { error = "Domain invalid or Libray broke. Verify your domain in painel and download again library." });
             }
 
             if (!ModelState.IsValid)
             {
-                throw new HttpException(
-                    (int)HttpStatusCode.BadRequest,
-                    string.Join("; ", ModelState.Values
-                        .SelectMany(x => x.Errors)
-                        .Select(x => x.ErrorMessage)
-                    )
-                );
+                HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                returnJson = Json(new { error = string.Join("; ", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage)) });
             }
 
             try
@@ -78,16 +72,20 @@ namespace Interface.Presentation.Controllers
                     TagMasterMail.SendTo(application.User.Email,application.Title);
                 }
 
-                return Json(new { msg = "Success!" });
+                returnJson = Json(new { msg = "Success!" });
             }
             catch (Domain.Exceptions.TagVeryLargeException e)
             {
-                throw new HttpException((int)HttpStatusCode.BadRequest, e.ToString());
+                HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                returnJson = returnJson = Json(new { error = e.ToString() });
             }
             catch (Exception e)
             {
-                throw new HttpException((int)HttpStatusCode.InternalServerError, e.ToString());
+                HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                returnJson = returnJson = Json(new { error = e.ToString() });
             }
+
+            return returnJson;
         }
 
         [HttpPost]
