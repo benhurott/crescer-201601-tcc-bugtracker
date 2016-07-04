@@ -30,6 +30,10 @@ BugTrackerView.prototype.init = function () {
         self.loadData();
         self.showCountBugs();
     });
+
+    $('table').on('click', '.trace-link', function () {
+        $('#trace-content').html($(this).attr('data-value'));
+    });
 };
 
 
@@ -44,7 +48,7 @@ BugTrackerView.prototype.loadData = function () {
 BugTrackerView.prototype.showCountBugs = function () {
     this.bModel.countBugs(self.filters).done(function (data) {
         for (var i in data.data) {
-            $('#count-bugs').append($('<span>').addClass("glyphicon glyphicon-alert " + data.status[data.data[i].Status - 1]).html(data.data[i].Count));
+            $('#count-bugs').append($('<span>').addClass("fa fa-exclamation-triangle " + data.status[data.data[i].Status - 1]).html(data.data[i].Count));
         }
     });
 };
