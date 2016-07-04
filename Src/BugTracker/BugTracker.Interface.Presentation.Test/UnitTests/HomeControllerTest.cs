@@ -33,6 +33,7 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
         public void RegisterNewUser()
         {
             var userToRegister = new RegisterUserViewModel();
+            userToRegister.Email = "test@test";
             var countUserList = UserRepositoryMock.Users.Count;
             Assert.AreEqual(countUserList, 2);
 
