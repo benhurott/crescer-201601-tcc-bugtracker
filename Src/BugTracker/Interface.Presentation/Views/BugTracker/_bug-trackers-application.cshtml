@@ -4,7 +4,7 @@
     <tr>
         <td>
             <a href="#" data-toggle="tooltip" data-placement="right" title="@bug.Trace" >
-                <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                @(bug.Trace.Length <= 15 ? @bug.Trace : @bug.Trace.Substring(0, 14))
             </a>
         </td>
         <td>@bug.Status</td>
