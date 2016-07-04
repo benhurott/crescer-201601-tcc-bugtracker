@@ -63,6 +63,7 @@
     <Compile Include="Mocks\HttpContextMock.cs" />
     <Compile Include="Mocks\UserRecoveryRepositoryMock.cs" />
     <Compile Include="Mocks\UserRepositoryMock.cs" />
+    <Compile Include="UnitTests\ActivationControllerTest.cs" />
     <Compile Include="UnitTests\ApplicationControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -16,8 +16,8 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
         {
             Users = new List<User>();
             var userTest = new User();
-            var user1 = new User(1, "User Test 1", "teste@1", "test", "default", "hash", null, true, true);
-            var user2 = new User(2, "User Test 2", "teste@2", "test", "default", "hash", null, true, true);
+            var user1 = new User(1, "User Test 1", "teste@1", "test", "default", "hash", null, true, false);
+            var user2 = new User(2, "User Test 2", "teste@2", "test", "default", "hash", null, true, false);
 
             Users.Add(user1);
             Users.Add(user2);
@@ -25,7 +25,7 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
 
         public void ActiveAccount(User user)
         {
-            var userToActive = Users.FirstOrDefault( x => x.Equals(user));
+            var userToActive = Users.FirstOrDefault( x => x.IDUser == user.IDUser);
         
             Users.Remove(user);
             userToActive.AccountConfirmed = true;
