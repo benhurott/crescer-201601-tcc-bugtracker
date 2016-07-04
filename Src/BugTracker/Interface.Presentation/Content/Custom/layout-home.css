@@ -2,6 +2,15 @@
 
 #services {
     padding: 60px 47px;
+    font-size: 14px;
+}
+
+#b-contact {
+    margin-top: 57px;
+}
+
+#contact-page {
+    margin-top: 40px;
 }
 
 #footer {
@@ -26,6 +35,7 @@ body {
     border-radius: 50px;
     padding: 17px 52px;
     box-shadow: 1px 1px 19px -12px #0e1a35;
+    max-width: 280px;
 }
 
 
@@ -42,8 +52,12 @@ body {
     padding: 30px;
 }
 
+#reg-button {
+    margin-top: 30px;
+}
+
 .main-info {
-    padding: 50px 0px;
+    padding: 50px 30px;
 }
 
 .input-email {
@@ -987,5 +1001,36 @@ ul.faq {
 @media (max-width: 980px) {
     body {
         margin-top: 0;
+    }
+
+    .form-login > a {
+        width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal#loginForm {
+        margin-left: 0;
+        margin: auto;
+    }
+}
+
+@media (max-width: 660px) {
+    .register-column {
+        flex-direction: column !important;
+        width: auto;
+    }
+
+    .modal#loginForm{
+        width: auto;
+    }
+
+    #btn-sign-in {
+        margin: 30px 0px;
+        padding: 16px 65px;
+    }
+
+    #input-password{
+        width: 96%;
     }
 }
