@@ -28,7 +28,7 @@
     overflow-y: auto;
 }
 
-.panel-informations{
+.panel-informations {
     width: 37%;
 }
 
@@ -164,16 +164,33 @@ body {
     left: -75px;
 }
 
-.full-width{
+.full-width {
     width: 98%;
 }
 
-#appNameForm{
+#appNameForm {
     margin-bottom: 20px;
 }
 
-#searchForm{
+#searchForm {
     margin-right: 18px;
+}
+
+.btn-hover-green:hover {
+    background-color: #79a736 !important;
+}
+
+.export-form > button {
+    width: 100%;
+    margin: 3px 0px;
+}
+
+    .export-form > button:hover {
+        background-color: #79a736;
+    }
+
+.actions-table {
+    margin-top: 25px;
 }
 
 @media (max-width: 1110px) {
