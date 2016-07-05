@@ -54,5 +54,10 @@ namespace BugTracker.Interface.Presentation.Test.Mocks
         {
             throw new NotImplementedException();
         }
+
+        public ICollection<Domain.Entity.BugTracker> FindByApplicationFilter(BugTrackerFilter filter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
