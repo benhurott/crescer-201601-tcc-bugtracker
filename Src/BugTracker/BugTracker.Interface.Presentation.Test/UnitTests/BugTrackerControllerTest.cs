@@ -2,6 +2,7 @@
 using BugTracker.Domain.Service;
 using BugTracker.Interface.Presentation.Test.Mocks;
 using Interface.Presentation.Controllers;
+using Interface.Presentation.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Web.Mvc;
 
 namespace BugTracker.Interface.Presentation.Test.UnitTests
 {
+
     [TestClass]
     public class BugTrackerControllerTest
     {
@@ -35,16 +37,75 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
         }
 
         [TestMethod]
-        public void GetBugTrackerByValidApp()
+        public void GetBugTrackerFilterToFindOneBugError()
         {
             var filter = new BugTrackerFilter();
-            filter.idApplication = 1;
-            
-            var viewResult = BugTrackerController.GetBugTrackerPaginedByApp(filter) as JsonResult;
-            
-            Assert.IsNull(viewResult);
+
+            filter.Status = new List<BugTrackerStatus>();
+            filter.Status.Add(BugTrackerStatus.ERROR);
+            filter.Trace = "error test";
+
+            var viewResult = BugTrackerController.GetBugTrackerPaginedByApp(filter) as PartialViewResult;
+            var modelBugTrackersObtained = viewResult.ViewData.Model;
+            var bugs = BugTrackerRepositoryMock.FindByApplicationPagined(filter);
+            var modelBugTrackerExpected = bugs.FromModel();
+
+            Assert.AreEqual(modelBugTrackersObtained.ToString(), modelBugTrackerExpected.ToString());
 
         }
 
+        [TestMethod]
+        public void GetBugTrackerFilterToFindOneBugWarnning()
+        {
+            var filter = new BugTrackerFilter();
+
+            filter.Status = new List<BugTrackerStatus>();
+            filter.Status.Add(BugTrackerStatus.WARNING);
+            filter.Trace = "warnning test";
+
+            var viewResult = BugTrackerController.GetBugTrackerPaginedByApp(filter) as PartialViewResult;
+            var modelBugTrackersObtained = viewResult.ViewData.Model;
+            var bugs = BugTrackerRepositoryMock.FindByApplicationPagined(filter);
+            var modelBugTrackerExpected = bugs.FromModel();
+
+            Assert.AreEqual(modelBugTrackersObtained.ToString(), modelBugTrackerExpected.ToString());
+
+        }
+
+        [TestMethod]
+        public void GetBugTrackerFilterToFindAllBugsOfAppIdZero()
+        {
+            var filter = new BugTrackerFilter();
+            filter.idApplication = 0;
+
+            var viewResult = BugTrackerController.GetBugTrackerPaginedByApp(filter) as PartialViewResult;
+            var modelBugTrackersObtained = viewResult.ViewData.Model;
+            var bugs = BugTrackerRepositoryMock.FindByApplicationPagined(filter);
+            var modelBugTrackerExpected = bugs.FromModel();
+
+            Assert.AreEqual(modelBugTrackersObtained.ToString(), modelBugTrackerExpected.ToString());
+
+        }
+
+        [TestMethod]
+        public void GetBugTrackerFilterVerifyViewName()
+        {
+            var filter = new BugTrackerFilter();
+            var viewResult = BugTrackerController.GetBugTrackerPaginedByApp(filter) as PartialViewResult;
+
+            Assert.AreEqual(viewResult.ViewName, "_bug-trackers-application");
+        }
+
+        [TestMethod]
+        public void GetCountBugTrackerByApp()
+        {
+            var filter = new BugTrackerFilter();
+            filter.idApplication = 0;
+            var viewResult = BugTrackerController.GetCountBugTrackerByApp(filter);
+            var dataObtained = viewResult.Data;
+            var dataExpected = BugTrackerRepositoryMock.GetCountBugsByApp(filter);
+            //TODO: verfifcar format return private
+            //Assert.AreEqual(dataExpected.ToString(), dataObtained.ToString());
+        }
     }
 }
