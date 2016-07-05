@@ -330,7 +330,7 @@
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
-    <Content Include="Views\BugTracker\_export_txt.cshtml" />
+    <Content Include="Views\BugTracker\_export.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -341,7 +341,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\" />
-    <Folder Include="Views\BugTrackerExport\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Domain\BugTracker.Domain.csproj">

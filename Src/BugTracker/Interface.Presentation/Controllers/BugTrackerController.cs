@@ -117,13 +117,28 @@ namespace Interface.Presentation.Controllers
         }
 
         [HttpGet]
-        public FileResult GetBugTrackerFormatedForExport(BugTrackerFilter filter)
+        public FileResult ExportBugsForPdf(BugTrackerFilter filter)
         {
+            filter.idApplication = 1;
             var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
             
-            var htmlContent = String.Format("<body>Hello world: {0}</body>", DateTime.Now);
+            var htmlContent = String.Format(EmailService.EmailRazorViewToString(bugTrackers), DateTime.Now);
             var pdfBytes = (new NReco.PdfGenerator.HtmlToPdfConverter()).GeneratePdf(htmlContent);
 
+            return File(
+                pdfBytes,
+                System.Net.Mime.MediaTypeNames.Application.Octet,
+               "teste.pdf"
+            );
+        }
+
+        [HttpGet]
+        public FileResult ExportBugsForTxt(BugTrackerFilter filter)
+        {
+            filter.idApplication = 1;
+
+            var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
+            var pdfBytes = "asdoijsa";
             return File(
                 pdfBytes,
                 System.Net.Mime.MediaTypeNames.Application.Octet,
