@@ -5,11 +5,6 @@ using Interface.Presentation.Extensions;
 using Interface.Presentation.Models.User;
 using Interface.Presentation.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace BugTracker.Interface.Presentation.Test.UnitTests
