@@ -29,7 +29,7 @@ namespace Interface.Presentation.Mail_Body
                 Link = "http://localhost:58173/activation/code?code=" + code,
                 Body = "This email is about a new account you made in BugTracker website, click on the button bellow to activate your account"};
 
-            string body = EmailService.EmailRazorViewToString(model);
+            string body = RazorViewToString.EmailToString(model);
 
             mail.Send(mailTo, "Activation of BugTracker account", body, true);
 

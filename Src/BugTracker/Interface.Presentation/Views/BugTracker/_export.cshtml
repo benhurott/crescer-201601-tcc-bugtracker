@@ -1,16 +1,23 @@
 ﻿@model List<Interface.Presentation.Models.BugTracker.BugTrackerViewModel>
 
-    @foreach (var bug in Model)
-    {
-
-            <li>@bug.Trace</li>
-        <li>@bug.Status</li>
-    <li>@bug.OccuredDate.ToString("dd/MM/yyyy HH:mm")</li>
-    <li>@bug.Tags </li>
-    <li>@bug.Browser.Name</li>
-    <li>@bug.Browser.Version</li>
-    <li>@bug.OperationalSystem.Name</li>
-
-    }
+<table>
+    <thead>
+        <tr>
+            <th>Trace</th>
+            <th>Status</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody>        
+        @foreach (var bug in Model)
+        {
+            <tr>
+                <td>@bug.Trace</td>
+                <td>@bug.Status</td>
+                <td>@bug.OccuredDate.ToString("dd/MM/yyyy")</td>    
+            </tr>
+        }
+    </tbody>
+</table>
 
 

@@ -116,33 +116,33 @@ namespace Interface.Presentation.Controllers
             return formatReturn(bugTrackerService.GetGraphicModelByIdApplication(idApplication));
         }
 
-        [HttpGet]
+        [HttpPost]
         public FileResult ExportBugsForPdf(BugTrackerFilter filter)
         {
-            filter.idApplication = 1;
             var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
             
-            var htmlContent = String.Format(EmailService.EmailRazorViewToString(bugTrackers), DateTime.Now);
+            var htmlContent = String.Format(RazorViewToString.TableTrackingToString(bugTrackers.FromModel()));
             var pdfBytes = (new NReco.PdfGenerator.HtmlToPdfConverter()).GeneratePdf(htmlContent);
 
             return File(
                 pdfBytes,
                 System.Net.Mime.MediaTypeNames.Application.Octet,
-               "teste.pdf"
+                DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.pdf"
             );
         }
 
-        [HttpGet]
+        [HttpPost]
         public FileResult ExportBugsForTxt(BugTrackerFilter filter)
         {
-            filter.idApplication = 1;
-
             var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
-            var pdfBytes = "asdoijsa";
+
+            var htmlContent = String.Format(RazorViewToString.TableTrackingToString(bugTrackers.FromModel()));
+            var pdfBytes = (new NReco.PdfGenerator.HtmlToPdfConverter()).GeneratePdf(htmlContent);
+
             return File(
                 pdfBytes,
                 System.Net.Mime.MediaTypeNames.Application.Octet,
-               "teste.pdf"
+                DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.pdf"
             );
         }
 
