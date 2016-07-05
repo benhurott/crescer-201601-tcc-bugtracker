@@ -16,7 +16,7 @@ namespace Interface.Presentation.Services
 
         public static string TableTrackingToString(object model)
         {
-            return ViewToString(model, "~/View/BugTracker/_export.cshtml");
+            return ViewToString(model, "~/Views/BugTracker/_export.cshtml");
         }
 
         private static string ViewToString(object model, string viewPath)

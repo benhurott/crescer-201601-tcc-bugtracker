@@ -6,6 +6,10 @@ using Interface.Presentation.Filters;
 using Interface.Presentation.Mail_Body;
 using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
+using iTextSharp.text.pdf;
+using iTextSharp.xmp;
+using System.IO;
+using System.Web.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,7 +19,9 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Domain = BugTracker.Domain;
-
+using System.Web.UI.HtmlControls;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
 
 namespace Interface.Presentation.Controllers
 {
@@ -107,31 +113,66 @@ namespace Interface.Presentation.Controllers
         [HttpPost]
         public JsonResult GetCountBugTrackerByApp(BugTrackerFilter filter)
         {
-            return FormatReturn(bugTrackerService.GetCountBugsByApp(filter));
+            return formatReturn(bugTrackerService.GetCountBugsByApp(filter));
         }
 
         [HttpGet]
         public JsonResult GetGraphicModelByIdApplication(int idApplication)
         {
-            return FormatReturn(bugTrackerService.GetGraphicModelByIdApplication(idApplication));
+            return formatReturn(bugTrackerService.GetGraphicModelByIdApplication(idApplication));
         }
 
-        [HttpGet]
-        public FileResult GetBugTrackerFormatedForExport(BugTrackerFilter filter)
+        [HttpPost]
+        public FileResult ExportBugsForPdf(BugTrackerFilter filter)
         {
+            Byte[] bytes;
             var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
             
-            var htmlContent = String.Format("<body>Hello world: {0}</body>", DateTime.Now);
-            var pdfBytes = (new NReco.PdfGenerator.HtmlToPdfConverter()).GeneratePdf(htmlContent);
+            using (var ms = new MemoryStream())
+            {
+                using (var doc = new Document())
+                {
+                    using (var writer = PdfWriter.GetInstance(doc, ms))
+                    {
+                        doc.Open();
+
+                        var html = RazorViewToString.TableTrackingToString(bugTrackers.FromModel());
+
+                        using (var htmlWorker = new HTMLWorker(doc))
+                        {
+                            using (var sr = new StringReader(html))
+                            {
+                                htmlWorker.Parse(sr);
+                            }
+                        }
+                        
+                        doc.Close();
+                    }
+                }
+
+                bytes = ms.ToArray();
+            }
 
             return File(
-                pdfBytes,
+                bytes,
                 System.Net.Mime.MediaTypeNames.Application.Octet,
-               "teste.pdf"
+                DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.txt"
             );
         }
 
-        private JsonResult FormatReturn(IList<dynamic> data)
+        //[HttpPost]
+        //public FileResult ExportBugsForTxt(BugTrackerFilter filter)
+        //{
+        //    var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
+
+                //    return File(
+                //        pdfBytes,
+                //        System.Net.Mime.MediaTypeNames.Application.Octet,
+                //        DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.txt"
+                //    );
+                //}
+
+        private JsonResult formatReturn(IList<dynamic> data)
         {
             return Json(
                 new
