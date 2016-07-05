@@ -30,6 +30,16 @@ BugTrackerView.prototype.init = function () {
     $('table').on('click', '.trace-link', function () {
         $('#trace-content').html($(this).attr('data-value'));
     });
+
+    $('#toPdf').submit(function () {
+        $('#pdf_idApplication').val(self.filters.idApplication);
+        $('#pdf_track').val($('#Trace').val());
+    });
+
+    $('#toTxt').submit(function () {
+        $('#txt_idApplication').val(self.filters.idApplication);
+        $('#txt_track').val($('#Trace').val());
+    });
 };
 
 BugTrackerView.prototype.loadData = function () {

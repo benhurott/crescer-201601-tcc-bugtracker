@@ -46,8 +46,20 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li> <a href="">PDF</a></li>
-                                <li> <a href="">TXT</a></li>
+                                <li>
+                                    <form action="~/BugTracker/ExportBugsForPdf" method="post" id="toPdf">
+                                        <input type="hidden" name="IdApplication" id="pdf_idApplication" />
+                                        <input type="hidden" name="Track" id="pdf_track" />
+                                        <button class="btn btn-success" type="submit"> Pdf </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="~/BugTracker/ExportBugsForTxt" method="post" id="toTxt">
+                                        <input type="hidden" name="IdApplication" id="txt_idApplication" />
+                                        <input type="hidden" name="Track" id="txt_track" />
+                                        <button class="btn btn-success" type="submit"> Txt </button>
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </div>

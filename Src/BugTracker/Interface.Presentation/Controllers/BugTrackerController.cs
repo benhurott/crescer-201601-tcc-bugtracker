@@ -116,18 +116,33 @@ namespace Interface.Presentation.Controllers
             return formatReturn(bugTrackerService.GetGraphicModelByIdApplication(idApplication));
         }
 
-        [HttpGet]
-        public FileResult GetBugTrackerFormatedForExport(BugTrackerFilter filter)
+        [HttpPost]
+        public FileResult ExportBugsForPdf(BugTrackerFilter filter)
         {
             var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
             
-            var htmlContent = String.Format("<body>Hello world: {0}</body>", DateTime.Now);
+            var htmlContent = String.Format(RazorViewToString.TableTrackingToString(bugTrackers.FromModel()));
             var pdfBytes = (new NReco.PdfGenerator.HtmlToPdfConverter()).GeneratePdf(htmlContent);
 
             return File(
                 pdfBytes,
                 System.Net.Mime.MediaTypeNames.Application.Octet,
-               "teste.pdf"
+                DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.pdf"
+            );
+        }
+
+        [HttpPost]
+        public FileResult ExportBugsForTxt(BugTrackerFilter filter)
+        {
+            var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
+
+            var htmlContent = String.Format(RazorViewToString.TableTrackingToString(bugTrackers.FromModel()));
+            var pdfBytes = (new NReco.PdfGenerator.HtmlToPdfConverter()).GeneratePdf(htmlContent);
+
+            return File(
+                pdfBytes,
+                System.Net.Mime.MediaTypeNames.Application.Octet,
+                DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.pdf"
             );
         }
 
