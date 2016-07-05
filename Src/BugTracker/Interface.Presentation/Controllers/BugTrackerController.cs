@@ -29,7 +29,7 @@ namespace Interface.Presentation.Controllers
             bugTrackerService = BugTrackerServiceInjection.Create();
             applicationService = ApplicationServiceInjection.Create();
         }
-        
+
         public BugTrackerController(IBugTrackerService bugTrackerService, IApplicationService applicationService)
         {
             this.bugTrackerService = bugTrackerService;
@@ -77,7 +77,7 @@ namespace Interface.Presentation.Controllers
 
                 if (sendEmail)
                 {
-                    TagMasterMail.SendTo(application.User.Email,application.Title);
+                    TagMasterMail.SendTo(application.User.Email, application.Title);
                 }
 
                 returnJson = Json(new { msg = "Success!" });
@@ -117,10 +117,11 @@ namespace Interface.Presentation.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public FileResult ExportBugsForPdf(BugTrackerFilter filter)
         {
             var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
-            
+
             var htmlContent = String.Format(RazorViewToString.TableTrackingToString(bugTrackers.FromModel()));
             var pdfBytes = (new NReco.PdfGenerator.HtmlToPdfConverter()).GeneratePdf(htmlContent);
 
@@ -132,6 +133,7 @@ namespace Interface.Presentation.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public FileResult ExportBugsForTxt(BugTrackerFilter filter)
         {
             var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
