@@ -298,6 +298,7 @@
     <Compile Include="Services\CheckFileNameService.cs" />
     <Compile Include="Services\EditAccountService.cs" />
     <Compile Include="Services\DownloadImageService.cs" />
+    <Compile Include="Services\ExportFileService.cs" />
     <Compile Include="Services\RazorViewToString.cs" />
     <Compile Include="Services\FileServiceInjection.cs" />
     <Compile Include="Services\MailServiceInjection.cs" />

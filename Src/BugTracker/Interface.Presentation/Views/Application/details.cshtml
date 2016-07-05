@@ -42,7 +42,7 @@
                         Export
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown-export">
+                    <ul class="dropdown-menu dropdown-export" aria-labelledby="dropdown-export">
                         <li>
                             @using (Html.BeginForm("ExportBugsForPdf", "BugTracker", FormMethod.Post, new { @class = "export-form", id = "toPdf" }))
                             {

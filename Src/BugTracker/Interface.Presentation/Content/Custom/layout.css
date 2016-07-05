@@ -193,6 +193,12 @@ body {
     margin-top: 25px;
 }
 
+.dropdown-export {
+    position: absolute;
+    top: 24px;
+    left: 152px;
+}
+
 @media (max-width: 1110px) {
     .navi a {
         font-size: 14px !important;

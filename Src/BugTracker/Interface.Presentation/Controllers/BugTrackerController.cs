@@ -22,6 +22,7 @@ using Domain = BugTracker.Domain;
 using System.Web.UI.HtmlControls;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf.parser;
 
 namespace Interface.Presentation.Controllers
 {
@@ -35,7 +36,7 @@ namespace Interface.Presentation.Controllers
             bugTrackerService = BugTrackerServiceInjection.Create();
             applicationService = ApplicationServiceInjection.Create();
         }
-        
+
         public BugTrackerController(IBugTrackerService bugTrackerService, IApplicationService applicationService)
         {
             this.bugTrackerService = bugTrackerService;
@@ -83,7 +84,7 @@ namespace Interface.Presentation.Controllers
 
                 if (sendEmail)
                 {
-                    TagMasterMail.SendTo(application.User.Email,application.Title);
+                    TagMasterMail.SendTo(application.User.Email, application.Title);
                 }
 
                 returnJson = Json(new { msg = "Success!" });
@@ -125,52 +126,32 @@ namespace Interface.Presentation.Controllers
         [HttpPost]
         public FileResult ExportBugsForPdf(BugTrackerFilter filter)
         {
-            Byte[] bytes;
             var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
-            
-            using (var ms = new MemoryStream())
-            {
-                using (var doc = new Document())
-                {
-                    using (var writer = PdfWriter.GetInstance(doc, ms))
-                    {
-                        doc.Open();
 
-                        var html = RazorViewToString.TableTrackingToString(bugTrackers.FromModel());
-
-                        using (var htmlWorker = new HTMLWorker(doc))
-                        {
-                            using (var sr = new StringReader(html))
-                            {
-                                htmlWorker.Parse(sr);
-                            }
-                        }
-                        
-                        doc.Close();
-                    }
-                }
-
-                bytes = ms.ToArray();
-            }
+            Byte[] bytes = ExportFileService.TableHtmlToPdf(bugTrackers).ToArray();
 
             return File(
                 bytes,
                 System.Net.Mime.MediaTypeNames.Application.Octet,
-                DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.txt"
+                DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.pdf"
             );
         }
 
-        //[HttpPost]
-        //public FileResult ExportBugsForTxt(BugTrackerFilter filter)
-        //{
-        //    var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
+        [HttpPost]
+        public FileResult ExportBugsForTxt(BugTrackerFilter filter)
+        {
+            var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
 
-                //    return File(
-                //        pdfBytes,
-                //        System.Net.Mime.MediaTypeNames.Application.Octet,
-                //        DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.txt"
-                //    );
-                //}
+            Stream streamFile = ExportFileService.TableHtmlToTxt(bugTrackers);
+
+
+
+            return File(
+                streamFile,
+                System.Net.Mime.MediaTypeNames.Application.Octet,
+                DateTime.Now.ToString("dd_MM/yyyy") + "_bugs.txt"
+            );
+        }
 
         private JsonResult formatReturn(IList<dynamic> data)
         {
@@ -182,6 +163,27 @@ namespace Interface.Presentation.Controllers
                 },
                 JsonRequestBehavior.AllowGet
             );
+        }
+
+        public static string ExtractTextFromPdf(string path)
+        {
+            ITextExtractionStrategy its = new iTextSharp.text.pdf.parser.LocationTextExtractionStrategy();
+
+            using (PdfReader reader = new PdfReader(path))
+            {
+                StringBuilder text = new StringBuilder();
+
+                for (int i = 1; i <= reader.NumberOfPages; i++)
+                {
+                    string thePage = PdfTextExtractor.GetTextFromPage(reader, i, its);
+                    string[] theLines = thePage.Split('\n');
+                    foreach (var theLine in theLines)
+                    {
+                        text.AppendLine(theLine);
+                    }
+                }
+                return text.ToString();
+            }
         }
     }
 }
