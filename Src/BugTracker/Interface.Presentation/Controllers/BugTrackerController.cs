@@ -8,8 +8,10 @@ using Interface.Presentation.Models.BugTracker;
 using Interface.Presentation.Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Domain = BugTracker.Domain;
@@ -112,6 +114,21 @@ namespace Interface.Presentation.Controllers
         public JsonResult GetGraphicModelByIdApplication(int idApplication)
         {
             return formatReturn(bugTrackerService.GetGraphicModelByIdApplication(idApplication));
+        }
+
+        [HttpGet]
+        public FileResult GetBugTrackerFormatedForExport(BugTrackerFilter filter)
+        {
+            var bugTrackers = bugTrackerService.FindByApplicationFilter(filter);
+            
+            var htmlContent = String.Format("<body>Hello world: {0}</body>", DateTime.Now);
+            var pdfBytes = (new NReco.PdfGenerator.HtmlToPdfConverter()).GeneratePdf(htmlContent);
+
+            return File(
+                pdfBytes,
+                System.Net.Mime.MediaTypeNames.Application.Octet,
+               "teste.pdf"
+            );
         }
 
         private JsonResult formatReturn(IList<dynamic> data)

@@ -20,26 +20,38 @@
         <div class="panel-body">
             <div id="count-bugs" class="text-center"></div>
             <div id="filters">
-                <div class="col-md-3"></div>
-                <div class="col-md-3">
-                    <input type="text" class="form-control" value="@ViewBag.FilterName" name="Trace" id="Trace" placeholder="Trace...">
-                </div>
+                <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" value="@ViewBag.FilterName" name="Trace" id="Trace" placeholder="Trace...">
+                    </div>
 
-                <div class="col-md-3 status-filter">
-                    @{
-                        int i = 1;
+                    <div class="col-md-3 status-filter">
+                        @{
+                            int i = 1;
 
-                        foreach (String s in ViewBag.Status)
-                        {
-                            <input type="checkbox" id="Status" class="align-input-text" name="Status" checked="checked" value="@i" /> @s
-                            i++;
+                            foreach (String s in ViewBag.Status)
+                            {
+                                <input type="checkbox" id="Status" class="align-input-text" name="Status" checked="checked" value="@i" /> @s
+                                i++;
+                            }
                         }
-                    }
+                    </div>
+                    <div class="col-md-3">
+                        <button id="filter" class="btn btn-success">Filter</button>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="dropdown">
+                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Export
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li> <a href="">PDF</a></li>
+                                <li> <a href="">TXT</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <button id="filter" class="btn btn-success">Filter</button>
-                </div>
-            </div>
             <table class="table">
                 <thead>
                     <tr>
@@ -76,7 +88,6 @@
 </div>
 
 @section scripts{
-
     @Scripts.Render("~/bundles/application")
 
     <script>
