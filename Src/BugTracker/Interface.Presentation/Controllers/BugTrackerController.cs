@@ -107,13 +107,13 @@ namespace Interface.Presentation.Controllers
         [HttpPost]
         public JsonResult GetCountBugTrackerByApp(BugTrackerFilter filter)
         {
-            return formatReturn(bugTrackerService.GetCountBugsByApp(filter));
+            return FormatReturn(bugTrackerService.GetCountBugsByApp(filter));
         }
 
         [HttpGet]
         public JsonResult GetGraphicModelByIdApplication(int idApplication)
         {
-            return formatReturn(bugTrackerService.GetGraphicModelByIdApplication(idApplication));
+            return FormatReturn(bugTrackerService.GetGraphicModelByIdApplication(idApplication));
         }
 
         [HttpGet]
@@ -131,7 +131,7 @@ namespace Interface.Presentation.Controllers
             );
         }
 
-        private JsonResult formatReturn(IList<dynamic> data)
+        private JsonResult FormatReturn(IList<dynamic> data)
         {
             return Json(
                 new
