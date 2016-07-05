@@ -97,15 +97,41 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
         }
 
         [TestMethod]
-        public void GetCountBugTrackerByApp()
+        public void GetCountBugTrackerByValidApp()
         {
             var filter = new BugTrackerFilter();
             filter.idApplication = 0;
+
             var viewResult = BugTrackerController.GetCountBugTrackerByApp(filter);
             var dataObtained = viewResult.Data;
-            var dataExpected = BugTrackerRepositoryMock.GetCountBugsByApp(filter);
-            //TODO: verfifcar format return private
-            //Assert.AreEqual(dataExpected.ToString(), dataObtained.ToString());
+            var dataTracker = BugTrackerRepositoryMock.GetCountBugsByApp(filter);
+
+            var dataExpected = new
+            {
+                data = dataTracker,
+                status = Enum.GetNames(typeof(Domain.Entity.BugTrackerStatus))
+            };
+
+            Assert.AreEqual(dataExpected.ToString(), dataObtained.ToString());
+        }
+
+        [TestMethod]
+        public void GetCountBugTrackerByInvalidApp()
+        {
+            var filter = new BugTrackerFilter();
+            filter.idApplication = 999;
+
+            var viewResult = BugTrackerController.GetCountBugTrackerByApp(filter);
+            var dataObtained = viewResult.Data;
+            var dataTracker = BugTrackerRepositoryMock.GetCountBugsByApp(filter);
+
+            var dataExpected = new
+            {
+                data = dataTracker,
+                status = Enum.GetNames(typeof(Domain.Entity.BugTrackerStatus))
+            };
+
+            Assert.AreEqual(dataExpected.ToString(), dataObtained.ToString());
         }
     }
 }

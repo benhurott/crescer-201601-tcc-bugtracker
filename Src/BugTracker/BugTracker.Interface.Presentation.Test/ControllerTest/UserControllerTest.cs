@@ -38,7 +38,7 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
 
             UserSessionService.CreateSession(loggedUser);
             var viewResult = UserController.Index() as ViewResult;
-            var expectedModel = ApplicationService.FindAppAndBugsByAppId(1).toApplicationAndBugsViewModel();
+            var expectedModel = ApplicationService.FindAppAndBugsByAppId(1).ToApplicationAndBugsViewModel();
 
             Assert.AreEqual(viewResult.ViewData.Model.ToString(), expectedModel.ToString());
         }
@@ -51,11 +51,10 @@ namespace BugTracker.Interface.Presentation.Test.UnitTests
             UserSessionService.CreateSession(loggedUser);
             var viewResult = UserController.Index() as ViewResult;
 
-            var expectedModel = ApplicationService.FindAppAndBugsByAppId(999).toApplicationAndBugsViewModel();
+            var expectedModel = ApplicationService.FindAppAndBugsByAppId(999).ToApplicationAndBugsViewModel();
 
             Assert.AreEqual(viewResult.ViewData.Model.ToString(), expectedModel.ToString());
         }
-
         
     }
 }
