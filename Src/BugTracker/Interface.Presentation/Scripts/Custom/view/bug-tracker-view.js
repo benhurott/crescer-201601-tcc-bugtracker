@@ -31,14 +31,12 @@ BugTrackerView.prototype.init = function () {
         $('#trace-content').html($(this).attr('data-value'));
     });
 
-    $('#toPdf').submit(function () {
-        $('#pdf_idApplication').val(self.filters.idApplication);
-        $('#pdf_track').val($('#Trace').val());
-    });
+    $('#convert-to-pdf, #convert-to-txt').click(function () {
+        $('#export_idApplication').val(self.filters.idApplication);
+        $('#export_track').val($('#Trace').val());
 
-    $('#toTxt').submit(function () {
-        $('#txt_idApplication').val(self.filters.idApplication);
-        $('#txt_track').val($('#Trace').val());
+        $('#filter-form').attr('action', $(this).attr('data-link'));
+        $('#filter-form').submit();
     });
 };
 
@@ -53,7 +51,10 @@ BugTrackerView.prototype.loadData = function () {
 BugTrackerView.prototype.showCountBugs = function () {
     this.bModel.countBugs(self.filters).done(function (data) {
         for (var i in data.data) {
-            $('#count-bugs').append($('<span>').addClass("fa fa-exclamation-triangle " + data.status[data.data[i].Status - 1]).html(data.data[i].Count));
+            $('#count-bugs')
+                .append($('<span>')
+                .addClass("fa fa-exclamation-triangle " + data.status[data.data[i].Status - 1])
+                .html(data.data[i].Count));
         }
     });
 };
