@@ -197,7 +197,12 @@ body {
     position: absolute;
     top: 24px;
     left: 152px;
+
 }
+
+    .dropdown-export li {
+        padding-bottom:10px;
+    }
 
 @media (max-width: 1110px) {
     .navi a {
