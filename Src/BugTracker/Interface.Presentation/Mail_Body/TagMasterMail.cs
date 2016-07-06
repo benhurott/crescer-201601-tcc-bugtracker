@@ -18,7 +18,7 @@ namespace Interface.Presentation.Mail_Body
             var model = new EmailModel()
             {
                 Link = "http://localhost:58173/User",
-                Body = "A critical bug war reported in your application \"" + title + "\" click the button bellow and check it"
+                Body = "A critical bug was reported in your application \"" + title + "\" click the button bellow and check it"
             };
 
             string body = RazorViewToString.EmailToString(model);
